@@ -57,7 +57,27 @@ public class Dashboard extends javax.swing.JFrame {
         laporan_panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         dataBarang_panel = new javax.swing.JPanel();
+        panel_sup = new javax.swing.JPanel();
+        icon_sup = new javax.swing.JLabel();
+        nilai_suplier = new javax.swing.JLabel();
+        label_suplier = new javax.swing.JLabel();
+        panel_box = new javax.swing.JPanel();
+        icon_box = new javax.swing.JLabel();
+        nilai_totalBarang = new javax.swing.JLabel();
+        label_totalBarang = new javax.swing.JLabel();
+        panel_kat = new javax.swing.JPanel();
+        icon_kategori = new javax.swing.JLabel();
+        nilai_kategori = new javax.swing.JLabel();
+        label_kategori = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         kasir_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_order = new javax.swing.JTable();
@@ -319,14 +339,14 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(setting_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(1121, Short.MAX_VALUE))
+                .addContainerGap(1177, Short.MAX_VALUE))
         );
         setting_panelLayout.setVerticalGroup(
             setting_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(setting_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addContainerGap(649, Short.MAX_VALUE))
         );
 
         container_panel.add(setting_panel, "card5");
@@ -340,35 +360,262 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(laporan_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(1118, Short.MAX_VALUE))
+                .addContainerGap(1174, Short.MAX_VALUE))
         );
         laporan_panelLayout.setVerticalGroup(
             laporan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporan_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addContainerGap(649, Short.MAX_VALUE))
         );
 
         container_panel.add(laporan_panel, "card4");
 
-        jLabel2.setText("data_barang");
+        panel_sup.setBackground(new java.awt.Color(255, 255, 255));
+        panel_sup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        icon_sup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/rsz_1delivery-truck.png"))); // NOI18N
+
+        nilai_suplier.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        nilai_suplier.setText("123");
+
+        label_suplier.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        label_suplier.setForeground(new java.awt.Color(141, 141, 141));
+        label_suplier.setText("Suplier");
+
+        javax.swing.GroupLayout panel_supLayout = new javax.swing.GroupLayout(panel_sup);
+        panel_sup.setLayout(panel_supLayout);
+        panel_supLayout.setHorizontalGroup(
+            panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_supLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(icon_sup)
+                .addGap(18, 18, 18)
+                .addGroup(panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nilai_suplier)
+                    .addComponent(label_suplier))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        panel_supLayout.setVerticalGroup(
+            panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_supLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_supLayout.createSequentialGroup()
+                        .addComponent(nilai_suplier)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label_suplier))
+                    .addComponent(icon_sup))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        panel_box.setBackground(new java.awt.Color(255, 255, 255));
+        panel_box.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        icon_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/rsz_2boxes.png"))); // NOI18N
+
+        nilai_totalBarang.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        nilai_totalBarang.setText("123");
+
+        label_totalBarang.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        label_totalBarang.setForeground(new java.awt.Color(141, 141, 141));
+        label_totalBarang.setText("Total Barang");
+
+        javax.swing.GroupLayout panel_boxLayout = new javax.swing.GroupLayout(panel_box);
+        panel_box.setLayout(panel_boxLayout);
+        panel_boxLayout.setHorizontalGroup(
+            panel_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_boxLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(icon_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nilai_totalBarang)
+                    .addComponent(label_totalBarang))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        panel_boxLayout.setVerticalGroup(
+            panel_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_boxLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panel_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_boxLayout.createSequentialGroup()
+                        .addComponent(nilai_totalBarang)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_totalBarang))
+                    .addComponent(icon_box))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panel_kat.setBackground(new java.awt.Color(255, 255, 255));
+        panel_kat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        icon_kategori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/grid_jadi.png"))); // NOI18N
+
+        nilai_kategori.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        nilai_kategori.setText("123");
+
+        label_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        label_kategori.setForeground(new java.awt.Color(141, 141, 141));
+        label_kategori.setText("Kategori");
+
+        javax.swing.GroupLayout panel_katLayout = new javax.swing.GroupLayout(panel_kat);
+        panel_kat.setLayout(panel_katLayout);
+        panel_katLayout.setHorizontalGroup(
+            panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_katLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(icon_kategori)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nilai_kategori)
+                    .addComponent(label_kategori))
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+        panel_katLayout.setVerticalGroup(
+            panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_katLayout.createSequentialGroup()
+                .addGroup(panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_katLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(icon_kategori))
+                    .addGroup(panel_katLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(nilai_kategori)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label_kategori)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButton1.setBackground(new java.awt.Color(73, 148, 255));
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tambah Barang");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
+
+        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jTextField1.setBorder(null);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/filter_baru.png"))); // NOI18N
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Barang", "Barang Baru", "Barang Lama" }));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No", "Kode", "Nama Barang", "Kategori", "Harga", "Stok", "Supplier", "Updated"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout dataBarang_panelLayout = new javax.swing.GroupLayout(dataBarang_panel);
         dataBarang_panel.setLayout(dataBarang_panelLayout);
         dataBarang_panelLayout.setHorizontalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBarang_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(1092, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(dataBarang_panelLayout.createSequentialGroup()
+                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(84, 84, 84)
+                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel_sup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)
+                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel_kat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         dataBarang_panelLayout.setVerticalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBarang_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panel_sup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_kat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         container_panel.add(dataBarang_panel, "card3");
@@ -427,7 +674,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(frame_grandTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enter_label)
                     .addComponent(f10_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 492, Short.MAX_VALUE)
                 .addComponent(label_nilaiTotal)
                 .addGap(18, 18, 18)
                 .addComponent(nilai_total, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,7 +710,7 @@ public class Dashboard extends javax.swing.JFrame {
             kasir_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kasir_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(frame_grandTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -637,6 +884,10 @@ public class Dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_table_orderKeyPressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -692,19 +943,40 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel iconMenu;
     private javax.swing.JLabel iconSetting;
     private javax.swing.JLabel iconUser;
+    private javax.swing.JLabel icon_box;
+    private javax.swing.JLabel icon_kategori;
+    private javax.swing.JLabel icon_sup;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel kasir_panel;
     private javax.swing.JLabel labelNamaUser;
     private javax.swing.JLabel labelTanggal;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel label_kategori;
     private javax.swing.JLabel label_nilaiTotal;
+    private javax.swing.JLabel label_suplier;
+    private javax.swing.JLabel label_totalBarang;
     private javax.swing.JPanel laporan_panel;
     private javax.swing.JPanel navHorizontal;
     private javax.swing.JPanel navVertikal;
+    private javax.swing.JLabel nilai_kategori;
+    private javax.swing.JLabel nilai_suplier;
     private javax.swing.JLabel nilai_total;
+    private javax.swing.JLabel nilai_totalBarang;
+    private javax.swing.JPanel panel_box;
+    private javax.swing.JPanel panel_kat;
+    private javax.swing.JPanel panel_sup;
     private javax.swing.JPanel setting_panel;
     private javax.swing.JTable table_order;
     // End of variables declaration//GEN-END:variables
