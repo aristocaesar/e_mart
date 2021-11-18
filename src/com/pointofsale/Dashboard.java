@@ -1,7 +1,5 @@
 package com.pointofsale;
 
-import java.awt.CardLayout;
-import java.util.Date;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
@@ -104,7 +102,7 @@ public class Dashboard extends javax.swing.JFrame {
         frameIconSetting.setBackground(new java.awt.Color(255, 255, 255));
         frameIconSetting.setPreferredSize(new java.awt.Dimension(82, 81));
 
-        iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings.png"))); // NOI18N
+        iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png"))); // NOI18N
         iconSetting.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconSetting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,7 +130,7 @@ public class Dashboard extends javax.swing.JFrame {
         frameIconLaporan.setBackground(new java.awt.Color(255, 255, 255));
         frameIconLaporan.setPreferredSize(new java.awt.Dimension(82, 81));
 
-        iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity.png"))); // NOI18N
+        iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity(1).png"))); // NOI18N
         iconLaporan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconLaporan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,7 +158,7 @@ public class Dashboard extends javax.swing.JFrame {
         frameIconDatabase.setBackground(new java.awt.Color(255, 255, 255));
         frameIconDatabase.setPreferredSize(new java.awt.Dimension(82, 81));
 
-        iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database.png"))); // NOI18N
+        iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database(1).png"))); // NOI18N
         iconDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconDatabase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,7 +186,7 @@ public class Dashboard extends javax.swing.JFrame {
         frameIconKasir.setBackground(new java.awt.Color(73, 148, 255));
         frameIconKasir.setPreferredSize(new java.awt.Dimension(82, 81));
 
-        iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart (2).png"))); // NOI18N
+        iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart(2).png"))); // NOI18N
         iconKasir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconKasir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -235,7 +233,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(frameIconSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(frameIconLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(frameIconLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         navHorizontal.setBackground(new java.awt.Color(21, 101, 216));
@@ -318,16 +317,16 @@ public class Dashboard extends javax.swing.JFrame {
         setting_panelLayout.setHorizontalGroup(
             setting_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(setting_panelLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(905, Short.MAX_VALUE))
+                .addContainerGap(1121, Short.MAX_VALUE))
         );
         setting_panelLayout.setVerticalGroup(
             setting_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(setting_panelLayout.createSequentialGroup()
-                .addGap(302, 302, 302)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(603, Short.MAX_VALUE))
         );
 
         container_panel.add(setting_panel, "card5");
@@ -339,16 +338,16 @@ public class Dashboard extends javax.swing.JFrame {
         laporan_panelLayout.setHorizontalGroup(
             laporan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporan_panelLayout.createSequentialGroup()
-                .addGap(251, 251, 251)
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(877, Short.MAX_VALUE))
+                .addContainerGap(1118, Short.MAX_VALUE))
         );
         laporan_panelLayout.setVerticalGroup(
             laporan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporan_panelLayout.createSequentialGroup()
-                .addGap(255, 255, 255)
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addContainerGap(603, Short.MAX_VALUE))
         );
 
         container_panel.add(laporan_panel, "card4");
@@ -360,16 +359,16 @@ public class Dashboard extends javax.swing.JFrame {
         dataBarang_panelLayout.setHorizontalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBarang_panelLayout.createSequentialGroup()
-                .addGap(195, 195, 195)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(907, Short.MAX_VALUE))
+                .addContainerGap(1092, Short.MAX_VALUE))
         );
         dataBarang_panelLayout.setVerticalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBarang_panelLayout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
+            .addGroup(dataBarang_panelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(302, 302, 302))
+                .addContainerGap(603, Short.MAX_VALUE))
         );
 
         container_panel.add(dataBarang_panel, "card3");
@@ -404,6 +403,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table_order);
 
+        frame_grandTotal.setBackground(new java.awt.Color(255, 255, 255));
         frame_grandTotal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
         label_nilaiTotal.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
@@ -413,10 +413,10 @@ public class Dashboard extends javax.swing.JFrame {
         nilai_total.setText("Rp.1");
 
         enter_label.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        enter_label.setText("Enter =Tambah Barang");
+        enter_label.setText("Enter = Tambah Barang");
 
         f10_label.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        f10_label.setText("F10    =Konfirmasi Pembayaran");
+        f10_label.setText("F10    = Konfirmasi Pembayaran");
 
         javax.swing.GroupLayout frame_grandTotalLayout = new javax.swing.GroupLayout(frame_grandTotal);
         frame_grandTotal.setLayout(frame_grandTotalLayout);
@@ -427,7 +427,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(frame_grandTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enter_label)
                     .addComponent(f10_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
                 .addComponent(label_nilaiTotal)
                 .addGap(18, 18, 18)
                 .addComponent(nilai_total, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,18 +506,23 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.repaint();
         container_panel.revalidate();
         
+        
         //visibilitas frameIcon
             //icon kasir
             frameIconKasir.setBackground(new Color(73, 148, 255));
+            iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart(2).png")));
             
             //icon data_barang
             frameIconDatabase.setBackground(new Color(255, 255, 255));
+            iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database(1).png")));
             
             //icon laporan
             frameIconLaporan.setBackground(new Color(255, 255, 255));
+            iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity(1).png")));
             
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
+            iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
             
     }//GEN-LAST:event_iconKasirMouseClicked
 
@@ -532,15 +537,19 @@ public class Dashboard extends javax.swing.JFrame {
         //visibilitas frameIcon
             //icon kasir
             frameIconKasir.setBackground(new Color(255, 255, 255));
+            iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart(1).png")));
             
             //icon data_barang
             frameIconDatabase.setBackground(new Color(73, 148, 255));
+            iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database(2).png")));
             
             //icon laporan
             frameIconLaporan.setBackground(new Color(255, 255, 255));
+            iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity(1).png")));
             
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
+            iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
     }//GEN-LAST:event_iconDatabaseMouseClicked
 
     private void iconLaporanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLaporanMouseClicked
@@ -557,15 +566,19 @@ public class Dashboard extends javax.swing.JFrame {
 
             //icon kasir
             frameIconKasir.setBackground(new Color(255, 255, 255));
+            iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart(1).png")));
             
             //icon data_barang
             frameIconDatabase.setBackground(new Color(255, 255, 255));
+            iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database(1).png")));
             
             //icon laporan
             frameIconLaporan.setBackground(new Color(73, 148, 255));
+            iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity(2).png")));
             
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
+            iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
     }//GEN-LAST:event_iconLaporanMouseClicked
 
     private void iconSettingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSettingMouseClicked
@@ -574,22 +587,24 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.add(setting_panel);
         container_panel.repaint();
         container_panel.revalidate();
-
-                
         
         //visibilitas frameIcon
         
             //icon kasir
             frameIconKasir.setBackground(new Color(255, 255, 255));
+            iconKasir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/shopping-cart(1).png")));
             
             //icon data_barang
             frameIconDatabase.setBackground(new Color(255, 255, 255));
+            iconDatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/database(1).png")));
             
             //icon laporan
             frameIconLaporan.setBackground(new Color(255, 255, 255));
+            iconLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/activity(1).png")));
             
             //icon setting
             frameIconSetting.setBackground(new Color(73, 148, 255));
+            iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(2).png")));
     }//GEN-LAST:event_iconSettingMouseClicked
 
     private void iconLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLogoutMouseClicked
