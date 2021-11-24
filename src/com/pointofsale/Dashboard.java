@@ -49,13 +49,39 @@ public class Dashboard extends javax.swing.JFrame {
         labelTitle = new javax.swing.JLabel();
         labelNamaUser = new javax.swing.JLabel();
         iconUser = new javax.swing.JLabel();
+        conten_container = new javax.swing.JPanel();
         frameIconMenu = new javax.swing.JPanel();
         iconMenu = new javax.swing.JLabel();
         container_panel = new javax.swing.JPanel();
         setting_panel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         laporan_panel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        navigasi = new javax.swing.JPanel();
+        Panel_TrPenjualan = new javax.swing.JPanel();
+        icon_transaksi = new javax.swing.JLabel();
+        label_penjualan = new javax.swing.JLabel();
+        Panel_TrBarang = new javax.swing.JPanel();
+        icon_Tr_barang = new javax.swing.JLabel();
+        Label_TrBarang = new javax.swing.JLabel();
+        konten_panel = new javax.swing.JPanel();
+        kontenBarang_panel = new javax.swing.JPanel();
+        panelCariBarang_Barang = new javax.swing.JPanel();
+        icon_CariBarang_Barang = new javax.swing.JLabel();
+        text_Cari_barang = new javax.swing.JTextField();
+        panel_filterBarang = new javax.swing.JPanel();
+        filter_Trbarang = new javax.swing.JComboBox<>();
+        Export_button_brg = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        table_transaksiBarang = new javax.swing.JTable();
+        KontenJual_panel = new javax.swing.JPanel();
+        panelCariBarang = new javax.swing.JPanel();
+        icon_CariBarang = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        panel_FilterJualBarang = new javax.swing.JPanel();
+        filter_TrPenjualan = new javax.swing.JComboBox<>();
+        export_btn_jual = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        table_transaksiJual = new javax.swing.JTable();
         dataBarang_panel = new javax.swing.JPanel();
         panel_sup = new javax.swing.JPanel();
         icon_sup = new javax.swing.JLabel();
@@ -77,7 +103,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_DataBarang = new javax.swing.JTable();
         kasir_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_order = new javax.swing.JTable();
@@ -274,6 +300,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         iconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/profile-user (1).png"))); // NOI18N
 
+        conten_container.setBackground(new java.awt.Color(219, 219, 219));
+        conten_container.setLayout(new java.awt.CardLayout());
+
         javax.swing.GroupLayout navHorizontalLayout = new javax.swing.GroupLayout(navHorizontal);
         navHorizontal.setLayout(navHorizontalLayout);
         navHorizontalLayout.setHorizontalGroup(
@@ -288,6 +317,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(iconUser)
                 .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navHorizontalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(conten_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         navHorizontalLayout.setVerticalGroup(
             navHorizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +336,9 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(navHorizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(iconUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelNamaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(conten_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         frameIconMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -339,35 +374,349 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(setting_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(1177, Short.MAX_VALUE))
+                .addContainerGap(1257, Short.MAX_VALUE))
         );
         setting_panelLayout.setVerticalGroup(
             setting_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(setting_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(649, Short.MAX_VALUE))
+                .addContainerGap(657, Short.MAX_VALUE))
         );
 
         container_panel.add(setting_panel, "card5");
 
-        jLabel3.setText("laporan");
+        navigasi.setBackground(new java.awt.Color(237, 237, 237));
+
+        Panel_TrPenjualan.setBackground(new java.awt.Color(73, 148, 255));
+        Panel_TrPenjualan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_TrPenjualan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_TrPenjualanMouseClicked(evt);
+            }
+        });
+
+        icon_transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/trend (1).png"))); // NOI18N
+
+        label_penjualan.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        label_penjualan.setForeground(new java.awt.Color(255, 255, 255));
+        label_penjualan.setText("Transaksi Penjualan");
+
+        javax.swing.GroupLayout Panel_TrPenjualanLayout = new javax.swing.GroupLayout(Panel_TrPenjualan);
+        Panel_TrPenjualan.setLayout(Panel_TrPenjualanLayout);
+        Panel_TrPenjualanLayout.setHorizontalGroup(
+            Panel_TrPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_TrPenjualanLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(icon_transaksi)
+                .addGap(18, 18, 18)
+                .addComponent(label_penjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        Panel_TrPenjualanLayout.setVerticalGroup(
+            Panel_TrPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_TrPenjualanLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addGroup(Panel_TrPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icon_transaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label_penjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
+        );
+
+        Panel_TrBarang.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_TrBarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_TrBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_TrBarangMouseClicked(evt);
+            }
+        });
+
+        icon_Tr_barang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/archive.png"))); // NOI18N
+
+        Label_TrBarang.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        Label_TrBarang.setText("Transaksi Barang");
+
+        javax.swing.GroupLayout Panel_TrBarangLayout = new javax.swing.GroupLayout(Panel_TrBarang);
+        Panel_TrBarang.setLayout(Panel_TrBarangLayout);
+        Panel_TrBarangLayout.setHorizontalGroup(
+            Panel_TrBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_TrBarangLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(icon_Tr_barang)
+                .addGap(18, 18, 18)
+                .addComponent(Label_TrBarang)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Panel_TrBarangLayout.setVerticalGroup(
+            Panel_TrBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_TrBarangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Panel_TrBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icon_Tr_barang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Label_TrBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout navigasiLayout = new javax.swing.GroupLayout(navigasi);
+        navigasi.setLayout(navigasiLayout);
+        navigasiLayout.setHorizontalGroup(
+            navigasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel_TrBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        navigasiLayout.setVerticalGroup(
+            navigasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navigasiLayout.createSequentialGroup()
+                .addComponent(Panel_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(Panel_TrBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        konten_panel.setBackground(new java.awt.Color(153, 153, 255));
+        konten_panel.setLayout(new java.awt.CardLayout());
+
+        kontenBarang_panel.setBackground(new java.awt.Color(237, 237, 237));
+
+        panelCariBarang_Barang.setBackground(new java.awt.Color(255, 255, 255));
+        panelCariBarang_Barang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        icon_CariBarang_Barang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
+
+        text_Cari_barang.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        text_Cari_barang.setBorder(null);
+
+        javax.swing.GroupLayout panelCariBarang_BarangLayout = new javax.swing.GroupLayout(panelCariBarang_Barang);
+        panelCariBarang_Barang.setLayout(panelCariBarang_BarangLayout);
+        panelCariBarang_BarangLayout.setHorizontalGroup(
+            panelCariBarang_BarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCariBarang_BarangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(icon_CariBarang_Barang)
+                .addGap(18, 18, 18)
+                .addComponent(text_Cari_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        panelCariBarang_BarangLayout.setVerticalGroup(
+            panelCariBarang_BarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCariBarang_BarangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCariBarang_BarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icon_CariBarang_Barang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(text_Cari_barang))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panel_filterBarang.setBackground(new java.awt.Color(255, 255, 255));
+        panel_filterBarang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        filter_Trbarang.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        filter_Trbarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PerHari", "PerMinggu", "PerBulan" }));
+
+        javax.swing.GroupLayout panel_filterBarangLayout = new javax.swing.GroupLayout(panel_filterBarang);
+        panel_filterBarang.setLayout(panel_filterBarangLayout);
+        panel_filterBarangLayout.setHorizontalGroup(
+            panel_filterBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filterBarangLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(filter_Trbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+        panel_filterBarangLayout.setVerticalGroup(
+            panel_filterBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filterBarangLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filter_Trbarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        Export_button_brg.setBackground(new java.awt.Color(73, 148, 255));
+        Export_button_brg.setForeground(new java.awt.Color(255, 255, 255));
+        Export_button_brg.setText("EXPORT");
+        Export_button_brg.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(73, 148, 255), 1, true));
+        Export_button_brg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        table_transaksiBarang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        table_transaksiBarang.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        table_transaksiBarang.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Kode Barang", "Nama Barang", "Status", "Tanggal", "Admin"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(table_transaksiBarang);
+
+        javax.swing.GroupLayout kontenBarang_panelLayout = new javax.swing.GroupLayout(kontenBarang_panel);
+        kontenBarang_panel.setLayout(kontenBarang_panelLayout);
+        kontenBarang_panelLayout.setHorizontalGroup(
+            kontenBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kontenBarang_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kontenBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(kontenBarang_panelLayout.createSequentialGroup()
+                        .addComponent(panelCariBarang_Barang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panel_filterBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(Export_button_brg, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
+        );
+        kontenBarang_panelLayout.setVerticalGroup(
+            kontenBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kontenBarang_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kontenBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Export_button_brg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelCariBarang_Barang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_filterBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        konten_panel.add(kontenBarang_panel, "card3");
+
+        KontenJual_panel.setBackground(new java.awt.Color(237, 237, 237));
+
+        panelCariBarang.setBackground(new java.awt.Color(255, 255, 255));
+        panelCariBarang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        icon_CariBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
+
+        jTextField2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jTextField2.setBorder(null);
+
+        javax.swing.GroupLayout panelCariBarangLayout = new javax.swing.GroupLayout(panelCariBarang);
+        panelCariBarang.setLayout(panelCariBarangLayout);
+        panelCariBarangLayout.setHorizontalGroup(
+            panelCariBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCariBarangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(icon_CariBarang)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        panelCariBarangLayout.setVerticalGroup(
+            panelCariBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCariBarangLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCariBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icon_CariBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panel_FilterJualBarang.setBackground(new java.awt.Color(255, 255, 255));
+        panel_FilterJualBarang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        filter_TrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        filter_TrPenjualan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PerHari", "PerMinggu", "PerBulan" }));
+
+        javax.swing.GroupLayout panel_FilterJualBarangLayout = new javax.swing.GroupLayout(panel_FilterJualBarang);
+        panel_FilterJualBarang.setLayout(panel_FilterJualBarangLayout);
+        panel_FilterJualBarangLayout.setHorizontalGroup(
+            panel_FilterJualBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_FilterJualBarangLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+        panel_FilterJualBarangLayout.setVerticalGroup(
+            panel_FilterJualBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_FilterJualBarangLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        export_btn_jual.setBackground(new java.awt.Color(73, 148, 255));
+        export_btn_jual.setForeground(new java.awt.Color(255, 255, 255));
+        export_btn_jual.setText("EXPORT");
+        export_btn_jual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(73, 148, 255), 1, true));
+        export_btn_jual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        table_transaksiJual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        table_transaksiJual.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        table_transaksiJual.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id Transaksi", "Barang", "Kasir", "Tgl Transaksi", "G.total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(table_transaksiJual);
+
+        javax.swing.GroupLayout KontenJual_panelLayout = new javax.swing.GroupLayout(KontenJual_panel);
+        KontenJual_panel.setLayout(KontenJual_panelLayout);
+        KontenJual_panelLayout.setHorizontalGroup(
+            KontenJual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenJual_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(KontenJual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(KontenJual_panelLayout.createSequentialGroup()
+                        .addComponent(panelCariBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panel_FilterJualBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(export_btn_jual, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
+        );
+        KontenJual_panelLayout.setVerticalGroup(
+            KontenJual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KontenJual_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(KontenJual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(export_btn_jual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelCariBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_FilterJualBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        konten_panel.add(KontenJual_panel, "card4");
 
         javax.swing.GroupLayout laporan_panelLayout = new javax.swing.GroupLayout(laporan_panel);
         laporan_panel.setLayout(laporan_panelLayout);
         laporan_panelLayout.setHorizontalGroup(
             laporan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporan_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(1174, Short.MAX_VALUE))
+                .addComponent(navigasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(konten_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         laporan_panelLayout.setVerticalGroup(
             laporan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(laporan_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(649, Short.MAX_VALUE))
+            .addComponent(navigasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(konten_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         container_panel.add(laporan_panel, "card4");
@@ -556,8 +905,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_DataBarang.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        table_DataBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -576,7 +925,7 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(table_DataBarang);
 
         javax.swing.GroupLayout dataBarang_panelLayout = new javax.swing.GroupLayout(dataBarang_panel);
         dataBarang_panel.setLayout(dataBarang_panelLayout);
@@ -598,7 +947,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panel_kat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dataBarang_panelLayout.setVerticalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -610,12 +959,12 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(panel_kat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         container_panel.add(dataBarang_panel, "card3");
@@ -674,7 +1023,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(frame_grandTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enter_label)
                     .addComponent(f10_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 492, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
                 .addComponent(label_nilaiTotal)
                 .addGap(18, 18, 18)
                 .addComponent(nilai_total, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -710,7 +1059,7 @@ public class Dashboard extends javax.swing.JFrame {
             kasir_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kasir_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(frame_grandTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -802,13 +1151,17 @@ public class Dashboard extends javax.swing.JFrame {
     private void iconLaporanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLaporanMouseClicked
         
         //menampilkan laporan ketika icon diclick
-        
         container_panel.removeAll();
         container_panel.add(laporan_panel);
         container_panel.repaint();
         container_panel.revalidate();
-
-        
+       
+        //menampilkan kontenJual_pertamakali diklick 
+        konten_panel.removeAll();
+        konten_panel.add(KontenJual_panel);
+        konten_panel.repaint();
+        konten_panel.revalidate();
+  
         //visibilitas frameIcon
 
             //icon kasir
@@ -876,7 +1229,7 @@ public class Dashboard extends javax.swing.JFrame {
             KonfirmasiBayar konfirmasi= new KonfirmasiBayar();
             konfirmasi.setVisible(true);
             konfirmasi.show();
-            
+   
             }
                    
              
@@ -887,6 +1240,47 @@ public class Dashboard extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Panel_TrPenjualanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_TrPenjualanMouseClicked
+       //menampilkan kontenJual_panel
+        konten_panel.removeAll();
+        konten_panel.add(KontenJual_panel);
+        konten_panel.repaint();
+        konten_panel.revalidate();
+        
+        //panel menjadi berwarna biru
+        Panel_TrPenjualan.setBackground(new Color(73,148,255));
+        Panel_TrBarang.setBackground(new Color(255,255,255));
+        
+        //text label berwarna putih
+        label_penjualan.setForeground(new Color(255,255,255));
+        Label_TrBarang.setForeground(new Color(0,0,0));
+        
+        //icon berganti resource
+        icon_transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/trend (1).png")));
+        icon_Tr_barang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/archive.png")));
+        
+    }//GEN-LAST:event_Panel_TrPenjualanMouseClicked
+
+    private void Panel_TrBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_TrBarangMouseClicked
+        //menampilkan kontenBarang_panel
+        konten_panel.removeAll();
+        konten_panel.add(kontenBarang_panel);
+        konten_panel.repaint();
+        konten_panel.revalidate();
+        
+        //panel menjadi biru ketika diklik
+        Panel_TrPenjualan.setBackground(new Color(255,255,255));
+        Panel_TrBarang.setBackground(new Color(73,148,255));
+        
+        //text menjadi warna putih
+        Label_TrBarang.setForeground(new Color(255,255,255));
+        label_penjualan.setForeground(new Color(0,0,0));
+        
+        //icon menjadi warna putih
+        icon_Tr_barang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/archive(1).png")));
+        icon_transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/trend.png")));
+    }//GEN-LAST:event_Panel_TrBarangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -925,10 +1319,19 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Export_button_brg;
+    private javax.swing.JPanel KontenJual_panel;
+    private javax.swing.JLabel Label_TrBarang;
+    private javax.swing.JPanel Panel_TrBarang;
+    private javax.swing.JPanel Panel_TrPenjualan;
     private javax.swing.JPanel container_panel;
+    private javax.swing.JPanel conten_container;
     private javax.swing.JPanel dataBarang_panel;
     private javax.swing.JLabel enter_label;
+    private javax.swing.JButton export_btn_jual;
     private javax.swing.JLabel f10_label;
+    private javax.swing.JComboBox<String> filter_TrPenjualan;
+    private javax.swing.JComboBox<String> filter_Trbarang;
     private javax.swing.JPanel frameIconDatabase;
     private javax.swing.JPanel frameIconKasir;
     private javax.swing.JPanel frameIconLaporan;
@@ -943,41 +1346,57 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel iconMenu;
     private javax.swing.JLabel iconSetting;
     private javax.swing.JLabel iconUser;
+    private javax.swing.JLabel icon_CariBarang;
+    private javax.swing.JLabel icon_CariBarang_Barang;
+    private javax.swing.JLabel icon_Tr_barang;
     private javax.swing.JLabel icon_box;
     private javax.swing.JLabel icon_kategori;
     private javax.swing.JLabel icon_sup;
+    private javax.swing.JLabel icon_transaksi;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel kasir_panel;
+    private javax.swing.JPanel kontenBarang_panel;
+    private javax.swing.JPanel konten_panel;
     private javax.swing.JLabel labelNamaUser;
     private javax.swing.JLabel labelTanggal;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel label_kategori;
     private javax.swing.JLabel label_nilaiTotal;
+    private javax.swing.JLabel label_penjualan;
     private javax.swing.JLabel label_suplier;
     private javax.swing.JLabel label_totalBarang;
     private javax.swing.JPanel laporan_panel;
     private javax.swing.JPanel navHorizontal;
     private javax.swing.JPanel navVertikal;
+    private javax.swing.JPanel navigasi;
     private javax.swing.JLabel nilai_kategori;
     private javax.swing.JLabel nilai_suplier;
     private javax.swing.JLabel nilai_total;
     private javax.swing.JLabel nilai_totalBarang;
+    private javax.swing.JPanel panelCariBarang;
+    private javax.swing.JPanel panelCariBarang_Barang;
+    private javax.swing.JPanel panel_FilterJualBarang;
     private javax.swing.JPanel panel_box;
+    private javax.swing.JPanel panel_filterBarang;
     private javax.swing.JPanel panel_kat;
     private javax.swing.JPanel panel_sup;
     private javax.swing.JPanel setting_panel;
+    private javax.swing.JTable table_DataBarang;
     private javax.swing.JTable table_order;
+    private javax.swing.JTable table_transaksiBarang;
+    private javax.swing.JTable table_transaksiJual;
+    private javax.swing.JTextField text_Cari_barang;
     // End of variables declaration//GEN-END:variables
 }
