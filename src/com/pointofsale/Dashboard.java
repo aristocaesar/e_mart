@@ -56,6 +56,14 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         laporan_panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        dataBarang_kategori = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        dataBarang_supplier = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        dataBarang_update = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        dataBarang_tambah = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         dataBarang_panel = new javax.swing.JPanel();
         panel_sup = new javax.swing.JPanel();
         icon_sup = new javax.swing.JLabel();
@@ -69,13 +77,13 @@ public class Dashboard extends javax.swing.JFrame {
         icon_kategori = new javax.swing.JLabel();
         nilai_kategori = new javax.swing.JLabel();
         label_kategori = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        btn_tambah_barang = new javax.swing.JButton();
+        search_box = new javax.swing.JPanel();
+        icon_search_box = new javax.swing.JLabel();
+        icon_input_search = new javax.swing.JTextField();
+        filter_box = new javax.swing.JPanel();
+        icon_filter = new javax.swing.JLabel();
+        filter_combo_box = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         kasir_panel = new javax.swing.JPanel();
@@ -372,8 +380,97 @@ public class Dashboard extends javax.swing.JFrame {
 
         container_panel.add(laporan_panel, "card4");
 
+        jLabel6.setText("kategori");
+
+        javax.swing.GroupLayout dataBarang_kategoriLayout = new javax.swing.GroupLayout(dataBarang_kategori);
+        dataBarang_kategori.setLayout(dataBarang_kategoriLayout);
+        dataBarang_kategoriLayout.setHorizontalGroup(
+            dataBarang_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_kategoriLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(1171, Short.MAX_VALUE))
+        );
+        dataBarang_kategoriLayout.setVerticalGroup(
+            dataBarang_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_kategoriLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(649, Short.MAX_VALUE))
+        );
+
+        container_panel.add(dataBarang_kategori, "card9");
+
+        jLabel5.setText("supplier");
+
+        javax.swing.GroupLayout dataBarang_supplierLayout = new javax.swing.GroupLayout(dataBarang_supplier);
+        dataBarang_supplier.setLayout(dataBarang_supplierLayout);
+        dataBarang_supplierLayout.setHorizontalGroup(
+            dataBarang_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_supplierLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(1173, Short.MAX_VALUE))
+        );
+        dataBarang_supplierLayout.setVerticalGroup(
+            dataBarang_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_supplierLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(649, Short.MAX_VALUE))
+        );
+
+        container_panel.add(dataBarang_supplier, "card8");
+
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout dataBarang_updateLayout = new javax.swing.GroupLayout(dataBarang_update);
+        dataBarang_update.setLayout(dataBarang_updateLayout);
+        dataBarang_updateLayout.setHorizontalGroup(
+            dataBarang_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_updateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(1176, Short.MAX_VALUE))
+        );
+        dataBarang_updateLayout.setVerticalGroup(
+            dataBarang_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_updateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(649, Short.MAX_VALUE))
+        );
+
+        container_panel.add(dataBarang_update, "card7");
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout dataBarang_tambahLayout = new javax.swing.GroupLayout(dataBarang_tambah);
+        dataBarang_tambah.setLayout(dataBarang_tambahLayout);
+        dataBarang_tambahLayout.setHorizontalGroup(
+            dataBarang_tambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_tambahLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(1176, Short.MAX_VALUE))
+        );
+        dataBarang_tambahLayout.setVerticalGroup(
+            dataBarang_tambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dataBarang_tambahLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(649, Short.MAX_VALUE))
+        );
+
+        container_panel.add(dataBarang_tambah, "card6");
+
         panel_sup.setBackground(new java.awt.Color(255, 255, 255));
         panel_sup.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        panel_sup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel_supMouseClicked(evt);
+            }
+        });
 
         icon_sup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/rsz_1delivery-truck.png"))); // NOI18N
 
@@ -450,6 +547,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         panel_kat.setBackground(new java.awt.Color(255, 255, 255));
         panel_kat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        panel_kat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel_katMouseClicked(evt);
+            }
+        });
 
         icon_kategori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/grid_jadi.png"))); // NOI18N
 
@@ -488,72 +590,80 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(73, 148, 255));
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Tambah Barang");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_tambah_barang.setBackground(new java.awt.Color(73, 148, 255));
+        btn_tambah_barang.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_tambah_barang.setForeground(new java.awt.Color(255, 255, 255));
+        btn_tambah_barang.setText("Tambah Barang");
+        btn_tambah_barang.setBorder(null);
+        btn_tambah_barang.setBorderPainted(false);
+        btn_tambah_barang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_tambah_barang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tambah_barangMouseClicked(evt);
+            }
+        });
+        btn_tambah_barang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_tambah_barangActionPerformed(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        search_box.setBackground(new java.awt.Color(255, 255, 255));
+        search_box.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
+        icon_search_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTextField1.setBorder(null);
+        icon_input_search.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        icon_input_search.setBorder(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        javax.swing.GroupLayout search_boxLayout = new javax.swing.GroupLayout(search_box);
+        search_box.setLayout(search_boxLayout);
+        search_boxLayout.setHorizontalGroup(
+            search_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(search_boxLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(icon_search_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(icon_input_search, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+        search_boxLayout.setVerticalGroup(
+            search_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(search_boxLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(search_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icon_search_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(icon_input_search))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        filter_box.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/filter_baru.png"))); // NOI18N
+        icon_filter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/filter_baru.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Barang", "Barang Baru", "Barang Lama" }));
+        filter_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Barang", "Barang Baru", "Barang Lama" }));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout filter_boxLayout = new javax.swing.GroupLayout(filter_box);
+        filter_box.setLayout(filter_boxLayout);
+        filter_boxLayout.setHorizontalGroup(
+            filter_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filter_boxLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(icon_filter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filter_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(228, 228, 228))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        filter_boxLayout.setVerticalGroup(
+            filter_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filter_boxLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(filter_boxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(filter_boxLayout.createSequentialGroup()
+                        .addComponent(icon_filter)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(filter_combo_box))
+                .addGap(10, 10, 10))
         );
 
         jTable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -583,22 +693,23 @@ public class Dashboard extends javax.swing.JFrame {
         dataBarang_panelLayout.setHorizontalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBarang_panelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(dataBarang_panelLayout.createSequentialGroup()
                         .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_tambah_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panel_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(84, 84, 84)
-                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel_sup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel_kat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_sup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(search_box, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_kat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(filter_box, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 250, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         dataBarang_panelLayout.setVerticalGroup(
             dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,14 +719,14 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(panel_sup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_kat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(search_box, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_tambah_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filter_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
         container_panel.add(dataBarang_panel, "card3");
@@ -884,9 +995,33 @@ public class Dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_table_orderKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_tambah_barangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambah_barangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_tambah_barangActionPerformed
+
+    private void btn_tambah_barangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambah_barangMouseClicked
+        // ketika btn_tambah_barang diklik
+        container_panel.removeAll();
+        container_panel.add(dataBarang_tambah);
+        container_panel.repaint();
+        container_panel.revalidate();
+    }//GEN-LAST:event_btn_tambah_barangMouseClicked
+
+    private void panel_supMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_supMouseClicked
+        // ketika panel_supplier diklik
+        container_panel.removeAll();
+        container_panel.add(dataBarang_supplier);
+        container_panel.repaint();
+        container_panel.revalidate();
+    }//GEN-LAST:event_panel_supMouseClicked
+
+    private void panel_katMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_katMouseClicked
+        // ketika panel_kategori diklik
+        container_panel.removeAll();
+        container_panel.add(dataBarang_kategori);
+        container_panel.repaint();
+        container_panel.revalidate();
+    }//GEN-LAST:event_panel_katMouseClicked
 
     /**
      * @param args the command line arguments
@@ -925,10 +1060,17 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_tambah_barang;
     private javax.swing.JPanel container_panel;
+    private javax.swing.JPanel dataBarang_kategori;
     private javax.swing.JPanel dataBarang_panel;
+    private javax.swing.JPanel dataBarang_supplier;
+    private javax.swing.JPanel dataBarang_tambah;
+    private javax.swing.JPanel dataBarang_update;
     private javax.swing.JLabel enter_label;
     private javax.swing.JLabel f10_label;
+    private javax.swing.JPanel filter_box;
+    private javax.swing.JComboBox<String> filter_combo_box;
     private javax.swing.JPanel frameIconDatabase;
     private javax.swing.JPanel frameIconKasir;
     private javax.swing.JPanel frameIconLaporan;
@@ -944,21 +1086,20 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel iconSetting;
     private javax.swing.JLabel iconUser;
     private javax.swing.JLabel icon_box;
+    private javax.swing.JLabel icon_filter;
+    private javax.swing.JTextField icon_input_search;
     private javax.swing.JLabel icon_kategori;
+    private javax.swing.JLabel icon_search_box;
     private javax.swing.JLabel icon_sup;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel kasir_panel;
     private javax.swing.JLabel labelNamaUser;
     private javax.swing.JLabel labelTanggal;
@@ -977,6 +1118,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel panel_box;
     private javax.swing.JPanel panel_kat;
     private javax.swing.JPanel panel_sup;
+    private javax.swing.JPanel search_box;
     private javax.swing.JPanel setting_panel;
     private javax.swing.JTable table_order;
     // End of variables declaration//GEN-END:variables
