@@ -8,6 +8,7 @@ package com.pointofsale;
 //import javax.swing.JFrame;
 
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -23,6 +24,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setResizable(false);
+        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/title.png")));
     }
 
     /**
@@ -281,6 +284,8 @@ public class Login extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, e);
        }
     }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -333,4 +338,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel password;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
+
+    private void setIconImage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
