@@ -976,12 +976,16 @@ public class Dashboard extends javax.swing.JFrame {
     private void table_orderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_table_orderKeyPressed
         // TODO add your handling code here:
          if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            TambahOrder tambah = new TambahOrder();
-            tambah.setVisible(true);
-            tambah.show();
+            
+            TambahOrder tambah_order = new TambahOrder();
+             tambah_order.setVisible(true);
+             tambah_order.show();
+             table_order.disable();
+
+            
         }else if(evt.getKeyCode()==KeyEvent.VK_F10){
             
-            if(nilai_total.getText().equals("Rp.0")){
+            if(nilai_total.getText().equals("Rp.1")){
                 JOptionPane.showMessageDialog(null, "Barang Masih Kosong");
             }else{
             KonfirmasiBayar konfirmasi= new KonfirmasiBayar();

@@ -690,12 +690,12 @@
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="panel_sup" max="32767" attributes="0"/>
-                                  <Component id="search_box" pref="0" max="32767" attributes="0"/>
+                                  <Component id="search_box" pref="250" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="panel_kat" max="32767" attributes="0"/>
-                                  <Component id="filter_box" pref="0" max="32767" attributes="0"/>
+                                  <Component id="filter_box" pref="250" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
                           </Group>

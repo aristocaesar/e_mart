@@ -15,7 +15,7 @@ public class TambahOrder extends javax.swing.JFrame {
      * Creates new form TambahOrder
      */
     public TambahOrder() {
-        setUndecorated(true);
+        this.setResizable(false);
         initComponents();
     }
 
