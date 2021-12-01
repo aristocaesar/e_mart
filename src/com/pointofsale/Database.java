@@ -18,7 +18,7 @@ public class Database {
     public static Connection mysqlconfig;
     public static Connection configDB()throws SQLException{
         try{
-            String url = "jdbc:mysql://localhost:3306/test";
+            String url = "jdbc:mysql://localhost:3306/e_mart_database";
             String user = "root";
             String pass = "";
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());

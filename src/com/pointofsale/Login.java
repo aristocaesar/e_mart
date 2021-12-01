@@ -10,6 +10,10 @@ package com.pointofsale;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -246,7 +250,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnMasukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnMasukKeyPressed
         // TODO add your handling code here:l
-        Login();
+            Login();
     }//GEN-LAST:event_btnMasukKeyPressed
 
     private void inputPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPasswordKeyPressed
@@ -268,21 +272,30 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_inputUsernameKeyPressed
 
     private void Login(){
-    try{
-        String username, password; 
-        username = inputUsername.getText();
-        password = inputPassword.getText();
-        
-        if(username.equals("") && password.equals("")){
-            dispose();
-            Dashboard dashboard = new Dashboard();
-            dashboard.show();
-        }else{
-            JOptionPane.showMessageDialog(null, "Username atau Password anda salah!", "Terjadi Kesalahan", JOptionPane.WARNING_MESSAGE, null);
+        try{
+            java.sql.Connection conn = (Connection)Database.configDB();
+            String sql = "SELECT * FROM users WHERE username =? AND password =? ";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1,inputUsername.getText());
+            pst.setString(2, inputPassword.getText());
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                // tutup frame login
+                dispose();
+                // kirimlkan data ke dashboard
+                String nama = rs.getString(3);
+                System.out.println(nama);
+                Dashboard dashboard = new Dashboard(nama);
+                dashboard.show();
+                
+            }else{
+                throw new Exception("");
+            }
+            
+        }catch(Exception er){
+            JOptionPane.showMessageDialog(null, "Username atau Password Anda Salah !");
         }
-       }catch(HeadlessException e){
-           JOptionPane.showMessageDialog(null, e);
-       }
     }
 
     

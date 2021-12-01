@@ -2,6 +2,9 @@ package com.pointofsale;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -13,8 +16,11 @@ import javax.swing.JOptionPane;
 public class Dashboard extends javax.swing.JFrame {
 
    
-    public Dashboard() {
+    public Dashboard(String nama_username) {
         initComponents();
+        
+        // set nama
+        labelNamaUser.setText(nama_username);
         
         // fungsi fulscreen from 
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -23,6 +29,25 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.add(kasir_panel);
         container_panel.repaint();
         container_panel.revalidate();
+        
+        try{
+            java.sql.Connection conn = (Connection)Database.configDB();
+            String sql = "SELECT * FROM toko";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                // kirimlkan data ke dashboard
+                String nama_toko = rs.getString(2);
+                labelNamaToko.setText("E-MART | " + nama_toko);
+                
+            }else{
+                System.out.println("eeo");
+                throw new Exception("");
+            }
+        }catch(Exception err){
+        
+        }
       
         Utilities utilities = new Utilities();
         String tgl = utilities.getTime();
@@ -46,7 +71,7 @@ public class Dashboard extends javax.swing.JFrame {
         iconKasir = new javax.swing.JLabel();
         navHorizontal = new javax.swing.JPanel();
         labelTanggal = new javax.swing.JLabel();
-        labelTitle = new javax.swing.JLabel();
+        labelNamaToko = new javax.swing.JLabel();
         labelNamaUser = new javax.swing.JLabel();
         iconUser = new javax.swing.JLabel();
         frameIconMenu = new javax.swing.JPanel();
@@ -373,9 +398,9 @@ public class Dashboard extends javax.swing.JFrame {
         labelTanggal.setForeground(new java.awt.Color(204, 204, 204));
         labelTanggal.setText("19 Agustus 2001");
 
-        labelTitle.setFont(new java.awt.Font("Josefin Sans", 1, 28)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(254, 254, 254));
-        labelTitle.setText("E - MART | Makmur Jaya");
+        labelNamaToko.setFont(new java.awt.Font("Josefin Sans", 1, 28)); // NOI18N
+        labelNamaToko.setForeground(new java.awt.Color(254, 254, 254));
+        labelNamaToko.setText("E - MART | Makmur Jaya");
 
         labelNamaUser.setBackground(new java.awt.Color(254, 254, 254));
         labelNamaUser.setFont(new java.awt.Font("Josefin Sans", 1, 20)); // NOI18N
@@ -391,7 +416,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(navHorizontalLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(navHorizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitle)
+                    .addComponent(labelNamaToko)
                     .addComponent(labelTanggal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelNamaUser)
@@ -405,7 +430,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(navHorizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(navHorizontalLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(labelTitle)
+                        .addComponent(labelNamaToko)
                         .addGap(0, 0, 0)
                         .addComponent(labelTanggal))
                     .addGroup(navHorizontalLayout.createSequentialGroup()
@@ -1838,12 +1863,12 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_sup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(search_box, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+                            .addComponent(search_box, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE))
                         .addGap(76, 76, 76)
                         .addGroup(dataBarang_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_kat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(filter_box, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
-                        .addGap(0, 316, Short.MAX_VALUE)))
+                            .addComponent(filter_box, javax.swing.GroupLayout.PREFERRED_SIZE, 250, Short.MAX_VALUE))
+                        .addGap(316, 316, 316)))
                 .addGap(30, 30, 30))
         );
         dataBarang_panelLayout.setVerticalGroup(
@@ -2383,9 +2408,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel kasir_panel;
     private javax.swing.JPanel konten_Laporan;
     private javax.swing.JPanel konten_laporanTrJual;
+    private javax.swing.JLabel labelNamaToko;
     private javax.swing.JLabel labelNamaUser;
     private javax.swing.JLabel labelTanggal;
-    private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel label_TrPenjualan;
     private javax.swing.JLabel label_alamat_toko;
     private javax.swing.JLabel label_brg_dataBarang_tambah;
