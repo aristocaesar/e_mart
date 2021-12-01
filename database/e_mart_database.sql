@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Nov 2021 pada 18.54
+-- Waktu pembuatan: 01 Des 2021 pada 22.12
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -156,10 +156,12 @@ INSERT INTO `transaksi_detail` (`kode_transaksi`, `qyt`, `sub_total`, `kode_bara
 
 CREATE TABLE `users` (
   `id_user` varchar(8) NOT NULL,
+  `username` varchar(64) NOT NULL,
   `nama_lengkap` varchar(64) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role` int(1) NOT NULL,
   `no_hp` varchar(13) NOT NULL,
+  `login_terbaru` datetime DEFAULT current_timestamp(),
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -168,9 +170,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama_lengkap`, `password`, `role`, `no_hp`, `created_at`, `updated_at`) VALUES
-('U0001', 'ucup saripudin', 'a5b0b107f6d49537ae8538a7606e3e06', 1, '085607185972', '2021-11-25 18:27:00', '2021-11-25 18:27:00'),
-('U0002', 'otong surotong', '27d7b07b58fc2fee70c4c01e9f129462', 2, '0847583982', '2021-11-26 00:32:14', '2021-11-25 18:31:11');
+INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `login_terbaru`, `created_at`, `updated_at`) VALUES
+('U0001', 'ucup', 'ucupp saripudin', '123', 1, '085607185972', '2021-12-02 03:36:22', '2021-11-25 18:27:00', '2021-11-25 18:27:00'),
+('U0002', 'otong', 'otong surotong', '1212', 2, '0847583982', '2021-12-02 03:36:22', '2021-11-26 00:32:14', '2021-11-25 18:31:11');
 
 --
 -- Indexes for dumped tables
