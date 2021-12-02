@@ -22,9 +22,9 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    public static java.sql.Connection conn = (Connection)Database.configDB();
+    public static Utilities utilities = new Utilities();
+    
     public Login() {
         initComponents();
         this.setResizable(false);
@@ -241,7 +241,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
-       Login();
+        Login();
     }//GEN-LAST:event_btnMasukActionPerformed
 
     private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
@@ -249,12 +249,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPasswordActionPerformed
 
     private void btnMasukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnMasukKeyPressed
-        // TODO add your handling code here:l
-            Login();
+        Login();
     }//GEN-LAST:event_btnMasukKeyPressed
 
     private void inputPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPasswordKeyPressed
-        // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             Login();
         }
@@ -273,7 +271,6 @@ public class Login extends javax.swing.JFrame {
 
     private void Login(){
         try{
-            java.sql.Connection conn = (Connection)Database.configDB();
             String sql = "SELECT * FROM users WHERE username =? AND password =? ";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1,inputUsername.getText());
@@ -281,20 +278,36 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                // tutup frame login
-                dispose();
-                // kirimlkan data ke dashboard
-                String nama = rs.getString(3);
-                System.out.println(nama);
-                Dashboard dashboard = new Dashboard(nama);
-                dashboard.show();
+                
+                String aktif = rs.getString(7);
+                if(aktif.equals("Aktif")){
+                    // tutup frame login
+                    dispose();
+                    
+                    // udpate data last_login pada user
+                    String sql_user = "UPDATE users SET login_terbaru = ? WHERE id_user =  ?";
+                    PreparedStatement pst_user = conn.prepareStatement(sql_user);
+                    pst_user.setString(1, utilities.getCurrentTimeStamp());
+                    pst_user.setString(2, rs.getString(1));
+                    
+                    pst_user.execute();
+                    
+                    // kirimlkan data ke dashboard
+                    String nama = rs.getString(3);
+                    int role = rs.getInt(5);
+                    Dashboard dashboard = new Dashboard(nama, role);
+                    dashboard.show();
+                    
+                }else{
+                    throw new Exception("Akun anda dinonaktifkan !");
+                }
                 
             }else{
-                throw new Exception("");
+                throw new Exception("Username atau Password Anda Salah !");
             }
             
         }catch(Exception er){
-            JOptionPane.showMessageDialog(null, "Username atau Password Anda Salah !");
+            JOptionPane.showMessageDialog(null, er.getMessage(), "Terjadi Kesalahan!", JOptionPane.WARNING_MESSAGE);
         }
     }
 

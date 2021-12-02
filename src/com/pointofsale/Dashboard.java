@@ -5,13 +5,10 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,12 +18,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class Dashboard extends javax.swing.JFrame {
 
-   
-    public Dashboard(String nama_username) {
-        initComponents();
+    public static java.sql.Connection conn = (Connection)Database.configDB();
+    public static Login jFrameLogin = new Login();
+    public static Utilities utilities = new Utilities();
+    public static DefaultTableModel tb = new DefaultTableModel();
+    public Dashboard(String nama_username, int role) {
         
-        //
-       
+        initComponents();
+        this.setResizable(false);
         // set nama
         labelNamaUser.setText(nama_username);
         
@@ -38,8 +37,8 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.repaint();
         container_panel.revalidate();
         
+        // menampilkan data toko
         try{
-            java.sql.Connection conn = (Connection)Database.configDB();
             String sql = "SELECT * FROM toko";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -48,22 +47,32 @@ public class Dashboard extends javax.swing.JFrame {
                 // kirimlkan data ke dashboard
                 String nama_toko = rs.getString(2);
                 labelNamaToko.setText("E-MART | " + nama_toko);
-                
-            }else{
-                System.out.println("eeo");
-                throw new Exception("");
             }
-        }catch(Exception err){
-        
+            
+        }catch(Exception er){
+            JOptionPane.showMessageDialog(null, "Data toko pada server gagal dimuat !", "Terjadi Kesalahan !", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
       
+        // menampilkan tanggal
         Utilities utilities = new Utilities();
         String tgl = utilities.getTime();
         labelTanggal.setText(tgl);
-    }
-
-    Dashboard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        // visibilitas role
+        if(role != 1){
+            frameIconDatabase.setVisible(false);
+            frameIconLaporan.setVisible(false);
+            panel_listuser.setVisible(false);
+            panel_toko.setVisible(false);
+        }
+        
+        // Konfirmasi Keluar app
+         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                JOptionPane.showConfirmDialog(null, "Apakah Anda Ingin Keluar ?", "konfirmasi", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
     }
     
     @SuppressWarnings("unchecked")
@@ -121,6 +130,8 @@ public class Dashboard extends javax.swing.JFrame {
         label_loginterbaru_profile = new javax.swing.JLabel();
         field_Username_profile = new javax.swing.JTextField();
         label_Username_profile = new javax.swing.JLabel();
+        label_idUser_profile = new javax.swing.JLabel();
+        label_passwordLama_profile = new javax.swing.JLabel();
         container_panel_setting_listuser = new javax.swing.JPanel();
         panel_search_listuser = new javax.swing.JPanel();
         search_listuser = new javax.swing.JTextField();
@@ -141,6 +152,9 @@ public class Dashboard extends javax.swing.JFrame {
         label_notelp_toko = new javax.swing.JLabel();
         label_update_toko = new javax.swing.JLabel();
         label_idToko = new javax.swing.JLabel();
+        label_namatokolama_toko = new javax.swing.JLabel();
+        label_notelplama_toko = new javax.swing.JLabel();
+        label_alamatLama_toko = new javax.swing.JLabel();
         laporan_panel = new javax.swing.JPanel();
         navigasi_laporan = new javax.swing.JPanel();
         panel_TrPenjualan = new javax.swing.JPanel();
@@ -675,7 +689,7 @@ public class Dashboard extends javax.swing.JFrame {
         label_role_profile.setText("Role");
 
         label_ubahpassword_profile.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        label_ubahpassword_profile.setText("Ubah Password");
+        label_ubahpassword_profile.setText("Password Baru");
 
         label_konfirmasipassword_profile.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_konfirmasipassword_profile.setText("Konfirmasi Password");
@@ -689,6 +703,10 @@ public class Dashboard extends javax.swing.JFrame {
         label_Username_profile.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_Username_profile.setText("Username");
 
+        label_idUser_profile.setText("jLabel1");
+
+        label_passwordLama_profile.setText("jLabel1");
+
         javax.swing.GroupLayout container_panel_setting_profileLayout = new javax.swing.GroupLayout(container_panel_setting_profile);
         container_panel_setting_profile.setLayout(container_panel_setting_profileLayout);
         container_panel_setting_profileLayout.setHorizontalGroup(
@@ -696,6 +714,8 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_passwordLama_profile)
+                    .addComponent(label_idUser_profile)
                     .addComponent(label_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_profile2_logo)
                     .addComponent(label_profile_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -752,6 +772,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(label_namabelakang_profile))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_idUser_profile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label_namadepan_profile)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -765,7 +787,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(field_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(field_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(label_passwordLama_profile)
+                .addGap(2, 2, 2)
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_ubahpassword_profile)
                     .addComponent(label_konfirmasipassword_profile))
@@ -828,6 +852,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        table_listuser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         paneltabellistuser.setViewportView(table_listuser);
 
         javax.swing.GroupLayout container_panel_setting_listuserLayout = new javax.swing.GroupLayout(container_panel_setting_listuser);
@@ -900,8 +932,14 @@ public class Dashboard extends javax.swing.JFrame {
         label_update_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_update_toko.setText("Update At");
 
-        label_idToko.setForeground(new java.awt.Color(240, 240, 240));
-        label_idToko.setText("jLabel1");
+        label_idToko.setBackground(new java.awt.Color(0, 0, 0));
+        label_idToko.setText("id_toko");
+
+        label_namatokolama_toko.setText("nama_tokoLama");
+
+        label_notelplama_toko.setText("no_hpLama");
+
+        label_alamatLama_toko.setText("alamat_lama");
 
         javax.swing.GroupLayout container_panel_setting_tokoLayout = new javax.swing.GroupLayout(container_panel_setting_toko);
         container_panel_setting_toko.setLayout(container_panel_setting_tokoLayout);
@@ -914,28 +952,36 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(label_toko_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, container_panel_setting_tokoLayout.createSequentialGroup()
-                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(field_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(81, 81, 81)
-                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(field_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                                    .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createSequentialGroup()
-                                    .addComponent(label_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(294, 294, 294)))
-                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
                             .addComponent(label_idToko)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, container_panel_setting_tokoLayout.createSequentialGroup()
+                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(field_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                                .addComponent(label_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(label_namatokolama_toko)))
+                                        .addGap(81, 81, 81))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createSequentialGroup()
+                                        .addComponent(label_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(label_notelplama_toko)
+                                        .addGap(229, 229, 229)))
+                                .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                    .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(81, 81, 81)))
+                            .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                    .addComponent(label_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(label_alamatLama_toko))
+                                .addComponent(field_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         container_panel_setting_tokoLayout.setVerticalGroup(
@@ -948,10 +994,14 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(label_alamat_toko))
+                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_alamat_toko)
+                            .addComponent(label_alamatLama_toko)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_namatoko_toko)))
+                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_namatoko_toko)
+                            .addComponent(label_namatokolama_toko))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(field_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -959,19 +1009,17 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_notelp_toko)
-                    .addComponent(label_update_toko))
+                    .addComponent(label_update_toko)
+                    .addComponent(label_notelplama_toko))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(button_simpan_toko))
-                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(label_idToko)))
-                .addContainerGap(427, Short.MAX_VALUE))
+                    .addComponent(button_simpan_toko)
+                    .addComponent(label_idToko))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
 
         container_panel_setting.add(container_panel_setting_toko, "card2");
@@ -2176,36 +2224,41 @@ public class Dashboard extends javax.swing.JFrame {
             frameIconSetting.setBackground(new Color(73, 148, 255));
             iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(2).png")));
             
-            //update data
-        try{
-            java.sql.Connection conn = (Connection)Database.configDB();
-            String sql = "SELECT * FROM users WHERE nama_lengkap =?";
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, labelNamaUser.getText());
-            
-            ResultSet rs = pst.executeQuery();
-            
-            if(rs.next()){
-                
-                 String nama_lengkap = rs.getString(3);
-                 String[] nama = nama_lengkap.split("\\s+",2);
-                 field_namadepan_profile.setText(nama[0]);
-                 field_namabelakang_profile.setText(nama[1]);
-                 field_nohp_profile.setText(rs.getString(6));
-                 field_Username_profile.setText(rs.getString(2));
-                 field_loginterbaru_profile.setText(rs.getString(7));
-                 field_role_profile.setText(rs.getString(5));
-                  
+            //mengambil data user
+            try{
+                String sql = "SELECT * FROM users WHERE nama_lengkap =?";
+                PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, labelNamaUser.getText());
+
+                ResultSet rs = pst.executeQuery();
+
+                if(rs.next()){
+
+                     String nama_lengkap = rs.getString(3);
+                     String[] nama = nama_lengkap.split("\\s+",2);
+                     
+                     label_idUser_profile.setText(rs.getString(1));
+                     label_idUser_profile.setVisible(false);
+                     
+                     field_namadepan_profile.setText(nama[0]);
+                     field_namabelakang_profile.setText(nama[1]);
+                     
+                     label_passwordLama_profile.setText(rs.getString(4));
+                     label_passwordLama_profile.setVisible(false);
+                     
+                     field_nohp_profile.setText(rs.getString(6));
+                     
+                     field_Username_profile.setText(rs.getString(2));
+                     
+                     field_loginterbaru_profile.setText(rs.getString(8));
+                     field_role_profile.setText(rs.getString(5));
+
+                }
+
+            }catch(Exception err){
+                JOptionPane.showMessageDialog(null, "Gagal Memuat Data Profile");
+                System.exit(0);
             }
-            
-        }catch(Exception err){
-            JOptionPane.showMessageDialog(null, "Gagal Memuat Data Profile");
-            System.exit(0);
-        }
-        
-        
-        //memanggil fungsi table list user
-        getDataTableListuser();
     }//GEN-LAST:event_iconSettingMouseClicked
 
     private void iconLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLogoutMouseClicked
@@ -2309,7 +2362,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_backToMenu_kategoriMouseClicked
 
     private void panel_profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_profileMouseClicked
-        // TODO add your handling code here:
+
         container_panel_setting.removeAll();
         container_panel_setting.add(container_panel_setting_profile);
         container_panel_setting.repaint();
@@ -2324,8 +2377,6 @@ public class Dashboard extends javax.swing.JFrame {
         label_profile.setForeground(new Color(255,255,255));
         label_listuser.setForeground(new Color(0,0,0));
         label_toko.setForeground(new Color(0,0,0));
-        
-        
         
     }//GEN-LAST:event_panel_profileMouseClicked
 
@@ -2345,6 +2396,9 @@ public class Dashboard extends javax.swing.JFrame {
         label_profile.setForeground(new Color(0,0,0));
         label_listuser.setForeground(new Color(255,255,255));
         label_toko.setForeground(new Color(0,0,0));
+        
+        //memanggil fungsi table list user
+        getDataTableListuser();
     }//GEN-LAST:event_panel_listuserMouseClicked
 
     private void panel_tokoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_tokoMouseClicked
@@ -2365,7 +2419,6 @@ public class Dashboard extends javax.swing.JFrame {
         label_toko.setForeground(new Color(255,255,255));
         
         getDataToko();
-        label_idToko.setVisible(false);
         
     }//GEN-LAST:event_panel_tokoMouseClicked
     public void getDataToko(){
@@ -2376,11 +2429,24 @@ public class Dashboard extends javax.swing.JFrame {
              
             ResultSet res=pst.executeQuery(sql);
             if(res.next()){
-                field_namatoko_toko.setText(res.getString(2));
-                field_alamat_toko.setText(res.getString(3));
-                field_notelp_toko.setText(res.getString(4));
-                field_update_toko.setText(res.getString(5));
                 label_idToko.setText(res.getString(1));
+                label_idToko.setVisible(false);
+                
+                field_namatoko_toko.setText(res.getString(2));
+                label_namatokolama_toko.setText(res.getString(2));
+                label_namatokolama_toko.setVisible(false);
+                
+                field_alamat_toko.setText(res.getString(3));
+                label_alamatLama_toko.setText(res.getString(3));
+                label_alamatLama_toko.setVisible(false);
+                
+                field_notelp_toko.setText(res.getString(4));
+                label_notelplama_toko.setText(res.getString(4));
+                label_notelplama_toko.setVisible(false);
+                
+                field_update_toko.setText(res.getString(5));
+                
+                
             }
       }catch(Exception err){
             JOptionPane.showMessageDialog(null, err.getMessage() );
@@ -2401,41 +2467,62 @@ public class Dashboard extends javax.swing.JFrame {
        
         //menperbarui data user
         try{
-            java.sql.Connection conn = (Connection)Database.configDB();
-            String sql = "UPDATE users SET username=?,nama_lengkap=?,password=?,no_hp=? where nama_lengkap=?";
+            String sql = "UPDATE users SET username=?,nama_lengkap=?,password=?,no_hp=?, updated_at =? where id_user=?";
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, field_Username_profile.getText());
+            
+            String username = field_Username_profile.getText().replaceAll("\\s+","");
+            pst.setString(1, username.toLowerCase());
+            
             String nama_depan=field_namadepan_profile.getText();
             String nama_belakang =field_namabelakang_profile.getText();
-            pst.setString(2, nama_depan+" "+nama_belakang);
-            if(field_ubahpassword_profile.getText()!=null&&field_konfirmasipassword_profile.getText()!=null){
-                if(field_ubahpassword_profile.equals(field_konfirmasipassword_profile)){
-                    pst.setString(3,field_ubahpassword_profile.getText());
+            pst.setString(2, (nama_depan+" "+nama_belakang).toUpperCase());
+            
+            if(!field_ubahpassword_profile.getText().equals("")||!field_konfirmasipassword_profile.getText().equals("")){
+                
+                if(label_passwordLama_profile.getText().equals(field_ubahpassword_profile.getText())){
+                        throw new Exception("Password Ini Sedang Digunakan, Masukkan Password Lain !");
+                }else{
+                    if(field_ubahpassword_profile.getText().equals(field_konfirmasipassword_profile.getText())){
+                        pst.setString(3, field_ubahpassword_profile.getText());
+                    }else{
+                        throw new Exception("Password yang anda masukkan tidak sama !");
+                    }
                 }
                 
+            }else{
+                pst.setString(3, label_passwordLama_profile.getText());
             }
-            pst.setString(3, field_ubahpassword_profile.getText());
+            
             pst.setString(4, field_nohp_profile.getText());
-            pst.setString(5, labelNamaUser.getText());
+            pst.setString(5, utilities.getCurrentTimeStamp());
+            pst.setString(6, label_idUser_profile.getText());
             
             pst.execute();
  
-            System.out.println("oke");
-         
+            ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
+            JOptionPane.showMessageDialog(null, "Data User Berhasil Diperbarui, Silakan Login Kembali !", "Success !", JOptionPane.INFORMATION_MESSAGE, successIcon);
+            
+            dispose();
+            jFrameLogin.show();
+            
         }catch(Exception err){
-            System.err.println(err);
+            JOptionPane.showMessageDialog(null, err.getMessage(), "Terjadi Kesalahan !", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_simpan_profileMouseClicked
 
     public void getDataTableListuser(){     
-        DefaultTableModel tb = new DefaultTableModel();
+        
         //memberi nama pada table list user
+        tb.setColumnCount(0);
         tb.addColumn("No");
         tb.addColumn("Nama");
         tb.addColumn("Status");
         tb.addColumn("No telp");
+        tb.addColumn("Last Update");
         
         table_listuser.setModel(tb);
+        table_listuser.setEnabled(false);
+        tb.setRowCount(0);
     
      try{
            //membuat statemen pemanggilan data pada table tblGaji dari database
@@ -2449,7 +2536,8 @@ public class Dashboard extends javax.swing.JFrame {
                 no++,
                 res.getString("nama_lengkap"),
                 res.getString("isAktif"),
-                res.getString("no_hp")
+                res.getString("no_hp"),
+                res.getString("updated_at")
                 });  
             }
       }catch(Exception err){
@@ -2469,24 +2557,37 @@ public class Dashboard extends javax.swing.JFrame {
 
     public void simpanDataToko() {
         try{
-         final SimpleDateFormat waktu = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-         java.sql.Connection conn = (Connection)Database.configDB();
-         String sql = "UPDATE toko SET nama_toko=?,alamat=?,no_telp=?,updated_at=? WHERE id_toko=?";
-         PreparedStatement pst = conn.prepareStatement(sql);
-         pst.setString(1,field_namatoko_toko.getText());
-         pst.setString(2, field_alamat_toko.getText());
-         pst.setString(3, field_notelp_toko.getText());
-         pst.setString(4, waktu.format(timestamp));
-         pst.setString(5, label_idToko.getText());
          
-         pst.execute();
-         JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui silahkan login kembali");
-         dispose();
-         Login login=new Login();
-         login.show();
+            String nama_toko = field_namatoko_toko.getText();
+            String alamat = field_alamat_toko.getText();
+            String no_telp = field_notelp_toko.getText();
+            
+            if(!nama_toko.equals(label_namatokolama_toko.getText()) ||
+               !alamat.equals(label_alamatLama_toko.getText()) ||
+               !no_telp.equals(label_notelplama_toko.getText())){
+                
+                String sql = "UPDATE toko SET nama_toko=?,alamat=?,no_telp=?,updated_at=? WHERE id_toko=?";
+                PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, nama_toko);
+                pst.setString(2, alamat);
+                pst.setString(3, no_telp);
+                pst.setString(4, utilities.getCurrentTimeStamp());
+                pst.setString(5, label_idToko.getText());
+
+                pst.execute();
+                
+                
+                ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
+                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbarui, Silahkan Login Kembali !", "Success !", JOptionPane.INFORMATION_MESSAGE, successIcon);
+                dispose();
+                jFrameLogin.show();
+                
+            }else{
+               throw new Exception("Tidak Ada Perubahan, Data Sudah Terbaru !");
+            }
+            
         }catch(Exception err){
-            JOptionPane.showMessageDialog(null, "Data gagal diperbarui");
+            JOptionPane.showMessageDialog(null, err.getMessage(), "Informasi", JOptionPane.INFORMATION_MESSAGE);
         }
          
     }
@@ -2619,10 +2720,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel labelTanggal;
     private javax.swing.JLabel label_TrPenjualan;
     private javax.swing.JLabel label_Username_profile;
+    private javax.swing.JLabel label_alamatLama_toko;
     private javax.swing.JLabel label_alamat_toko;
     private javax.swing.JLabel label_brg_dataBarang_tambah;
     private javax.swing.JLabel label_harga_dataBarang_tambah;
     private javax.swing.JLabel label_idToko;
+    private javax.swing.JLabel label_idUser_profile;
     private javax.swing.JLabel label_kategori;
     private javax.swing.JLabel label_kategori_dataBarang_tambah;
     private javax.swing.JLabel label_kode_dataBarang_tambah;
@@ -2637,9 +2740,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel label_namabelakang_profile;
     private javax.swing.JLabel label_namadepan_profile;
     private javax.swing.JLabel label_namatoko_toko;
+    private javax.swing.JLabel label_namatokolama_toko;
     private javax.swing.JLabel label_nilaiTotal;
     private javax.swing.JLabel label_nohp_profile;
     private javax.swing.JLabel label_notelp_toko;
+    private javax.swing.JLabel label_notelplama_toko;
+    private javax.swing.JLabel label_passwordLama_profile;
     private javax.swing.JLabel label_profile;
     private javax.swing.JLabel label_profile2_logo;
     private javax.swing.JLabel label_profile_logo;
