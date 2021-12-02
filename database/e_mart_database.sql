@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Des 2021 pada 22.12
+-- Waktu pembuatan: 02 Des 2021 pada 10.18
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -103,7 +103,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id_toko`, `nama_toko`, `alamat`, `no_telp`, `updated_at`) VALUES
-('T001', 'Sejahtera Abadi', 'Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121', '087564094304', '2021-11-25 18:33:00');
+('T001', 'Sejahtera Abadi', 'Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121', '087564094304', '2021-12-02 16:12:35');
 
 -- --------------------------------------------------------
 
@@ -161,6 +161,7 @@ CREATE TABLE `users` (
   `password` varchar(256) NOT NULL,
   `role` int(1) NOT NULL,
   `no_hp` varchar(13) NOT NULL,
+  `isAktif` enum('Aktif','Tidak aktif') NOT NULL,
   `login_terbaru` datetime DEFAULT current_timestamp(),
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL
@@ -170,9 +171,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U0001', 'ucup', 'ucupp saripudin', '123', 1, '085607185972', '2021-12-02 03:36:22', '2021-11-25 18:27:00', '2021-11-25 18:27:00'),
-('U0002', 'otong', 'otong surotong', '1212', 2, '0847583982', '2021-12-02 03:36:22', '2021-11-26 00:32:14', '2021-11-25 18:31:11');
+INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
+('U0001', 'ucup', 'ucupp saripudin', '123', 1, '085607185972', 'Aktif', '2021-12-02 03:36:22', '2021-11-25 18:27:00', '2021-11-25 18:27:00'),
+('U0002', 'otong', 'otong surotong', '1212', 2, '0847583982', 'Aktif', '2021-12-02 03:36:22', '2021-11-26 00:32:14', '2021-11-25 18:31:11');
 
 --
 -- Indexes for dumped tables

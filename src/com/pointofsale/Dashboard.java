@@ -5,8 +5,14 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +25,8 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(String nama_username) {
         initComponents();
         
+        //
+       
         // set nama
         labelNamaUser.setText(nama_username);
         
@@ -52,6 +60,10 @@ public class Dashboard extends javax.swing.JFrame {
         Utilities utilities = new Utilities();
         String tgl = utilities.getTime();
         labelTanggal.setText(tgl);
+    }
+
+    Dashboard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @SuppressWarnings("unchecked")
@@ -128,6 +140,7 @@ public class Dashboard extends javax.swing.JFrame {
         label_alamat_toko = new javax.swing.JLabel();
         label_notelp_toko = new javax.swing.JLabel();
         label_update_toko = new javax.swing.JLabel();
+        label_idToko = new javax.swing.JLabel();
         laporan_panel = new javax.swing.JPanel();
         navigasi_laporan = new javax.swing.JPanel();
         panel_TrPenjualan = new javax.swing.JPanel();
@@ -815,17 +828,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        table_listuser.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "No", "Nama", "Status", "No. Telp"
-            }
-        ));
         paneltabellistuser.setViewportView(table_listuser);
 
         javax.swing.GroupLayout container_panel_setting_listuserLayout = new javax.swing.GroupLayout(container_panel_setting_listuser);
@@ -863,22 +865,28 @@ public class Dashboard extends javax.swing.JFrame {
         label_toko2_logo.setText("Halaman ini memuat informasi mengenai detail toko");
 
         field_namatoko_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        field_namatoko_toko.setBorder(null);
+        field_namatoko_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         button_simpan_toko.setBackground(new java.awt.Color(73, 148, 255));
         button_simpan_toko.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_simpan_toko.setForeground(new java.awt.Color(255, 255, 255));
         button_simpan_toko.setText("SIMPAN");
         button_simpan_toko.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_simpan_toko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_simpan_tokoMouseClicked(evt);
+            }
+        });
 
         field_alamat_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        field_alamat_toko.setBorder(null);
+        field_alamat_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         field_notelp_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        field_notelp_toko.setBorder(null);
+        field_notelp_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        field_update_toko.setEditable(false);
         field_update_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        field_update_toko.setBorder(null);
+        field_update_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         label_namatoko_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_namatoko_toko.setText("Nama Toko");
@@ -891,6 +899,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         label_update_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_update_toko.setText("Update At");
+
+        label_idToko.setForeground(new java.awt.Color(240, 240, 240));
+        label_idToko.setText("jLabel1");
 
         javax.swing.GroupLayout container_panel_setting_tokoLayout = new javax.swing.GroupLayout(container_panel_setting_toko);
         container_panel_setting_toko.setLayout(container_panel_setting_tokoLayout);
@@ -921,8 +932,11 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(label_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(220, Short.MAX_VALUE))
+                        .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                            .addComponent(label_idToko)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         container_panel_setting_tokoLayout.setVerticalGroup(
             container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -950,8 +964,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(button_simpan_toko)
+                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(button_simpan_toko))
+                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(label_idToko)))
                 .addContainerGap(427, Short.MAX_VALUE))
         );
 
@@ -2167,10 +2186,7 @@ public class Dashboard extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                // kirimlkan data ke dashboard
-//                String nama_toko = rs.getString(2);
-//                labelNamaToko.setText("E-MART | " + nama_toko);
-                   
+                
                  String nama_lengkap = rs.getString(3);
                  String[] nama = nama_lengkap.split("\\s+",2);
                  field_namadepan_profile.setText(nama[0]);
@@ -2179,16 +2195,17 @@ public class Dashboard extends javax.swing.JFrame {
                  field_Username_profile.setText(rs.getString(2));
                  field_loginterbaru_profile.setText(rs.getString(7));
                  field_role_profile.setText(rs.getString(5));
-                    
-                
-                
-            }else{
-                System.out.println("eeo");
-                throw new Exception("");
+                  
             }
+            
         }catch(Exception err){
-        
+            JOptionPane.showMessageDialog(null, "Gagal Memuat Data Profile");
+            System.exit(0);
         }
+        
+        
+        //memanggil fungsi table list user
+        getDataTableListuser();
     }//GEN-LAST:event_iconSettingMouseClicked
 
     private void iconLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLogoutMouseClicked
@@ -2346,8 +2363,29 @@ public class Dashboard extends javax.swing.JFrame {
         label_profile.setForeground(new Color(0,0,0));
         label_listuser.setForeground(new Color(0,0,0));
         label_toko.setForeground(new Color(255,255,255));
+        
+        getDataToko();
+        label_idToko.setVisible(false);
+        
     }//GEN-LAST:event_panel_tokoMouseClicked
-
+    public void getDataToko(){
+        try{
+            java.sql.Connection conn = (Connection)Database.configDB();
+            String sql = "SELECT * FROM toko limit 1";
+            PreparedStatement pst = conn.prepareStatement(sql);
+             
+            ResultSet res=pst.executeQuery(sql);
+            if(res.next()){
+                field_namatoko_toko.setText(res.getString(2));
+                field_alamat_toko.setText(res.getString(3));
+                field_notelp_toko.setText(res.getString(4));
+                field_update_toko.setText(res.getString(5));
+                label_idToko.setText(res.getString(1));
+            }
+      }catch(Exception err){
+            JOptionPane.showMessageDialog(null, err.getMessage() );
+      }
+    }
     private void button_tambahuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_tambahuserActionPerformed
         // TODO add your handling code here:
         TambahUser tambah = new TambahUser();
@@ -2377,31 +2415,82 @@ public class Dashboard extends javax.swing.JFrame {
                 }
                 
             }
-             pst.setString(3, field_ubahpassword_profile.getText());
+            pst.setString(3, field_ubahpassword_profile.getText());
             pst.setString(4, field_nohp_profile.getText());
             pst.setString(5, labelNamaUser.getText());
             
             pst.execute();
-            
-           
-                // kirimlkan data ke dashboard
-//                String nama_toko = rs.getString(2);
-//                labelNamaToko.setText("E-MART | " + nama_toko);
-                System.out.println("oke");
-                
-                
-            
-            
-            
+ 
+            System.out.println("oke");
+         
         }catch(Exception err){
             System.err.println(err);
         }
     }//GEN-LAST:event_button_simpan_profileMouseClicked
 
+    public void getDataTableListuser(){     
+        DefaultTableModel tb = new DefaultTableModel();
+        //memberi nama pada table list user
+        tb.addColumn("No");
+        tb.addColumn("Nama");
+        tb.addColumn("Status");
+        tb.addColumn("No telp");
+        
+        table_listuser.setModel(tb);
+    
+     try{
+           //membuat statemen pemanggilan data pada table tblGaji dari database
+           Statement stat = (Statement) Database.configDB().createStatement( );
+           String sql      = "SELECT * FROM users WHERE role=2";
+           ResultSet res   = stat.executeQuery(sql);
+           int no=1;
+           //penelusuran baris pada tabel tblGaji dari database
+           while(res.next ()){
+                tb.addRow(new Object[]{
+                no++,
+                res.getString("nama_lengkap"),
+                res.getString("isAktif"),
+                res.getString("no_hp")
+                });  
+            }
+      }catch(Exception err){
+            JOptionPane.showMessageDialog(null, err.getMessage() );
+      }
+}
+    
+    
     private void button_simpan_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_simpan_profileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_simpan_profileActionPerformed
 
+    private void button_simpan_tokoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_simpan_tokoMouseClicked
+        // TODO add your handling code here:
+        simpanDataToko();
+    }//GEN-LAST:event_button_simpan_tokoMouseClicked
+
+    public void simpanDataToko() {
+        try{
+         final SimpleDateFormat waktu = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+         java.sql.Connection conn = (Connection)Database.configDB();
+         String sql = "UPDATE toko SET nama_toko=?,alamat=?,no_telp=?,updated_at=? WHERE id_toko=?";
+         PreparedStatement pst = conn.prepareStatement(sql);
+         pst.setString(1,field_namatoko_toko.getText());
+         pst.setString(2, field_alamat_toko.getText());
+         pst.setString(3, field_notelp_toko.getText());
+         pst.setString(4, waktu.format(timestamp));
+         pst.setString(5, label_idToko.getText());
+         
+         pst.execute();
+         JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui silahkan login kembali");
+         dispose();
+         Login login=new Login();
+         login.show();
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(null, "Data gagal diperbarui");
+        }
+         
+    }
     /**
      * @param args the command line arguments
      */
@@ -2534,6 +2623,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel label_alamat_toko;
     private javax.swing.JLabel label_brg_dataBarang_tambah;
     private javax.swing.JLabel label_harga_dataBarang_tambah;
+    private javax.swing.JLabel label_idToko;
     private javax.swing.JLabel label_kategori;
     private javax.swing.JLabel label_kategori_dataBarang_tambah;
     private javax.swing.JLabel label_kode_dataBarang_tambah;
