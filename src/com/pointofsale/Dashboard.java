@@ -2398,8 +2398,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_frameIconSettingMouseClicked
 
     private void button_simpan_profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_simpan_profileMouseClicked
-        // TODO add your handling code here:
-        
+       
         //menperbarui data user
         try{
             java.sql.Connection conn = (Connection)Database.configDB();
