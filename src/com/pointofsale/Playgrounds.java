@@ -71,9 +71,9 @@ public class Playgrounds {
       
       int d = Integer.parseInt(b)+1;
       
-      if(d < 9){
+      if(d <= 9){
           u = "U00";
-      }else if(d < 99 ){
+      }else if(d <= 99 ){
           u = "U0";
       }else{
           u = "U";

@@ -7,15 +7,11 @@ import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -2524,7 +2520,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_frameIconSettingMouseClicked
 
     private void button_simpan_profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_simpan_profileMouseClicked
-       
+        
         //menperbarui data user
         try{
             
@@ -2612,7 +2608,7 @@ public class Dashboard extends javax.swing.JFrame {
      try{
            //membuat statemen pemanggilan data pada table tblGaji dari database
            Statement stat = (Statement) Database.configDB().createStatement( );
-           String sql      = "SELECT * FROM users";
+           String sql      = "SELECT * FROM users ORDER BY id_user ASC";
            ResultSet res   = stat.executeQuery(sql);
            int no=1;
            //penelusuran baris pada tabel tblGaji dari database
@@ -2658,10 +2654,29 @@ public class Dashboard extends javax.swing.JFrame {
         int selectedRowIndex = table_listuser.getSelectedRow();
         String id_user_update = model.getValueAt(selectedRowIndex, 1).toString();
         try {
-            TambahUser tambahUser = new TambahUser("update", id_user_update);
-            tambahUser.show();
+            if(id_user_update.equals(this.id)){
+                container_panel_setting.removeAll();
+                container_panel_setting.add(container_panel_setting_profile);
+                container_panel_setting.repaint();
+                container_panel_setting.revalidate();
+                
+                panel_profile.setBackground(new Color(73,148,255));
+                panel_listuser.setBackground(new Color(255, 255, 255));
+                panel_toko.setBackground(new Color(255, 255, 255));
+                icon_profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/profile2.png")));
+                icon_listuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/list.png")));
+                icon_toko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/toko.png")));
+                label_profile.setForeground(new Color(255,255,255));
+                label_listuser.setForeground(new Color(0,0,0));
+                label_toko.setForeground(new Color(0,0,0));
+            }else{
+                TambahUser tambahUser = new TambahUser("update", id_user_update);
+                tambahUser.show();
+            }
         } catch (Exception ex) {
+            System.out.println(ex);
             JOptionPane.showMessageDialog(null, "Update User Gagal Dijalankan !", "Terjad Kesalahan !", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
     }//GEN-LAST:event_table_listuserMouseClicked
 
