@@ -71,7 +71,7 @@ public class TambahUser extends javax.swing.JFrame {
                 if(res.next()){
                     String a = res.getString(1).replaceAll("[a-zA-Z]", "");
                     String b = "";
-                    String c[] = a.split("(?!^)");
+                    String c[] = a.split("( ?!^)");
                     String u = "";
 
                     if("0".equals(c[0])){
