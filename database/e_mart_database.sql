@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 09:41 PM
+-- Generation Time: Dec 04, 2021 at 02:44 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -94,7 +94,7 @@ CREATE TABLE `toko` (
   `id_toko` varchar(8) NOT NULL,
   `nama_toko` varchar(32) NOT NULL,
   `alamat` varchar(128) NOT NULL,
-  `no_telp` varchar(13) NOT NULL,
+  `no_telp` varchar(13) NOT NULL DEFAULT '0',
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -103,7 +103,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id_toko`, `nama_toko`, `alamat`, `no_telp`, `updated_at`) VALUES
-('T001', 'Sejahtera Abadi jaya abasd', 'Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121', '087564094304', '2021-12-03 03:30:12');
+('T001', 'dasdas', 'dasd', '0', '2021-12-04 03:15:27');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`kode_transaksi`, `diskon`, `ppn`, `grand_total`, `tunai`, `id_user`, `created_at`) VALUES
-('TR039434985', 0, 10, 43000, 45000, 'U0002', '2021-11-26 00:43:43');
+('TR756454321', 10, 10, 43000, 50000, 'U001', '2021-12-04 02:45:37');
 
 -- --------------------------------------------------------
 
@@ -146,7 +146,7 @@ CREATE TABLE `transaksi_detail` (
 --
 
 INSERT INTO `transaksi_detail` (`kode_transaksi`, `qyt`, `sub_total`, `kode_barang`) VALUES
-('TR039434985', 1, 43000, 'BRG0002');
+('TR756454321', 1, 43000, 'BRG0001');
 
 -- --------------------------------------------------------
 
@@ -160,7 +160,7 @@ CREATE TABLE `users` (
   `nama_lengkap` varchar(64) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role` int(1) NOT NULL,
-  `no_hp` varchar(13) NOT NULL,
+  `no_hp` varchar(13) NOT NULL DEFAULT '"0"',
   `isAktif` enum('Aktif','Tidak aktif') NOT NULL,
   `login_terbaru` datetime DEFAULT current_timestamp(),
   `created_at` datetime DEFAULT current_timestamp(),
@@ -172,10 +172,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U0001', 'admin', 'UDIN SEDUNIA', '1212', 1, '085607185972', 'Aktif', '2021-12-03 03:39:50', '2021-11-25 18:27:00', '2021-12-03 02:40:36'),
-('U0002', 'bocilkematian', 'WINDAH BASUDARAA', '11', 2, '085655990781', 'Aktif', '2021-12-03 01:11:53', '2021-11-26 00:32:14', '2021-12-03 01:11:59'),
-('U003', 'user', 'Trismayanti', 'user', 2, '085123456789', 'Aktif', '2021-12-03 01:50:51', '2021-12-03 01:50:51', '2021-12-02 19:49:27'),
-('U004', 'person', 'Ulul', 'person', 2, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-03 01:54:41');
+('U001', '1', 'ARISTOF CAESAR PRTAMA', '1', 1, '938432424', 'Aktif', '2021-12-04 08:44:07', '2021-12-03 01:50:51', '2021-12-04 03:23:10'),
+('U002', 'person', 'Ulul', 'person', 2, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-03 01:54:41'),
+('U003', 'dasd', 'ANING DSA', 'sadsad', 1, 'dasdasd', 'Aktif', '2021-12-04 05:19:18', '2021-12-04 05:19:18', '2021-12-04 05:19:18'),
+('U004', 'asdas', 'ETST 2 DAS', 'dasdasdsa', 1, 'dasdas', 'Aktif', '2021-12-04 05:20:58', '2021-12-04 05:20:58', '2021-12-04 05:20:58'),
+('U005', 'jokowi', 'JOKOWI WIDODO', '1', 2, '12345', 'Aktif', '2021-12-04 05:23:10', '2021-12-04 05:23:10', '2021-12-04 05:23:10'),
+('U006', 'prabowo', 'PRABOWO SUBIANTO', '12', 1, '312312', 'Aktif', '2021-12-04 05:31:44', '2021-12-04 05:31:44', '2021-12-04 05:31:44'),
+('U007', 'dasd', 'DSAD SDSADAS', 'dsad', 2, '6453654', 'Aktif', '2021-12-04 05:32:08', '2021-12-04 05:32:08', '2021-12-04 05:32:08'),
+('U008', 'indo', 'JOKIWI GOKIL PRABOWO', '1', 1, '2312', 'Aktif', '2021-12-04 08:04:58', '2021-12-04 08:04:20', '2021-12-04 08:04:51');
 
 --
 -- Indexes for dumped tables
@@ -242,13 +246,13 @@ ALTER TABLE `barang`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `FK_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  ADD CONSTRAINT `transaksi_detail_ibfk_1` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`),
+  ADD CONSTRAINT `FK_transaksi` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_detail_ibfk_2` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`kode_barang`),
   ADD CONSTRAINT `transaksi_detail_ibfk_3` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`);
 COMMIT;
