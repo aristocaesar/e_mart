@@ -723,8 +723,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label_nohplama_profile" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_passwordLama_profile" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_idUser_profile" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_loginterbaru_profile" min="-2" pref="93" max="-2" attributes="0"/>
                                   <Component id="label_profile2_logo" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_profile_logo" min="-2" pref="78" max="-2" attributes="0"/>
@@ -733,11 +733,13 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="field_namadepan_profile" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                               <Component id="label_namadepan_profile" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <Component id="label_namadepanlama_profile" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="label_namabelakang_profile" min="-2" pref="93" max="-2" attributes="0"/>
                                               <Component id="field_namabelakang_profile" min="-2" pref="306" max="-2" attributes="0"/>
+                                              <Component id="label_namabelakanglama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -754,6 +756,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="field_Username_profile" min="-2" pref="306" max="-2" attributes="0"/>
                                               <Component id="label_Username_profile" min="-2" pref="124" max="-2" attributes="0"/>
+                                              <Component id="label_Usernamelama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -778,9 +781,14 @@
                                               <Component id="label_konfirmasipassword_profile" min="-2" pref="124" max="-2" attributes="0"/>
                                               <Component id="field_role_profile" min="-2" pref="306" max="-2" attributes="0"/>
                                               <Component id="label_role_profile" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <Component id="label_konfirmasipasswordlama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="button_simpan_profile" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="label_idUser_profile" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="button_simpan_profile" min="-2" pref="90" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace pref="275" max="32767" attributes="0"/>
@@ -796,12 +804,15 @@
                               <Component id="label_profile2_logo" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_namabelakanglama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_namadepanlama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="label_namabelakang_profile" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="label_idUser_profile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="label_namadepan_profile" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -811,7 +822,12 @@
                                   <Component id="field_namadepan_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="field_namabelakang_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="label_nohplama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_Usernamelama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="label_nohp_profile" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_Username_profile" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -822,7 +838,10 @@
                                   <Component id="field_Username_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="label_passwordLama_profile" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="label_passwordLama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_konfirmasipasswordlama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="label_ubahpassword_profile" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -844,8 +863,11 @@
                                   <Component id="field_role_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="button_simpan_profile" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="239" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="button_simpan_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_idUser_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="247" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1052,12 +1074,37 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="label_idUser_profile">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
+                        <Property name="text" type="java.lang.String" value="id_user"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="label_passwordLama_profile">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
+                        <Property name="text" type="java.lang.String" value="password_lama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="label_nohplama_profile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="nohp_lama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="label_namabelakanglama_profile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="nama_belakang_lama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="label_Usernamelama_profile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="username_lama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="label_konfirmasipasswordlama_profile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="konfirmasi_password_lama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="label_namadepanlama_profile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="nama_depan_lama"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1073,51 +1120,49 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="paneltabellistuser" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="panel_search_listuser" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace pref="37" max="32767" attributes="0"/>
                                       <Component id="button_tambahuser" min="-2" pref="209" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="129" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="panel_search_listuser" max="32767" attributes="0"/>
                                   <Component id="button_tambahuser" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="paneltabellistuser" pref="630" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="paneltabellistuser" min="-2" pref="527" max="-2" attributes="0"/>
-                              <EmptySpace pref="109" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
                     <Container class="javax.swing.JPanel" name="panel_search_listuser">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(10, new Color(255, 255, 255))"/>
+                      </AuxValues>
 
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="icon_search_listuser" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="search_listuser" min="-2" pref="578" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="search_listuser" min="-2" pref="668" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1140,6 +1185,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTextField" name="search_listuser">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="18" style="0"/>
+                            </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
@@ -1171,6 +1219,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_tambahuserMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_tambahuserActionPerformed"/>
                       </Events>
                     </Component>
@@ -1214,6 +1263,13 @@
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="table_listuserMouseClicked"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table_listuser.setDefaultEditor(Object.class, null);"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1237,6 +1293,8 @@
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="label_idToko" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="label_notelplama_toko" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="button_simpan_toko" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
@@ -1256,9 +1314,7 @@
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="label_notelp_toko" min="-2" pref="93" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="label_notelplama_toko" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1315,7 +1371,6 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="label_notelp_toko" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_update_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_notelplama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1325,9 +1380,12 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="button_simpan_toko" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_idToko" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="label_idToko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_notelplama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="434" max="32767" attributes="0"/>
+                              <EmptySpace pref="442" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1624,7 +1682,7 @@
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="panel_filter" min="-2" pref="337" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="Btn_TrPenjualan" pref="146" max="32767" attributes="0"/>
+                                      <Component id="Btn_TrPenjualan" pref="201" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -1641,7 +1699,7 @@
                                   <Component id="panel_cariTrPenjualan" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="634" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="642" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1865,7 +1923,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="panel_search_kategori" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="571" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" pref="579" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1983,7 +2041,7 @@
                                       <Component id="label_kode_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="label_namaSupplier_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="252" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2114,7 +2172,7 @@
                           <Group type="102" attributes="0">
                               <Component id="panel_search_supplier" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="571" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="579" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2232,7 +2290,7 @@
                                       <Component id="label_kode_supplier" min="-2" max="-2" attributes="0"/>
                                       <Component id="label_namaSupplier_supplier" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="254" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="309" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2331,7 +2389,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1252" max="32767" attributes="0"/>
+                      <EmptySpace pref="1307" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2340,7 +2398,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="709" max="32767" attributes="0"/>
+                      <EmptySpace pref="717" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2393,7 +2451,7 @@
                       <Component id="panel_box_dataBarang_tambah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_simpan_dataBarang_tambah" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="145" max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2703,15 +2761,15 @@
                                   <Component id="btn_tambah_barang" min="-2" pref="250" max="-2" attributes="0"/>
                                   <Component id="panel_box" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="panel_sup" max="32767" attributes="0"/>
                                   <Component id="search_box" pref="260" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="filter_box" max="32767" attributes="0"/>
                                   <Component id="panel_kat" max="32767" attributes="0"/>
-                                  <Component id="filter_box" pref="250" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                           </Group>
@@ -2731,12 +2789,12 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="search_box" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="search_box" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_tambah_barang" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="filter_box" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="476" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="484" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2744,21 +2802,12 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="panel_sup">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder roundedCorners="true">
-                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panel_supMouseClicked"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(40, new Color(255, 255, 255))"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -2771,7 +2820,7 @@
                               <Component id="nilai_suplier" min="-2" max="-2" attributes="0"/>
                               <Component id="label_suplier" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="104" max="32767" attributes="0"/>
+                          <EmptySpace pref="106" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2822,18 +2871,9 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="panel_box">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder roundedCorners="true">
-                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(40, new Color(255, 255, 255))"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -2898,20 +2938,16 @@
             </Container>
             <Container class="javax.swing.JPanel" name="panel_kat">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder roundedCorners="true">
-                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                    </LineBorder>
-                  </Border>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[260, 115]"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panel_katMouseClicked"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(40, new Color(255, 255, 255))"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -2924,7 +2960,7 @@
                               <Component id="nilai_kategori" min="-2" max="-2" attributes="0"/>
                               <Component id="label_kategori" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3003,18 +3039,9 @@
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="search_box">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder roundedCorners="true">
-                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(20, new Color(255, 255, 255))"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -3022,8 +3049,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="icon_search_box" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="icon_input_search" min="-2" pref="199" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                          <Component id="icon_input_search" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -3031,12 +3058,12 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="icon_search_box" max="32767" attributes="0"/>
                               <Component id="icon_input_search" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3062,11 +3089,9 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="filter_box">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(20, new Color(255, 255, 255))"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -3074,9 +3099,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="icon_filter" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                          <Component id="filter_combo_box" min="-2" pref="196" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="filter_combo_box" pref="179" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3179,7 +3204,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="604" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="612" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="frame_grandTotal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -3247,7 +3272,7 @@
                               <Component id="enter_label" min="-2" max="-2" attributes="0"/>
                               <Component id="f10_label" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="568" max="32767" attributes="0"/>
+                          <EmptySpace pref="623" max="32767" attributes="0"/>
                           <Component id="label_nilaiTotal" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="nilai_total" min="-2" pref="222" max="-2" attributes="0"/>
