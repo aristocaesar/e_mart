@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 02:44 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- Generation Time: Dec 04, 2021 at 11:28 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -161,7 +161,7 @@ CREATE TABLE `users` (
   `password` varchar(256) NOT NULL,
   `role` int(1) NOT NULL,
   `no_hp` varchar(13) NOT NULL DEFAULT '"0"',
-  `isAktif` enum('Aktif','Tidak aktif') NOT NULL,
+  `isAktif` enum('Aktif','Non-Aktif') NOT NULL,
   `login_terbaru` datetime DEFAULT current_timestamp(),
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp()
@@ -172,14 +172,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U001', '1', 'ARISTOF CAESAR PRTAMA', '1', 1, '938432424', 'Aktif', '2021-12-04 08:44:07', '2021-12-03 01:50:51', '2021-12-04 03:23:10'),
-('U002', 'person', 'Ulul', 'person', 2, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-03 01:54:41'),
-('U003', 'dasd', 'ANING DSA', 'sadsad', 1, 'dasdasd', 'Aktif', '2021-12-04 05:19:18', '2021-12-04 05:19:18', '2021-12-04 05:19:18'),
-('U004', 'asdas', 'ETST 2 DAS', 'dasdasdsa', 1, 'dasdas', 'Aktif', '2021-12-04 05:20:58', '2021-12-04 05:20:58', '2021-12-04 05:20:58'),
-('U005', 'jokowi', 'JOKOWI WIDODO', '1', 2, '12345', 'Aktif', '2021-12-04 05:23:10', '2021-12-04 05:23:10', '2021-12-04 05:23:10'),
-('U006', 'prabowo', 'PRABOWO SUBIANTO', '12', 1, '312312', 'Aktif', '2021-12-04 05:31:44', '2021-12-04 05:31:44', '2021-12-04 05:31:44'),
-('U007', 'dasd', 'DSAD SDSADAS', 'dsad', 2, '6453654', 'Aktif', '2021-12-04 05:32:08', '2021-12-04 05:32:08', '2021-12-04 05:32:08'),
-('U008', 'indo', 'JOKIWI GOKIL PRABOWO', '1', 1, '2312', 'Aktif', '2021-12-04 08:04:58', '2021-12-04 08:04:20', '2021-12-04 08:04:51');
+('U001', 'aristo', 'ARISTO CAESAR PRATAMA HITO', 'aristo0407', 2, '0852351191010', 'Non-Aktif', '2021-12-04 16:09:35', '2021-12-03 01:50:51', '2021-12-04 16:15:00'),
+('U002', 'person', 'ULUL ANJING', 'person', 1, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-04 16:02:51'),
+('U003', 'okela', 'ANING DSA', 'sadsad', 1, '432', 'Aktif', '2021-12-04 05:19:18', '2021-12-04 05:19:18', '2021-12-04 16:08:01'),
+('U004', 'a', 'ETST 2 DAS', 'a', 1, '12312', 'Aktif', '2021-12-04 16:14:39', '2021-12-04 05:20:58', '2021-12-04 16:08:40'),
+('U005', 'jokowi', 'JOKOWIOKE WIDODO', '1', 2, '12345', 'Non-Aktif', '2021-12-04 15:31:37', '2021-12-04 05:23:10', '2021-12-04 16:08:21'),
+('U006', 'dasdasdsadas', 'SADSADSADAS DASD', 'a', 2, '34124', 'Aktif', '2021-12-04 16:15:20', '2021-12-04 16:15:20', '2021-12-04 16:15:20');
 
 --
 -- Indexes for dumped tables
@@ -229,7 +227,8 @@ ALTER TABLE `transaksi_detail`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Constraints for dumped tables
