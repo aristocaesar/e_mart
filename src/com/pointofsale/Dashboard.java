@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -984,11 +983,6 @@ public class Dashboard extends javax.swing.JFrame {
                 button_simpan_tokoMouseClicked(evt);
             }
         });
-        button_simpan_toko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_simpan_tokoActionPerformed(evt);
-            }
-        });
 
         field_alamat_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         field_alamat_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -999,11 +993,6 @@ public class Dashboard extends javax.swing.JFrame {
         field_update_toko.setEditable(false);
         field_update_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         field_update_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        field_update_toko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_update_tokoActionPerformed(evt);
-            }
-        });
 
         label_namatoko_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_namatoko_toko.setText("Nama Toko");
@@ -1396,7 +1385,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(label_namaSupplier_kategori)
                                 .addGap(48, 48, 48)
                                 .addComponent(nama_kategore_check)))
-                        .addGap(0, 225, Short.MAX_VALUE)))
+                        .addGap(0, 385, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_kategoriLayout.setVerticalGroup(
@@ -1557,7 +1546,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(label_namaSupplier_supplier)
                                 .addGap(26, 26, 26)
                                 .addComponent(label_namaSupplier)))
-                        .addGap(0, 249, Short.MAX_VALUE)))
+                        .addGap(0, 387, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_supplierLayout.setVerticalGroup(
@@ -3047,8 +3036,7 @@ public class Dashboard extends javax.swing.JFrame {
                 getDataKategori();
                 }catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
-                }   
-               
+                }
             }
         //jika kode tidak sama maka akan insert 
         }else{
@@ -3119,8 +3107,8 @@ public class Dashboard extends javax.swing.JFrame {
         
             System.out.println(kode_kategori_check.getText());
             System.out.println(input_kategori_kode);
-        input_kode_supplier.setEnabled(false);
-        input_nama_kategori.setText("");
+            input_kode_supplier.setEnabled(false);
+            input_nama_kategori.setText("");
         }catch(SQLException err){
             System.out.println("eror");
         }
@@ -3148,6 +3136,11 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btn_simpan_kategoriActionPerformed
+
+    private void search_listuserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_listuserKeyPressed
+        // TODO add your handling code here:
+        getDataTableListuser(search_listuser.getText());
+    }//GEN-LAST:event_search_listuserKeyPressed
 
     public void simpanDataToko() {
         try{

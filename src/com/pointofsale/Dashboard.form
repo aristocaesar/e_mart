@@ -1422,7 +1422,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_simpan_tokoMouseClicked"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_simpan_tokoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="field_alamat_toko">
@@ -1461,9 +1460,6 @@
                           </Border>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="field_update_tokoActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="label_namatoko_toko">
                       <Properties>
