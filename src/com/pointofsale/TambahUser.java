@@ -7,6 +7,7 @@ package com.pointofsale;
 
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,8 @@ public class TambahUser extends javax.swing.JFrame {
         this.setResizable(false);
         this.kondisi = aksi;
         this.id_user = id_user_update;
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/trolley.png")));
+        
         
         
         label_idUser.setVisible(false);
@@ -71,7 +74,7 @@ public class TambahUser extends javax.swing.JFrame {
                 if(res.next()){
                     String a = res.getString(1).replaceAll("[a-zA-Z]", "");
                     String b = "";
-                    String c[] = a.split("(?!^)");
+                    String c[] = a.split("( ?!^)");
                     String u = "";
 
                     if("0".equals(c[0])){
@@ -517,7 +520,7 @@ public class TambahUser extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "User Berhasil Ditambahkan !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
                             dispose();
                             Dashboard dashboard = new Dashboard("", "", 0);
-                            dashboard.getDataTableListuser();
+                            dashboard.getDataTableListuser("");
 
                         }else{
                             throw new SQLException("Password Yang Anda Masukkan Tidak Sama !");
@@ -579,7 +582,7 @@ public class TambahUser extends javax.swing.JFrame {
 
                                     dispose();
                                     Dashboard dashboard = new Dashboard("", "", 0);
-                                    dashboard.getDataTableListuser();
+                                    dashboard.getDataTableListuser("");
 
                                 }else{
                                     throw new SQLException("Passoword Yang Anda Masukkan Tidak Sama !");
@@ -628,7 +631,7 @@ public class TambahUser extends javax.swing.JFrame {
                 dispose();
                 
                 Dashboard dashboard = new Dashboard("", "", 0);
-                dashboard.getDataTableListuser();
+                dashboard.getDataTableListuser("");
                 
                 
             } catch (SQLException ex) {
