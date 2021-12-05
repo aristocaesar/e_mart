@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 11:28 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.26
+-- Generation Time: Dec 05, 2021 at 08:34 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -103,7 +103,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id_toko`, `nama_toko`, `alamat`, `no_telp`, `updated_at`) VALUES
-('T001', 'dasdas', 'dasd', '0', '2021-12-04 03:15:27');
+('T001', 'Player Cell', 'Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121', '0', '2021-12-05 12:35:24');
 
 -- --------------------------------------------------------
 
@@ -172,12 +172,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U001', 'aristo', 'ARISTO CAESAR PRATAMA HITO', 'aristo0407', 2, '0852351191010', 'Non-Aktif', '2021-12-04 16:09:35', '2021-12-03 01:50:51', '2021-12-04 16:15:00'),
-('U002', 'person', 'ULUL ANJING', 'person', 1, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-04 16:02:51'),
-('U003', 'okela', 'ANING DSA', 'sadsad', 1, '432', 'Aktif', '2021-12-04 05:19:18', '2021-12-04 05:19:18', '2021-12-04 16:08:01'),
-('U004', 'a', 'ETST 2 DAS', 'a', 1, '12312', 'Aktif', '2021-12-04 16:14:39', '2021-12-04 05:20:58', '2021-12-04 16:08:40'),
-('U005', 'jokowi', 'JOKOWIOKE WIDODO', '1', 2, '12345', 'Non-Aktif', '2021-12-04 15:31:37', '2021-12-04 05:23:10', '2021-12-04 16:08:21'),
-('U006', 'dasdasdsadas', 'SADSADSADAS DASD', 'a', 2, '34124', 'Aktif', '2021-12-04 16:15:20', '2021-12-04 16:15:20', '2021-12-04 16:15:20');
+('U001', 'aristo', 'ARISTO CAESAR PRATAMA', '1', 1, '0852351191010', 'Aktif', '2021-12-05 14:30:16', '2021-12-03 01:50:51', '2021-12-05 14:19:21'),
+('U002', 'person', 'ULUL GAMING', 'person', 2, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-05 12:34:19'),
+('U004', 'a', 'ETST 2 DAS', 'a', 2, '12312', 'Non-Aktif', '2021-12-04 16:14:39', '2021-12-04 05:20:58', '2021-12-05 14:08:35');
 
 --
 -- Indexes for dumped tables
@@ -188,6 +185,7 @@ INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, 
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`kode_barang`),
+  ADD UNIQUE KEY `nama_barang` (`nama_barang`),
   ADD KEY `kategori` (`kategori`),
   ADD KEY `supplier` (`supplier`);
 
@@ -195,13 +193,15 @@ ALTER TABLE `barang`
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`kode_kategori`);
+  ADD PRIMARY KEY (`kode_kategori`),
+  ADD UNIQUE KEY `nama_kategori` (`nama_kategori`);
 
 --
 -- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
-  ADD PRIMARY KEY (`id_supplier`);
+  ADD PRIMARY KEY (`id_supplier`),
+  ADD UNIQUE KEY `nama_supplier` (`nama_supplier`);
 
 --
 -- Indexes for table `toko`
