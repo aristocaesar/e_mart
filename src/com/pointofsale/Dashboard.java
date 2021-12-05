@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,6 +36,9 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(String id, String nama_username, int role) {
         
         initComponents();
+        
+        this.setTitle("E-MART | Elektronik Market Application");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/trolley.png")));
         
         // set nama
         labelNamaUser.setText(nama_username);
@@ -75,6 +80,8 @@ public class Dashboard extends javax.swing.JFrame {
             panel_listuser.setVisible(false);
             panel_toko.setVisible(false);
         }
+        
+        
         
         // Konfirmasi Keluar app
          addWindowListener(new java.awt.event.WindowAdapter() {
@@ -177,22 +184,22 @@ public class Dashboard extends javax.swing.JFrame {
         label_TrPenjualan = new javax.swing.JLabel();
         konten_Laporan = new javax.swing.JPanel();
         konten_laporanTrJual = new javax.swing.JPanel();
-        panel_cariTrPenjualan = new javax.swing.JPanel();
+        panel_cariTrPenjualan = new RoundedPanel(20, new Color(255, 255, 255));
         icon_cariTrPenjualan = new javax.swing.JLabel();
         input_textTrPenjualan = new javax.swing.JTextField();
-        panel_filter = new javax.swing.JPanel();
+        panel_filter = new RoundedPanel(20, new Color(255, 255, 255));
         filter_TrPenjualan = new javax.swing.JComboBox<>();
         Btn_TrPenjualan = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableTrPenjualan = new javax.swing.JTable();
         dataBarang_kategori = new javax.swing.JPanel();
         btn_backToMenu_kategori = new javax.swing.JLabel();
-        panel_search_kategori = new javax.swing.JPanel();
+        panel_search_kategori = new RoundedPanel(20, new Color(255, 255, 255));
         icon_search_kategori = new javax.swing.JLabel();
         input_searxh_kategori = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         tabel_data_kategori = new javax.swing.JTable();
-        box_menu_kategori = new javax.swing.JPanel();
+        box_menu_kategori = new RoundedPanel(20, new Color(255, 255, 255));
         label_kode_kategori = new javax.swing.JLabel();
         input_kode_kategori = new javax.swing.JTextField();
         input_namaSupplier_kategori = new javax.swing.JTextField();
@@ -201,12 +208,12 @@ public class Dashboard extends javax.swing.JFrame {
         btn_hapus_kategori = new javax.swing.JButton();
         dataBarang_supplier = new javax.swing.JPanel();
         btn_backToMenu_supplier = new javax.swing.JLabel();
-        panel_search_supplier = new javax.swing.JPanel();
+        panel_search_supplier = new RoundedPanel(20, new Color(255, 255, 255));
         icon_search_supplier = new javax.swing.JLabel();
         input_searxh_supplier = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabel_data_supplier = new javax.swing.JTable();
-        box_menu_supplier = new javax.swing.JPanel();
+        box_menu_supplier = new RoundedPanel(20, new Color(255, 255, 255));
         label_kode_supplier = new javax.swing.JLabel();
         input_kode_supplier = new javax.swing.JTextField();
         input_namaSupplier_supplier = new javax.swing.JTextField();
@@ -217,7 +224,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         dataBarang_tambah = new javax.swing.JPanel();
         btn_backTomenu_tambah = new javax.swing.JLabel();
-        panel_box_dataBarang_tambah = new javax.swing.JPanel();
+        panel_box_dataBarang_tambah = new RoundedPanel(40, new Color(255, 255, 255));
         label_kode_dataBarang_tambah = new javax.swing.JLabel();
         label_brg_dataBarang_tambah = new javax.swing.JLabel();
         input_kode_dataBarang_tambah = new javax.swing.JTextField();
@@ -857,6 +864,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         search_listuser.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         search_listuser.setBorder(null);
+        search_listuser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                search_listuserKeyPressed(evt);
+            }
+        });
 
         icon_search_listuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
@@ -1155,9 +1167,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         konten_laporanTrJual.setBackground(new java.awt.Color(219, 219, 219));
 
-        panel_cariTrPenjualan.setBackground(new java.awt.Color(255, 255, 255));
-        panel_cariTrPenjualan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-
         icon_cariTrPenjualan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
         input_textTrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -1183,12 +1192,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panel_filter.setBackground(new java.awt.Color(255, 255, 255));
-        panel_filter.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panel_filter.setPreferredSize(new java.awt.Dimension(353, 46));
 
         filter_TrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        filter_TrPenjualan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "satu minggu", "Satu Bulan" }));
+        filter_TrPenjualan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Satu Minggu", "Satu Bulan" }));
         filter_TrPenjualan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panel_filterLayout = new javax.swing.GroupLayout(panel_filter);
@@ -1196,15 +1203,15 @@ public class Dashboard extends javax.swing.JFrame {
         panel_filterLayout.setHorizontalGroup(
             panel_filterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(12, 12, 12)
+                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panel_filterLayout.setVerticalGroup(
             panel_filterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_filterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(filter_TrPenjualan)
+                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1250,7 +1257,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(panel_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)))
+                        .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         konten_laporanTrJualLayout.setVerticalGroup(
@@ -1296,8 +1303,6 @@ public class Dashboard extends javax.swing.JFrame {
                 btn_backToMenu_kategoriMouseClicked(evt);
             }
         });
-
-        panel_search_kategori.setBackground(new java.awt.Color(255, 255, 255));
 
         icon_search_kategori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
@@ -1346,8 +1351,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jScrollPane6.setViewportView(tabel_data_kategori);
-
-        box_menu_kategori.setBackground(new java.awt.Color(255, 255, 255));
 
         label_kode_kategori.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         label_kode_kategori.setText("Kode");
@@ -1448,8 +1451,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        panel_search_supplier.setBackground(new java.awt.Color(255, 255, 255));
-
         icon_search_supplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
         input_searxh_supplier.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -1497,8 +1498,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(tabel_data_supplier);
-
-        box_menu_supplier.setBackground(new java.awt.Color(255, 255, 255));
 
         label_kode_supplier.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         label_kode_supplier.setText("Kode");
@@ -1619,8 +1618,6 @@ public class Dashboard extends javax.swing.JFrame {
                 btn_backTomenu_tambahMouseClicked(evt);
             }
         });
-
-        panel_box_dataBarang_tambah.setBackground(new java.awt.Color(255, 255, 255));
 
         label_kode_dataBarang_tambah.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         label_kode_dataBarang_tambah.setText("Kode");
@@ -2462,7 +2459,7 @@ public class Dashboard extends javax.swing.JFrame {
         label_toko.setForeground(new Color(0,0,0));
         
         //memanggil fungsi table list user
-        getDataTableListuser();
+        getDataTableListuser("");
     }//GEN-LAST:event_panel_listuserMouseClicked
 
     private void panel_tokoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_tokoMouseClicked
@@ -2512,7 +2509,7 @@ public class Dashboard extends javax.swing.JFrame {
                 
                 
             }
-      }catch(Exception err){
+      }catch(SQLException err){
             JOptionPane.showMessageDialog(null, err.getMessage() );
       }
     }
@@ -2538,7 +2535,7 @@ public class Dashboard extends javax.swing.JFrame {
             String pass2 = field_konfirmasipassword_profile.getText();
             
             if(username.equals("") && nama_depan.equals("") && nama_belakang.equals("") && no_hp.equals("")){
-                throw new Exception("Data Tidak Boleh Kosong !");
+                throw new SQLException("Data Tidak Boleh Kosong !");
             }
             
             if(!username.equals(label_Usernamelama_profile.getText()) ||
@@ -2558,12 +2555,12 @@ public class Dashboard extends javax.swing.JFrame {
                 if(!field_ubahpassword_profile.getText().equals("")||!field_konfirmasipassword_profile.getText().equals("")){
 
                     if(label_passwordLama_profile.getText().equals(field_ubahpassword_profile.getText())){
-                            throw new Exception("Password Ini Sedang Digunakan, Masukkan Password Lain !");
+                            throw new SQLException("Password Ini Sedang Digunakan, Masukkan Password Lain !");
                     }else{
                         if(field_ubahpassword_profile.getText().equals(field_konfirmasipassword_profile.getText())){
                             pst.setString(3, field_ubahpassword_profile.getText());
                         }else{
-                            throw new Exception("Password Yang Anda Masukkan Tidak Sama !");
+                            throw new SQLException("Password Yang Anda Masukkan Tidak Sama !");
                         }
                     }
 
@@ -2584,17 +2581,21 @@ public class Dashboard extends javax.swing.JFrame {
                 jFrameLogin.show();
                 
             }else{
-                throw new Exception("Tidak Ada Perubahan, Data Sudah Terbaru !");
+                throw new SQLException("Tidak Ada Perubahan, Data Sudah Terbaru !");
             }
             
 //            
             
-        }catch(Exception err){
-            JOptionPane.showMessageDialog(null, err.getMessage(), "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
+        }catch(SQLException err){
+            if(err.getErrorCode() == 1062){
+                JOptionPane.showMessageDialog(null, "Username Sudah Digunakan !", "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, err.getMessage(), "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }//GEN-LAST:event_button_simpan_profileMouseClicked
 
-    public void getDataTableListuser(){     
+    public void getDataTableListuser(String Keyword){     
         
         //memberi nama pada table list user
         tb.setColumnCount(0);
@@ -2614,8 +2615,15 @@ public class Dashboard extends javax.swing.JFrame {
      try{
            //membuat statemen pemanggilan data pada table tblGaji dari database
            Statement stat = (Statement) Database.configDB().createStatement( );
-           String sql      = "SELECT * FROM users ORDER BY id_user ASC";
-           ResultSet res   = stat.executeQuery(sql);
+           
+           String sql = "";
+           if(Keyword.equals("")){
+               sql = "SELECT * FROM users ORDER BY id_user ASC";
+           }else{
+               sql = "SELECT * FROM users WHERE nama_lengkap LIKE '%"+Keyword+"%' ORDER BY id_user ASC";
+           }
+           
+           ResultSet res = stat.executeQuery(sql);
            int no=1;
            //penelusuran baris pada tabel tblGaji dari database
            while(res.next ()){
@@ -2630,7 +2638,7 @@ public class Dashboard extends javax.swing.JFrame {
                     res.getString("updated_at")
                 });  
             }
-      }catch(Exception err){
+      }catch(SQLException err){
             JOptionPane.showMessageDialog(null, err.getMessage() );
       }
 }
@@ -2649,7 +2657,7 @@ public class Dashboard extends javax.swing.JFrame {
         try {
             // buka frame tambah user
             TambahUser tambahUser = new TambahUser("tambah", "");
-            tambahUser.setVisible(true);
+            tambahUser.show();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Tambah User Gagal Ditambahkan !", "Terjadi Kesalahan !", JOptionPane.ERROR_MESSAGE);
         }
@@ -2693,6 +2701,10 @@ public class Dashboard extends javax.swing.JFrame {
     private void field_update_tokoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_update_tokoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_field_update_tokoActionPerformed
+
+    private void search_listuserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_listuserKeyPressed
+        getDataTableListuser(search_listuser.getText());
+    }//GEN-LAST:event_search_listuserKeyPressed
 
     public void simpanDataToko() {
         try{
