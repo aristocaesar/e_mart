@@ -30,9 +30,11 @@ public class Dashboard extends javax.swing.JFrame {
     public static Utilities utilities = new Utilities();
     public static DefaultTableModel tb = new DefaultTableModel();
     public String id;
+    public String idsuplier;
+    public String kodeKategori;
+    String  input_kategori_kode;
     
     public Dashboard(String id, String nama_username, int role) {
-        
         initComponents();
         
         // set nama
@@ -195,8 +197,10 @@ public class Dashboard extends javax.swing.JFrame {
         box_menu_kategori = new javax.swing.JPanel();
         label_kode_kategori = new javax.swing.JLabel();
         input_kode_kategori = new javax.swing.JTextField();
-        input_namaSupplier_kategori = new javax.swing.JTextField();
+        input_nama_kategori = new javax.swing.JTextField();
         label_namaSupplier_kategori = new javax.swing.JLabel();
+        kode_kategori_check = new javax.swing.JLabel();
+        nama_kategore_check = new javax.swing.JLabel();
         btn_simpan_kategori = new javax.swing.JButton();
         btn_hapus_kategori = new javax.swing.JButton();
         dataBarang_supplier = new javax.swing.JPanel();
@@ -211,6 +215,8 @@ public class Dashboard extends javax.swing.JFrame {
         input_kode_supplier = new javax.swing.JTextField();
         input_namaSupplier_supplier = new javax.swing.JTextField();
         label_namaSupplier_supplier = new javax.swing.JLabel();
+        labelIdSupplier = new javax.swing.JLabel();
+        label_namaSupplier = new javax.swing.JLabel();
         btn_simpan_supplier = new javax.swing.JButton();
         btn_hapus_supplier = new javax.swing.JButton();
         dataBarang_update = new javax.swing.JPanel();
@@ -256,7 +262,7 @@ public class Dashboard extends javax.swing.JFrame {
         icon_filter = new javax.swing.JLabel();
         filter_combo_box = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_databarang = new javax.swing.JTable();
         kasir_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_order = new javax.swing.JTable();
@@ -907,6 +913,8 @@ public class Dashboard extends javax.swing.JFrame {
 
             }
         ));
+        table_listuser.setColumnSelectionAllowed(false);
+        table_listuser.setRowSelectionAllowed(true);
         table_listuser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 table_listuserMouseClicked(evt);
@@ -1319,7 +1327,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabel_data_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        tabel_data_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         tabel_data_kategori.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1339,6 +1347,11 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabel_data_kategori.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabel_data_kategoriMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tabel_data_kategori);
 
         box_menu_kategori.setBackground(new java.awt.Color(255, 255, 255));
@@ -1348,10 +1361,14 @@ public class Dashboard extends javax.swing.JFrame {
 
         input_kode_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
 
-        input_namaSupplier_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        input_nama_kategori.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
 
         label_namaSupplier_kategori.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         label_namaSupplier_kategori.setText("Nama Kategori");
+
+        kode_kategori_check.setText("jLabel1");
+
+        nama_kategore_check.setText("jLabel1");
 
         javax.swing.GroupLayout box_menu_kategoriLayout = new javax.swing.GroupLayout(box_menu_kategori);
         box_menu_kategori.setLayout(box_menu_kategoriLayout);
@@ -1361,25 +1378,36 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(input_kode_kategori)
-                    .addComponent(input_namaSupplier_kategori)
+                    .addComponent(input_nama_kategori)
                     .addGroup(box_menu_kategoriLayout.createSequentialGroup()
                         .addGroup(box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_kode_kategori)
-                            .addComponent(label_namaSupplier_kategori))
-                        .addGap(0, 307, Short.MAX_VALUE)))
+                            .addGroup(box_menu_kategoriLayout.createSequentialGroup()
+                                .addComponent(label_kode_kategori)
+                                .addGap(88, 88, 88)
+                                .addComponent(kode_kategori_check))
+                            .addGroup(box_menu_kategoriLayout.createSequentialGroup()
+                                .addComponent(label_namaSupplier_kategori)
+                                .addGap(48, 48, 48)
+                                .addComponent(nama_kategore_check)))
+                        .addGap(0, 225, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_kategoriLayout.setVerticalGroup(
             box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(box_menu_kategoriLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(label_kode_kategori)
+                .addGroup(box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_kode_kategori)
+                    .addComponent(kode_kategori_check))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_kode_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(label_namaSupplier_kategori)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(input_namaSupplier_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(box_menu_kategoriLayout.createSequentialGroup()
+                        .addComponent(label_namaSupplier_kategori)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_nama_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nama_kategore_check))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -1387,6 +1415,16 @@ public class Dashboard extends javax.swing.JFrame {
         btn_simpan_kategori.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btn_simpan_kategori.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan_kategori.setText("Simpan");
+        btn_simpan_kategori.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_simpan_kategoriMouseClicked(evt);
+            }
+        });
+        btn_simpan_kategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_simpan_kategoriActionPerformed(evt);
+            }
+        });
 
         btn_hapus_kategori.setBackground(new java.awt.Color(255, 69, 69));
         btn_hapus_kategori.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -1470,24 +1508,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabel_data_supplier.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        tabel_data_supplier.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "No", "Kode", "Nama Supplier"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        tabel_data_supplier.setDefaultEditor(Object.class, null);
+        tabel_data_supplier.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        tabel_data_supplier.setCellSelectionEnabled(false);
+        tabel_data_supplier.setRowSelectionAllowed(true);
+        tabel_data_supplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabel_data_supplierMouseClicked(evt);
             }
         });
         jScrollPane4.setViewportView(tabel_data_supplier);
@@ -1504,6 +1531,10 @@ public class Dashboard extends javax.swing.JFrame {
         label_namaSupplier_supplier.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         label_namaSupplier_supplier.setText("Nama Supplier");
 
+        labelIdSupplier.setText("jLabel1");
+
+        label_namaSupplier.setText("jLabel1");
+
         javax.swing.GroupLayout box_menu_supplierLayout = new javax.swing.GroupLayout(box_menu_supplier);
         box_menu_supplier.setLayout(box_menu_supplierLayout);
         box_menu_supplierLayout.setHorizontalGroup(
@@ -1515,20 +1546,30 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(input_namaSupplier_supplier)
                     .addGroup(box_menu_supplierLayout.createSequentialGroup()
                         .addGroup(box_menu_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_kode_supplier)
-                            .addComponent(label_namaSupplier_supplier))
-                        .addGap(0, 309, Short.MAX_VALUE)))
+                            .addGroup(box_menu_supplierLayout.createSequentialGroup()
+                                .addComponent(label_kode_supplier)
+                                .addGap(89, 89, 89)
+                                .addComponent(labelIdSupplier))
+                            .addGroup(box_menu_supplierLayout.createSequentialGroup()
+                                .addComponent(label_namaSupplier_supplier)
+                                .addGap(26, 26, 26)
+                                .addComponent(label_namaSupplier)))
+                        .addGap(0, 249, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_supplierLayout.setVerticalGroup(
             box_menu_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(box_menu_supplierLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(label_kode_supplier)
+                .addGroup(box_menu_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_kode_supplier)
+                    .addComponent(labelIdSupplier))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_kode_supplier, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(label_namaSupplier_supplier)
+                .addGroup(box_menu_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_namaSupplier_supplier)
+                    .addComponent(label_namaSupplier))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_namaSupplier_supplier, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -1538,6 +1579,11 @@ public class Dashboard extends javax.swing.JFrame {
         btn_simpan_supplier.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btn_simpan_supplier.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan_supplier.setText("Simpan");
+        btn_simpan_supplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_simpan_supplierActionPerformed(evt);
+            }
+        });
 
         btn_hapus_supplier.setBackground(new java.awt.Color(255, 69, 69));
         btn_hapus_supplier.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -1968,27 +2014,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jTable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "No", "Kode", "Nama Barang", "Kategori", "Harga", "Stok", "Supplier", "Updated"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
+        table_databarang.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jScrollPane2.setViewportView(table_databarang);
 
         javax.swing.GroupLayout dataBarang_panelLayout = new javax.swing.GroupLayout(dataBarang_panel);
         dataBarang_panel.setLayout(dataBarang_panelLayout);
@@ -2167,6 +2194,7 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.revalidate();
         
         
+        
         //visibilitas frameIcon
             //icon kasir
             frameIconKasir.setBackground(new Color(73, 148, 255));
@@ -2183,6 +2211,7 @@ public class Dashboard extends javax.swing.JFrame {
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
             iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
+            
             
     }//GEN-LAST:event_iconKasirMouseClicked
 
@@ -2210,6 +2239,10 @@ public class Dashboard extends javax.swing.JFrame {
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
             iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
+            //menampilkan data barang kedalam table
+            
+            getDataTableBarang();
+
     }//GEN-LAST:event_iconDatabaseMouseClicked
 
     private void iconLaporanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLaporanMouseClicked
@@ -2317,6 +2350,7 @@ public class Dashboard extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, err.getMessage());
                 System.exit(0);
             }
+            getDataTableListuser();
     }//GEN-LAST:event_iconSettingMouseClicked
 
     private void iconLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconLogoutMouseClicked
@@ -2371,6 +2405,51 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.add(dataBarang_supplier);
         container_panel.repaint();
         container_panel.revalidate();
+        
+        getDataSuplier();
+        
+        
+        try{
+        String sql1 = "SELECT id_supplier from supplier ORDER BY id_supplier DESC LIMIT 1";
+        PreparedStatement pst1 =conn.prepareStatement(sql1);
+        ResultSet res=pst1.executeQuery();
+        if(res.next()){
+            
+            String a = res.getString(1).replaceAll("[a-zA-Z]", "");
+                    String b = "";
+                    String c[] = a.split("(?!^)");
+                    String u = "";
+
+                    if("0".equals(c[0])){
+                        if("0".equals(c[1])){
+                            b = c[2];
+                        }else{
+                            b = c[1]+c[2];
+                        }
+                    }else{
+                        b = a;
+                    }
+
+                    int d = Integer.parseInt(b)+1;
+
+                    if(d <= 9){
+                        u = "S00";
+                    }else if(d <= 99 ){
+                        u = "S0";
+                    }else{
+                        u = "S";
+                    }
+                   this.idsuplier=u+""+d;
+                   input_kode_supplier.setText(this.idsuplier);
+                   System.out.println(this.idsuplier);
+                    
+        }
+        
+        
+        input_kode_supplier.setEnabled(false);
+        }catch(SQLException err){
+            System.out.println("eror");
+        }
     }//GEN-LAST:event_panel_supMouseClicked
 
     private void panel_katMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_katMouseClicked
@@ -2379,6 +2458,57 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel.add(dataBarang_kategori);
         container_panel.repaint();
         container_panel.revalidate();
+        
+        //set visibilitas
+        kode_kategori_check.setVisible(false);
+        nama_kategore_check.setVisible(false);
+        
+        //table data kategori
+        getDataKategori();
+        
+        try{
+        String sql1 = "SELECT kode_kategori from kategori ORDER BY kode_kategori DESC LIMIT 1";
+        PreparedStatement pst1 =conn.prepareStatement(sql1);
+        ResultSet res=pst1.executeQuery();
+        if(res.next()){
+            
+            String a = res.getString(1).replaceAll("[a-zA-Z]", "");
+                    String b = "";
+                    String c[] = a.split("(?!^)");
+                    String u = "";
+
+                    if("0".equals(c[0])){
+                        if("0".equals(c[1])){
+                            b = c[2];
+                        }else{
+                            b = c[1]+c[2];
+                        }
+                    }else{
+                        b = a;
+                    }
+
+                    int d = Integer.parseInt(b)+1;
+
+                    if(d <= 9){
+                        u = "K00";
+                    }else if(d <= 99 ){
+                        u = "K0";
+                    }else{
+                        u = "K";
+                    }
+                   this.kodeKategori=u+""+d;
+                   input_kode_kategori.setText(this.kodeKategori);
+
+                    
+        }
+        
+        
+        input_kode_kategori.setEnabled(false);
+        //menghapus text field
+        input_nama_kategori.setText("");
+        }catch(SQLException err){
+            System.out.println("eror");
+        }
     }//GEN-LAST:event_panel_katMouseClicked
 
     private void panel_TrPenjualanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_TrPenjualanMouseClicked
@@ -2628,7 +2758,107 @@ public class Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, err.getMessage() );
       }
 }
+    public void getDataTableBarang(){
+        tb.setColumnCount(0);
+        tb.addColumn("No");
+        tb.addColumn("Kode Barang");
+        tb.addColumn("Nama Barang");
+        tb.addColumn("Kategori");
+        tb.addColumn("Harga");
+        tb.addColumn("Stok");
+        tb.addColumn("Supplier");
+       
+        table_databarang.setModel(tb);
+        table_databarang.setEnabled(true);
+        tb.setRowCount(0);
+        
+        
+        
+        
+        try{
+            Statement stat = (Statement) Database.configDB().createStatement( );
+           String sql      = "SELECT * FROM barang ORDER BY kode_barang ASC";
+           ResultSet res   = stat.executeQuery(sql);
+           int no=1;
+           //penelusuran baris pada tabel tblGaji dari database
+           while(res.next ()){
+                tb.addRow(new Object[]{
+                    no++,
+                    res.getString("kode_barang"),
+                    res.getString("nama_barang"),
+                    res.getString("kategori"),
+                    res.getString("harga"),
+                    res.getString("stok"),
+                    res.getString("supplier"),
+                   
+                });  
+            }
+           table_databarang.getColumnModel().getColumn(0).setPreferredWidth(1);
+           table_databarang.getColumnModel().getColumn(2).setPreferredWidth(350);
+
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "gagal memuat data barang","terjadi kesalahan",JOptionPane.INFORMATION_MESSAGE);
+        }
+       
+    }
     
+    public void getDataSuplier(){
+        tb.setColumnCount(0);
+        tb.addColumn("No");
+        tb.addColumn("Id Supplier");
+        tb.addColumn("Nama Supplier");
+        
+        tabel_data_supplier.setModel(tb);
+        tabel_data_supplier.setEnabled(true);
+        tb.setRowCount(0);
+         try{
+            Statement stat = (Statement) Database.configDB().createStatement( );
+           String sql      = "SELECT * FROM supplier ORDER BY id_supplier ASC";
+           ResultSet res   = stat.executeQuery(sql);
+           int no=1;
+           
+           while(res.next ()){
+                tb.addRow(new Object[]{
+                    no++,
+                    res.getString(1),
+                    res.getString(2),
+                });  
+            }
+          
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "gagal memuat data barang","terjadi kesalahan",JOptionPane.INFORMATION_MESSAGE);
+        }
+       
+    }
+    
+    public void getDataKategori(){
+        
+        tb.setColumnCount(0);
+        tb.addColumn("No");
+        tb.addColumn("Kode Kategori");
+        tb.addColumn("Nama Kategori");
+        
+        tabel_data_kategori.setModel(tb);
+        tabel_data_kategori.setEnabled(true);
+        tb.setRowCount(0);
+         try{
+           Statement stat = (Statement) Database.configDB().createStatement( );
+           String sql      = "SELECT * FROM kategori ORDER BY kode_kategori ASC";
+           ResultSet res   = stat.executeQuery(sql);
+           int no=1;
+           
+           while(res.next ()){
+                tb.addRow(new Object[]{
+                    no++,
+                    res.getString(1),
+                    res.getString(2),
+                });  
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "gagal memuat data barang","terjadi kesalahan",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     
     private void button_simpan_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_simpan_profileActionPerformed
         // TODO add your handling code here:
@@ -2679,6 +2909,233 @@ public class Dashboard extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_table_listuserMouseClicked
+
+    private void btn_simpan_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan_supplierActionPerformed
+
+        //tambah suplier
+        String input_suplier_kode =input_kode_supplier.getText().toUpperCase();
+        String input_suplier_nama =input_namaSupplier_supplier.getText();
+        
+        //mencoba i=menambahkan supplier
+        try{    
+        String sql = "INSERT INTO supplier VALUES (?, ?)";
+       
+        PreparedStatement pst = conn.prepareStatement(sql);
+        
+        pst.setString(1, input_suplier_kode);
+       
+        //mengambil kode suplier terbaru yang belum dipakai
+        input_kode_supplier.setText(this.idsuplier);
+        if(!input_suplier_nama.equals("")&&(!input_suplier_nama.equals(" "))){
+            pst.setString(2, input_suplier_nama.toUpperCase());
+        }
+        else{
+            throw  new SQLException("Data tidak boleh kosong");
+        }
+        //eksekusi prepare statement
+        pst.execute();
+        //image sucses
+        ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
+        JOptionPane.showMessageDialog(null, "Supplier Berhasil Ditambahkan !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
+        
+        //mengambil data table suplier terbaru
+        getDataSuplier();
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"terjadi kesalahan !",JOptionPane.ERROR_MESSAGE);
+        }
+        //mengambil id suplier terbaru setelah simpan data
+        
+        try{
+        String sql1 = "SELECT id_supplier from supplier ORDER BY id_supplier DESC LIMIT 1";
+        PreparedStatement pst1 =conn.prepareStatement(sql1);
+        ResultSet res=pst1.executeQuery();
+        if(res.next()){ 
+            String a = res.getString(1).replaceAll("[a-zA-Z]", "");
+                    String b = "";
+                    String c[] = a.split("(?!^)");
+                    String u = "";
+                    if("0".equals(c[0])){
+                        if("0".equals(c[1])){
+                            b = c[2];
+                        }else{
+                            b = c[1]+c[2];
+                        }
+                    }else{
+                        b = a;
+                    }
+
+                    int d = Integer.parseInt(b)+1;
+
+                    if(d <= 9){
+                        u = "S00";
+                    }else if(d <= 99 ){
+                        u = "S0";
+                    }else{
+                        u = "S";
+                    }
+                   this.idsuplier=u+""+d;
+                   input_kode_supplier.setText(this.idsuplier);
+         
+        }
+        
+        
+        input_kode_supplier.setEnabled(false);
+        input_namaSupplier_supplier.setText("");
+        }catch(SQLException err){
+            System.out.println("eror");
+        }
+    
+        
+    }//GEN-LAST:event_btn_simpan_supplierActionPerformed
+
+    private void tabel_data_supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_data_supplierMouseClicked
+ 
+        DefaultTableModel model = (DefaultTableModel)tabel_data_supplier.getModel();
+        int selectedRowIndex = tabel_data_supplier.getSelectedRow();
+        
+        String kode_sup_update = model.getValueAt(selectedRowIndex, 1).toString();
+        String nama_sup_update =model.getValueAt(selectedRowIndex, 2).toString();
+        
+        input_kode_supplier.setText(kode_sup_update);
+        input_namaSupplier_supplier.setText(nama_sup_update);
+        
+        labelIdSupplier.setText(kode_sup_update);
+        label_namaSupplier.setText(nama_sup_update);
+    }//GEN-LAST:event_tabel_data_supplierMouseClicked
+
+    private void btn_simpan_kategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_simpan_kategoriMouseClicked
+        
+        
+        String input_kategori_kode =input_kode_kategori.getText().toUpperCase();
+        String input_kategori_nama = input_nama_kategori.getText();
+        
+        //kondisi dimana kode sama maka update
+        if(input_kategori_kode.equals(kode_kategori_check.getText().toUpperCase())){
+            
+          
+            //jika nama kategori sama maka eror
+            if(input_kategori_nama.equals(nama_kategore_check.getText().toString())){
+                 JOptionPane.showMessageDialog(null, "Tidak Ada Perubahan Data!","Terjadi kesalahan",JOptionPane.INFORMATION_MESSAGE);
+            }
+            //jika tidak sama maka akan update
+            else{
+                try {
+                    String sql1="UPDATE `kategori` SET nama_kategori=? WHERE kode_kategori=?";
+                    PreparedStatement pst1 =conn.prepareStatement(sql1);
+                    pst1.setString(1,input_kategori_nama);
+                    pst1.setString(2, kode_kategori_check.getText());
+                    pst1.execute();
+                    
+                   ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
+                   JOptionPane.showMessageDialog(null, "Kategori Berhasil Dirubah !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
+                   
+                   //mengambil data table kategori
+                   
+                getDataKategori();
+                }catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }   
+               
+            }
+        //jika kode tidak sama maka akan insert 
+        }else{
+            //tambah data kategori
+            try{    
+            String sql = "INSERT INTO kategori VALUES (?, ?)";
+       
+                PreparedStatement pst = conn.prepareStatement(sql);
+                pst.setString(1, input_kategori_kode);
+       
+                //mengambil kode suplier terbaru yang belum dipakai
+                input_kode_kategori.setText(this.kodeKategori);
+                if(!input_kategori_nama.equals("")&&(!input_kategori_nama.equals(" "))){
+                      pst.setString(2, input_kategori_nama.toUpperCase());
+                }
+                else{
+                     throw  new SQLException("Data tidak boleh kosong");
+                }
+            //eksekusi prepare statement
+             pst.execute();
+             //image sucses
+             ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
+             JOptionPane.showMessageDialog(null, "Kategori Berhasil Ditambahkan !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
+       
+        //mengambil data table kategori terbaru
+        getDataKategori();
+        }catch(SQLException e){
+            if(e.getErrorCode()==1062){
+                 JOptionPane.showMessageDialog(null, "Nama Kategori Sudah Digunakan !","terjadi kesalahan !",JOptionPane.ERROR_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, e.getMessage(),"terjadi kesalahan !",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        }
+        //mengambil id Kategori terbaru setelah simpan data 
+        try{
+        String sql1 = "SELECT kode_kategori from kategori ORDER BY kode_kategori DESC LIMIT 1";
+        PreparedStatement pst1 =conn.prepareStatement(sql1);
+        ResultSet res=pst1.executeQuery();
+        if(res.next()){ 
+            String a = res.getString(1).replaceAll("[a-zA-Z]", "");
+                    String b = "";
+                    String c[] = a.split("(?!^)");
+                    String u = "";
+                    if("0".equals(c[0])){
+                        if("0".equals(c[1])){
+                            b = c[2];
+                        }else{
+                            b = c[1]+c[2];
+                        }
+                    }else{
+                        b = a;
+                    }
+
+                    int d = Integer.parseInt(b)+1;
+
+                    if(d <= 9){
+                        u = "K00";
+                    }else if(d <= 99 ){
+                        u = "K0";
+                    }else{
+                        u = "K";
+                    }
+                   this.kodeKategori=u+""+d;
+                   input_kode_kategori.setText(this.kodeKategori);
+         
+        }
+        
+            System.out.println(kode_kategori_check.getText());
+            System.out.println(input_kategori_kode);
+        input_kode_supplier.setEnabled(false);
+        input_nama_kategori.setText("");
+        }catch(SQLException err){
+            System.out.println("eror");
+        }
+        
+        
+    }//GEN-LAST:event_btn_simpan_kategoriMouseClicked
+
+    private void tabel_data_kategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_data_kategoriMouseClicked
+         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)tabel_data_kategori.getModel();
+        int selectedRowIndex = tabel_data_kategori.getSelectedRow();
+        
+        String kode_kategori_update = model.getValueAt(selectedRowIndex, 1).toString();
+        String nama_kategori_update =model.getValueAt(selectedRowIndex, 2).toString();
+        
+        input_kode_kategori.setText(kode_kategori_update);
+        input_nama_kategori.setText(nama_kategori_update);
+        
+        kode_kategori_check.setText(kode_kategori_update);
+        nama_kategore_check.setText(nama_kategori_update);
+        
+    }//GEN-LAST:event_tabel_data_kategoriMouseClicked
+
+    private void btn_simpan_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan_kategoriActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_simpan_kategoriActionPerformed
 
     public void simpanDataToko() {
         try{
@@ -2833,8 +3290,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField input_kode_kategori;
     private javax.swing.JTextField input_kode_supplier;
     private javax.swing.JTextField input_namaBarang_dataBarang_tambah;
-    private javax.swing.JTextField input_namaSupplier_kategori;
     private javax.swing.JTextField input_namaSupplier_supplier;
+    private javax.swing.JTextField input_nama_kategori;
     private javax.swing.JTextField input_searxh_kategori;
     private javax.swing.JTextField input_searxh_supplier;
     private javax.swing.JSpinner input_stok_dataBarang_tambah;
@@ -2846,10 +3303,11 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel kasir_panel;
+    private javax.swing.JLabel kode_kategori_check;
     private javax.swing.JPanel konten_Laporan;
     private javax.swing.JPanel konten_laporanTrJual;
+    private javax.swing.JLabel labelIdSupplier;
     private javax.swing.JLabel labelNamaToko;
     private javax.swing.JLabel labelNamaUser;
     private javax.swing.JLabel labelTanggal;
@@ -2872,6 +3330,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel label_listuser;
     private javax.swing.JLabel label_loginterbaru_profile;
     private javax.swing.JLabel label_namaBarang_dataBarang_tambah;
+    private javax.swing.JLabel label_namaSupplier;
     private javax.swing.JLabel label_namaSupplier_kategori;
     private javax.swing.JLabel label_namaSupplier_supplier;
     private javax.swing.JLabel label_namabelakang_profile;
@@ -2902,6 +3361,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel label_ubahpassword_profile;
     private javax.swing.JLabel label_update_toko;
     private javax.swing.JPanel laporan_panel;
+    private javax.swing.JLabel nama_kategore_check;
     private javax.swing.JPanel navHorizontal;
     private javax.swing.JPanel navVertikal;
     private javax.swing.JPanel navigasi_laporan;
@@ -2932,6 +3392,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTable tabel_data_kategori;
     private javax.swing.JTable tabel_data_supplier;
     private javax.swing.JTable tableTrPenjualan;
+    private javax.swing.JTable table_databarang;
     private javax.swing.JTable table_listuser;
     private javax.swing.JTable table_order;
     // End of variables declaration//GEN-END:variables

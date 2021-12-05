@@ -1259,6 +1259,10 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="columnSelectionAllowed" type="boolean" value="false"/>
+                            <Property name="rowSelectionAllowed" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="true" type="code"/>
+                            </Property>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -2008,7 +2012,7 @@
                 <Component class="javax.swing.JTable" name="tabel_data_kategori">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Trebuchet MS" size="18" style="0"/>
+                      <Font name="Trebuchet MS" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="4">
@@ -2018,6 +2022,9 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabel_data_kategoriMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -2035,13 +2042,21 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="input_kode_kategori" alignment="0" max="32767" attributes="0"/>
-                              <Component id="input_namaSupplier_kategori" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Component id="input_nama_kategori" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label_kode_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label_namaSupplier_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="label_kode_kategori" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                          <Component id="kode_kategori_check" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="label_namaSupplier_kategori" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="nama_kategore_check" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="225" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2052,13 +2067,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="label_kode_kategori" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="label_kode_kategori" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kode_kategori_check" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="input_kode_kategori" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="label_namaSupplier_kategori" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="input_namaSupplier_kategori" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="label_namaSupplier_kategori" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="input_nama_kategori" min="-2" pref="42" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="nama_kategore_check" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -2080,7 +2103,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="input_namaSupplier_kategori">
+                <Component class="javax.swing.JTextField" name="input_nama_kategori">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Trebuchet MS" size="18" style="0"/>
@@ -2093,6 +2116,16 @@
                       <Font name="Trebuchet MS" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Nama Kategori"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="kode_kategori_check">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="nama_kategore_check">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel1"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2110,6 +2143,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_simpan_kategoriMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_simpan_kategoriActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_hapus_kategori">
               <Properties>
@@ -2257,16 +2294,19 @@
                 <Component class="javax.swing.JTable" name="tabel_data_supplier">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Trebuchet MS" size="18" style="0"/>
+                      <Font name="Trebuchet MS" size="12" style="0"/>
                     </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="4">
-                        <Column editable="false" title="No" type="java.lang.Object"/>
-                        <Column editable="false" title="Kode" type="java.lang.Object"/>
-                        <Column editable="false" title="Nama Supplier" type="java.lang.Object"/>
-                      </Table>
+                    <Property name="cellSelectionEnabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="false" type="code"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabel_data_supplierMouseClicked"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tabel_data_supplier.setRowSelectionAllowed(true);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tabel_data_supplier.setDefaultEditor(Object.class, null);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -2287,10 +2327,18 @@
                               <Component id="input_namaSupplier_supplier" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label_kode_supplier" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label_namaSupplier_supplier" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="label_kode_supplier" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="labelIdSupplier" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="label_namaSupplier_supplier" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="label_namaSupplier" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="309" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="249" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2301,11 +2349,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="label_kode_supplier" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="label_kode_supplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelIdSupplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="input_kode_supplier" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="label_namaSupplier_supplier" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="label_namaSupplier_supplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_namaSupplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="input_namaSupplier_supplier" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -2344,6 +2398,16 @@
                     <Property name="text" type="java.lang.String" value="Nama Supplier"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="labelIdSupplier">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label_namaSupplier">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="btn_simpan_supplier">
@@ -2359,6 +2423,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_simpan_supplierActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_hapus_supplier">
               <Properties>
@@ -3152,22 +3219,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="table_databarang">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Trebuchet MS" size="18" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="4">
-                        <Column editable="false" title="No" type="java.lang.Object"/>
-                        <Column editable="false" title="Kode" type="java.lang.Object"/>
-                        <Column editable="false" title="Nama Barang" type="java.lang.Object"/>
-                        <Column editable="false" title="Kategori" type="java.lang.Object"/>
-                        <Column editable="false" title="Harga" type="java.lang.Object"/>
-                        <Column editable="false" title="Stok" type="java.lang.Object"/>
-                        <Column editable="false" title="Supplier" type="java.lang.Object"/>
-                        <Column editable="false" title="Updated" type="java.lang.Object"/>
-                      </Table>
+                      <Font name="Trebuchet MS" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
