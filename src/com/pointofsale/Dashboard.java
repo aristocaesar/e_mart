@@ -737,119 +737,120 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel_setting_profileLayout.setHorizontalGroup(
             container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(30, 30, 30)
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_nohplama_profile)
-                    .addComponent(label_passwordLama_profile)
-                    .addComponent(label_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_profile2_logo)
-                    .addComponent(label_profile_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, container_panel_setting_profileLayout.createSequentialGroup()
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(field_namadepan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_namadepan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_namadepanlama_profile))
-                            .addGap(81, 81, 81)
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label_namabelakang_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(field_namabelakang_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_namabelakanglama_profile)))
-                        .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                                    .addComponent(field_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
-                                    .addComponent(label_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(294, 294, 294)))
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(field_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_Usernamelama_profile)))
-                        .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(label_profile2_logo)
+                            .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                .addComponent(label_profile_logo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(label_idUser_profile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(button_simpan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
                                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                                        .addComponent(field_ubahpassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
+                                        .addComponent(label_namadepan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_namadepanlama_profile))
+                                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                        .addComponent(label_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_nohplama_profile))
+                                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
                                         .addComponent(label_ubahpassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(294, 294, 294)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
-                                    .addComponent(field_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(81, 81, 81)))
-                            .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(field_konfirmasipassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_konfirmasipassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(field_role_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_role_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_konfirmasipasswordlama_profile)))
-                        .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                            .addComponent(label_idUser_profile)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(button_simpan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(275, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_passwordLama_profile))
+                                    .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(field_loginterbaru_profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                                        .addComponent(field_ubahpassword_profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(field_nohp_profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(field_namadepan_profile, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                        .addComponent(label_konfirmasipassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_konfirmasipasswordlama_profile))
+                                    .addComponent(label_role_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                        .addComponent(label_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_Usernamelama_profile))
+                                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
+                                        .addComponent(label_namabelakang_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_namabelakanglama_profile))
+                                    .addComponent(field_konfirmasipassword_profile)
+                                    .addComponent(field_Username_profile)
+                                    .addComponent(field_namabelakang_profile, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                                    .addComponent(field_role_profile))))
+                        .addGap(30, 30, 30))))
         );
         container_panel_setting_profileLayout.setVerticalGroup(
             container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(label_profile_logo)
+                .addGap(30, 30, 30)
+                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_profile_logo)
+                    .addComponent(label_idUser_profile))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_profile2_logo)
+                .addGap(34, 34, 34)
                 .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(container_panel_setting_profileLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
                         .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label_namabelakanglama_profile)
+                            .addComponent(label_namadepan_profile)
                             .addComponent(label_namadepanlama_profile))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_namabelakang_profile))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
+                        .addComponent(field_namadepan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_nohp_profile)
+                            .addComponent(label_nohplama_profile))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_namadepan_profile)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_namadepan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_namabelakang_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_nohplama_profile)
-                    .addComponent(label_Usernamelama_profile))
-                .addGap(2, 2, 2)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_nohp_profile)
-                    .addComponent(label_Username_profile))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_passwordLama_profile)
-                    .addComponent(label_konfirmasipasswordlama_profile))
-                .addGap(2, 2, 2)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_ubahpassword_profile)
-                    .addComponent(label_konfirmasipassword_profile))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_ubahpassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_konfirmasipassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(field_nohp_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_ubahpassword_profile)
+                            .addComponent(label_passwordLama_profile))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_ubahpassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(label_loginterbaru_profile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_profileLayout.createSequentialGroup()
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_namabelakang_profile)
+                            .addComponent(label_namabelakanglama_profile))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_namabelakang_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_Username_profile)
+                            .addComponent(label_Usernamelama_profile))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_Username_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_konfirmasipassword_profile)
+                            .addComponent(label_konfirmasipasswordlama_profile))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_konfirmasipassword_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(label_role_profile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_role_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_loginterbaru_profile)
-                    .addComponent(label_role_profile))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_loginterbaru_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_role_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(container_panel_setting_profileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_simpan_profile)
-                    .addComponent(label_idUser_profile))
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addComponent(button_simpan_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         container_panel_setting.add(container_panel_setting_profile, "card2");
@@ -899,6 +900,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         table_listuser.setDefaultEditor(Object.class, null);
+        table_listuser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         table_listuser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -907,6 +909,9 @@ public class Dashboard extends javax.swing.JFrame {
 
             }
         ));
+        table_listuser.setRowHeight(30);
+        table_listuser.getTableHeader().setResizingAllowed(false);
+        table_listuser.getTableHeader().setReorderingAllowed(false);
         table_listuser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 table_listuserMouseClicked(evt);
@@ -924,7 +929,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(paneltabellistuser)
                     .addGroup(container_panel_setting_listuserLayout.createSequentialGroup()
                         .addComponent(panel_search_listuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                         .addComponent(button_tambahuser, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
@@ -936,7 +941,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(panel_search_listuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(button_tambahuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paneltabellistuser, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+                .addComponent(paneltabellistuser, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -961,6 +966,11 @@ public class Dashboard extends javax.swing.JFrame {
                 button_simpan_tokoMouseClicked(evt);
             }
         });
+        button_simpan_toko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_simpan_tokoActionPerformed(evt);
+            }
+        });
 
         field_alamat_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         field_alamat_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -971,6 +981,11 @@ public class Dashboard extends javax.swing.JFrame {
         field_update_toko.setEditable(false);
         field_update_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         field_update_toko.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        field_update_toko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_update_tokoActionPerformed(evt);
+            }
+        });
 
         label_namatoko_toko.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         label_namatoko_toko.setText("Nama Toko");
@@ -997,39 +1012,35 @@ public class Dashboard extends javax.swing.JFrame {
         container_panel_setting_toko.setLayout(container_panel_setting_tokoLayout);
         container_panel_setting_tokoLayout.setHorizontalGroup(
             container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_toko_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label_toko2_logo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
                         .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                                .addComponent(label_idToko)
-                                .addGap(18, 18, 18)
-                                .addComponent(label_notelplama_toko))
                             .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
                                 .addComponent(label_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(label_namatokolama_toko))
+                            .addComponent(field_namatoko_toko, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                            .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                .addComponent(label_idToko)
+                                .addGap(18, 18, 18)
+                                .addComponent(label_notelplama_toko))
                             .addComponent(label_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(field_namatoko_toko, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                             .addComponent(field_notelp_toko))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, container_panel_setting_tokoLayout.createSequentialGroup()
-                                .addGap(216, 216, 216)
-                                .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(field_update_toko, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_update_toko, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, container_panel_setting_tokoLayout.createSequentialGroup()
-                                .addComponent(label_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(label_alamatLama_toko))
-                            .addComponent(field_alamat_toko, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                         .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_toko2_logo)
-                            .addComponent(label_toko_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 639, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(label_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(field_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                                    .addComponent(label_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(label_alamatLama_toko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(button_simpan_toko, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30))
         );
         container_panel_setting_tokoLayout.setVerticalGroup(
@@ -1039,36 +1050,35 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(label_toko_logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_toko2_logo)
+                .addGap(34, 34, 34)
                 .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label_alamat_toko)
-                            .addComponent(label_alamatLama_toko)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, container_panel_setting_tokoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label_namatoko_toko)
-                            .addComponent(label_namatokolama_toko))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_notelp_toko)
-                    .addComponent(label_update_toko))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_simpan_toko)
-                    .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(label_idToko)
-                        .addComponent(label_notelplama_toko)))
-                .addContainerGap(449, Short.MAX_VALUE))
+                            .addComponent(label_namatokolama_toko))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_namatoko_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(label_notelp_toko)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_notelp_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_idToko)
+                            .addComponent(label_notelplama_toko)))
+                    .addGroup(container_panel_setting_tokoLayout.createSequentialGroup()
+                        .addGroup(container_panel_setting_tokoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_alamat_toko)
+                            .addComponent(label_alamatLama_toko))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_alamat_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(label_update_toko)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_update_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(button_simpan_toko, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
 
         container_panel_setting.add(container_panel_setting_toko, "card2");
@@ -1079,7 +1089,7 @@ public class Dashboard extends javax.swing.JFrame {
             setting_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(setting_panelLayout.createSequentialGroup()
                 .addComponent(navigasi_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(container_panel_setting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         setting_panelLayout.setVerticalGroup(
@@ -1240,7 +1250,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(panel_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)))
+                        .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         konten_laporanTrJualLayout.setVerticalGroup(
@@ -1252,7 +1262,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(panel_filter, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                     .addComponent(panel_cariTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1362,7 +1372,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(box_menu_kategoriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_kode_kategori)
                             .addComponent(label_namaSupplier_kategori))
-                        .addGap(0, 307, Short.MAX_VALUE)))
+                        .addGap(0, 385, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_kategoriLayout.setVerticalGroup(
@@ -1423,7 +1433,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(dataBarang_kategoriLayout.createSequentialGroup()
                         .addComponent(panel_search_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
                         .addGap(30, 30, 30))))
         );
 
@@ -1513,7 +1523,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(box_menu_supplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_kode_supplier)
                             .addComponent(label_namaSupplier_supplier))
-                        .addGap(0, 309, Short.MAX_VALUE)))
+                        .addGap(0, 387, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         box_menu_supplierLayout.setVerticalGroup(
@@ -1574,7 +1584,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(dataBarang_supplierLayout.createSequentialGroup()
                         .addComponent(panel_search_supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
                         .addGap(30, 30, 30))))
         );
 
@@ -1589,14 +1599,14 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(dataBarang_updateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(1307, Short.MAX_VALUE))
+                .addContainerGap(1385, Short.MAX_VALUE))
         );
         dataBarang_updateLayout.setVerticalGroup(
             dataBarang_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBarang_updateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(717, Short.MAX_VALUE))
+                .addContainerGap(750, Short.MAX_VALUE))
         );
 
         container_panel.add(dataBarang_update, "card7");
@@ -1768,7 +1778,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(panel_box_dataBarang_tambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_simpan_dataBarang_tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         container_panel.add(dataBarang_tambah, "card6");
@@ -2023,7 +2033,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(btn_tambah_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(filter_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -2083,7 +2093,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(frame_grandTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enter_label)
                     .addComponent(f10_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 623, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 701, Short.MAX_VALUE)
                 .addComponent(label_nilaiTotal)
                 .addGap(18, 18, 18)
                 .addComponent(nilai_total, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2119,7 +2129,7 @@ public class Dashboard extends javax.swing.JFrame {
             kasir_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kasir_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(frame_grandTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2675,6 +2685,14 @@ public class Dashboard extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_table_listuserMouseClicked
+
+    private void button_simpan_tokoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_simpan_tokoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_simpan_tokoActionPerformed
+
+    private void field_update_tokoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_update_tokoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_update_tokoActionPerformed
 
     public void simpanDataToko() {
         try{

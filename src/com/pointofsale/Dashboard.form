@@ -473,7 +473,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="navigasi_setting" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="container_panel_setting" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -721,153 +721,149 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label_nohplama_profile" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_passwordLama_profile" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_loginterbaru_profile" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="label_profile2_logo" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_profile_logo" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="field_namadepan_profile" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
-                                              <Component id="label_namadepan_profile" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                              <Component id="label_namadepanlama_profile" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="label_namabelakang_profile" min="-2" pref="93" max="-2" attributes="0"/>
-                                              <Component id="field_namabelakang_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                              <Component id="label_namabelakanglama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="label_profile2_logo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="label_profile_logo" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="label_idUser_profile" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="field_nohp_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="label_nohp_profile" min="-2" pref="93" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
-                                              </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="button_simpan_profile" min="-2" pref="137" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="field_Username_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                              <Component id="label_Username_profile" min="-2" pref="124" max="-2" attributes="0"/>
-                                              <Component id="label_Usernamelama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="label_loginterbaru_profile" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="field_ubahpassword_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="label_namadepan_profile" min="-2" pref="93" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_namadepanlama_profile" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="label_nohp_profile" min="-2" pref="93" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_nohplama_profile" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="label_ubahpassword_profile" min="-2" pref="93" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_passwordLama_profile" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="field_loginterbaru_profile" alignment="0" pref="430" max="32767" attributes="0"/>
+                                                      <Component id="field_ubahpassword_profile" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="field_nohp_profile" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="field_namadepan_profile" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="field_loginterbaru_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                              <EmptySpace pref="200" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="label_konfirmasipassword_profile" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_konfirmasipasswordlama_profile" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="label_role_profile" min="-2" pref="93" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="label_Username_profile" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_Usernamelama_profile" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="label_namabelakang_profile" min="-2" pref="93" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label_namabelakanglama_profile" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="field_konfirmasipassword_profile" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="field_Username_profile" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="field_namabelakang_profile" alignment="0" pref="430" max="32767" attributes="0"/>
+                                                  <Component id="field_role_profile" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="field_konfirmasipassword_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                              <Component id="label_konfirmasipassword_profile" min="-2" pref="124" max="-2" attributes="0"/>
-                                              <Component id="field_role_profile" min="-2" pref="306" max="-2" attributes="0"/>
-                                              <Component id="label_role_profile" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                              <Component id="label_konfirmasipasswordlama_profile" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="label_idUser_profile" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="button_simpan_profile" min="-2" pref="90" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="275" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="label_profile_logo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="label_profile_logo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_idUser_profile" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="label_profile2_logo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="label_namabelakanglama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_namadepan_profile" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="label_namadepanlama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="label_namabelakang_profile" min="-2" max="-2" attributes="0"/>
+                                      <Component id="field_namadepan_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_nohp_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_nohplama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_nohp_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_ubahpassword_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_passwordLama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_ubahpassword_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="label_loginterbaru_profile" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_loginterbaru_profile" min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_namabelakang_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_namabelakanglama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="label_namadepan_profile" min="-2" max="-2" attributes="0"/>
+                                      <Component id="field_namabelakang_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_Username_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_Usernamelama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_Username_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_konfirmasipassword_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_konfirmasipasswordlama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_konfirmasipassword_profile" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="label_role_profile" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_role_profile" min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_namadepan_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_namabelakang_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_nohplama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_Usernamelama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_nohp_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_Username_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_nohp_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_Username_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_passwordLama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_konfirmasipasswordlama_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_ubahpassword_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_konfirmasipassword_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_ubahpassword_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_konfirmasipassword_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_loginterbaru_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_role_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="button_simpan_profile" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_loginterbaru_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_role_profile" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="button_simpan_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_idUser_profile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="247" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1125,7 +1121,7 @@
                                   <Component id="paneltabellistuser" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="panel_search_listuser" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                                      <EmptySpace pref="121" max="32767" attributes="0"/>
                                       <Component id="button_tambahuser" min="-2" pref="209" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1142,7 +1138,7 @@
                                   <Component id="button_tambahuser" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="paneltabellistuser" pref="630" max="32767" attributes="0"/>
+                              <Component id="paneltabellistuser" pref="663" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1232,6 +1228,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="table_listuser">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Tahoma" size="14" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="0" rowCount="0"/>
                             </Property>
@@ -1259,8 +1258,9 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="30"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                              <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1285,47 +1285,41 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="label_toko_logo" max="32767" attributes="0"/>
+                                  <Component id="label_toko2_logo" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="label_idToko" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="label_notelplama_toko" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="label_namatoko_toko" min="-2" pref="93" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="label_namatokolama_toko" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="field_namatoko_toko" alignment="0" pref="430" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="label_idToko" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="label_notelplama_toko" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Component id="label_notelp_toko" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                          <Component id="field_namatoko_toko" alignment="0" pref="423" max="32767" attributes="0"/>
                                           <Component id="field_notelp_toko" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="216" pref="216" max="-2" attributes="0"/>
-                                              <Component id="button_simpan_toko" min="-2" pref="90" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="field_update_toko" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
-                                          <Component id="label_update_toko" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="label_alamat_toko" min="-2" pref="93" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="label_alamatLama_toko" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="field_alamat_toko" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                                      <EmptySpace pref="199" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label_toko2_logo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="label_toko_logo" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="label_update_toko" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <Component id="field_alamat_toko" min="-2" pref="431" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="label_alamat_toko" min="-2" pref="93" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="label_alamatLama_toko" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="button_simpan_toko" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
+                                          <Component id="field_update_toko" min="-2" pref="431" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="639" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -1339,46 +1333,41 @@
                               <Component id="label_toko_logo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="label_toko2_logo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="label_alamat_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="label_alamatLama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="label_namatoko_toko" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="label_namatokolama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_namatoko_toko" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="label_notelp_toko" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_notelp_toko" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_idToko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_notelplama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="label_alamat_toko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label_alamatLama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_alamat_toko" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="label_update_toko" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="field_update_toko" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="button_simpan_toko" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_namatoko_toko" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_alamat_toko" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="label_notelp_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_update_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="field_notelp_toko" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="field_update_toko" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="button_simpan_toko" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="label_idToko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label_notelplama_toko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="449" max="32767" attributes="0"/>
+                              <EmptySpace pref="440" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1430,6 +1419,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_simpan_tokoMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_simpan_tokoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="field_alamat_toko">
@@ -1468,6 +1458,9 @@
                           </Border>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="field_update_tokoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="label_namatoko_toko">
                       <Properties>
@@ -1675,7 +1668,7 @@
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="panel_filter" min="-2" pref="337" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="Btn_TrPenjualan" pref="207" max="32767" attributes="0"/>
+                                      <Component id="Btn_TrPenjualan" pref="285" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -1692,7 +1685,7 @@
                                   <Component id="panel_cariTrPenjualan" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="642" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="675" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1916,7 +1909,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="panel_search_kategori" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="579" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" pref="612" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2034,7 +2027,7 @@
                                       <Component id="label_kode_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="label_namaSupplier_kategori" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2165,7 +2158,7 @@
                           <Group type="102" attributes="0">
                               <Component id="panel_search_supplier" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="579" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="612" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2283,7 +2276,7 @@
                                       <Component id="label_kode_supplier" min="-2" max="-2" attributes="0"/>
                                       <Component id="label_namaSupplier_supplier" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="309" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2382,7 +2375,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1307" max="32767" attributes="0"/>
+                      <EmptySpace pref="1385" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2391,7 +2384,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="717" max="32767" attributes="0"/>
+                      <EmptySpace pref="750" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2444,7 +2437,7 @@
                       <Component id="panel_box_dataBarang_tambah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_simpan_dataBarang_tambah" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="153" max="32767" attributes="0"/>
+                      <EmptySpace pref="186" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2787,7 +2780,7 @@
                           <Component id="filter_box" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="484" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="517" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -3197,7 +3190,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="612" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="645" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="frame_grandTotal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -3265,7 +3258,7 @@
                               <Component id="enter_label" min="-2" max="-2" attributes="0"/>
                               <Component id="f10_label" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="623" max="32767" attributes="0"/>
+                          <EmptySpace pref="701" max="32767" attributes="0"/>
                           <Component id="label_nilaiTotal" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="nilai_total" min="-2" pref="222" max="-2" attributes="0"/>
