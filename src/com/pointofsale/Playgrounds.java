@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package com.pointofsale;
+
+import java.sql.Timestamp;
+
 /**
  *
  * @author PLAYER
@@ -81,6 +84,9 @@ public class Playgrounds {
       
       System.out.println(u+""+d);
       
+      String time =  new Timestamp(System.currentTimeMillis()).toString();
+       
+        System.out.println(time);
     
     }
     

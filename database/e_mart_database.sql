@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 09:32 AM
+-- Generation Time: Dec 05, 2021 at 03:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -38,14 +38,6 @@ CREATE TABLE `barang` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `barang`
---
-
-INSERT INTO `barang` (`kode_barang`, `nama_barang`, `kategori`, `harga`, `stok`, `supplier`, `created_at`, `updated_at`) VALUES
-('BRG0001', 'Epson Printer L121 Print Only - Garansi Resmi Epson', 'K001', 1735000, 20, 'S001', '2021-11-26 00:40:08', '2021-11-25 18:37:50'),
-('BRG0002', 'Tinta Canon BLUEPRINT Refill For Printer Canon 100ml - Varian Warna', 'K002', 43000, 10, 'S002', '2021-11-26 00:40:59', '2021-11-25 18:40:11');
-
 -- --------------------------------------------------------
 
 --
@@ -53,18 +45,9 @@ INSERT INTO `barang` (`kode_barang`, `nama_barang`, `kategori`, `harga`, `stok`,
 --
 
 CREATE TABLE `kategori` (
-  `kode_kategori` varchar(8) NOT NULL,
+  `id_kategori` varchar(8) NOT NULL,
   `nama_kategori` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kategori`
---
-
-INSERT INTO `kategori` (`kode_kategori`, `nama_kategori`) VALUES
-('K003', 'dsadasd'),
-('K001', 'Kamera'),
-('K002', 'Tinta');
 
 -- --------------------------------------------------------
 
@@ -82,8 +65,7 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`) VALUES
-('S001', 'PT.Centrakom'),
-('S002', 'PT.Multikom');
+('S002', 'GVHJKJK');
 
 -- --------------------------------------------------------
 
@@ -142,13 +124,6 @@ CREATE TABLE `transaksi_detail` (
   `kode_barang` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `transaksi_detail`
---
-
-INSERT INTO `transaksi_detail` (`kode_transaksi`, `qyt`, `sub_total`, `kode_barang`) VALUES
-('TR756454321', 1, 43000, 'BRG0001');
-
 -- --------------------------------------------------------
 
 --
@@ -173,7 +148,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U001', 'aristo', 'ARISTO CAESAR PRATAMA', '1', 1, '0852351191010', 'Aktif', '2021-12-05 15:29:32', '2021-12-03 01:50:51', '2021-12-05 14:19:21'),
+('U001', 'aristo', 'ARISTO CAESAR PRATAMA', '1', 1, '0852351191010', 'Aktif', '2021-12-05 21:16:12', '2021-12-03 01:50:51', '2021-12-05 14:19:21'),
 ('U002', 'person', 'ULUL GAMING', 'person', 2, '543534534', 'Aktif', '2021-12-03 01:54:41', '2021-12-03 01:54:41', '2021-12-05 12:34:19'),
 ('U004', 'a', 'ETST 2 DAS', 'a', 2, '12312', 'Non-Aktif', '2021-12-04 16:14:39', '2021-12-04 05:20:58', '2021-12-05 14:08:35');
 
@@ -194,7 +169,7 @@ ALTER TABLE `barang`
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`kode_kategori`),
+  ADD PRIMARY KEY (`id_kategori`),
   ADD UNIQUE KEY `nama_kategori` (`nama_kategori`);
 
 --
@@ -239,8 +214,8 @@ ALTER TABLE `users`
 -- Constraints for table `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`kode_kategori`),
-  ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`supplier`) REFERENCES `supplier` (`id_supplier`);
+  ADD CONSTRAINT `FK_kategori` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_supplier` FOREIGN KEY (`supplier`) REFERENCES `supplier` (`id_supplier`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi`
@@ -252,8 +227,8 @@ ALTER TABLE `transaksi`
 -- Constraints for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
+  ADD CONSTRAINT `FK_barang` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`kode_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_transaksi` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_detail_ibfk_2` FOREIGN KEY (`kode_barang`) REFERENCES `barang` (`kode_barang`),
   ADD CONSTRAINT `transaksi_detail_ibfk_3` FOREIGN KEY (`kode_transaksi`) REFERENCES `transaksi` (`kode_transaksi`);
 COMMIT;
 
