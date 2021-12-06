@@ -88,14 +88,17 @@ public class Playgrounds {
 //      
 //      System.out.println(u+""+d);
 
-        String[] dataMasukan = {"Printer", "Monitor", "Tinta"};
-        
-        String[] data = new String[50];
-        int i = 0;
-        while(dataMasukan.length > i){
-            data[i] = dataMasukan[i];
-            i++;
-        }
+//        String[] dataMasukan = {"Printer", "Monitor", "Tinta"};
+//        
+//        String[] data = new String[50];
+//        int i = 0;
+//        while(dataMasukan.length > i){
+//            data[i] = dataMasukan[i];
+//            i++;
+//        }
+
+//            String a = "123abc456.9()";
+//            System.out.println(a.);
         
       
     

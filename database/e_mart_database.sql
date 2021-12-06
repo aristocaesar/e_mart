@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 02:35 AM
+-- Generation Time: Dec 06, 2021 at 10:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -44,7 +44,12 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`kode_barang`, `nama_barang`, `kategori`, `harga`, `stok`, `supplier`, `created_at`, `updated_at`) VALUES
 ('BRG0001', 'Bonkyo Wireless Optical Mouse Dan Minimalism - MSE6', 'K010', 59900, 14, 'S006', '2021-12-06 07:50:03', '2021-12-06 01:48:28'),
-('BRG0002', 'Logitech B175 Mouse Wireless untuk Windows, Mac, Linux dan ChromeOS', 'K010', 96000, 12, 'S004', '2021-12-06 07:50:03', '2021-12-06 01:48:28');
+('BRG0002', 'Monitor Samsung 24\" 75hz S24R350 IPS FHD HDMI LED (LS24R350FHE)', 'K001', 2241400, 14, 'S006', '2021-12-07 02:47:30', '2021-12-07 02:47:30'),
+('BRG0003', 'Xiaomi Mi 23.8 Inch Desktop Monitor 1C Full HD Redmi 1A Garansi Resmi', 'K001', 2175000, 67, 'S008', '2021-12-07 02:48:14', '2021-12-07 02:48:14'),
+('BRG0004', 'Acetech Wireless Mouse Gaming - Mouse Wireless Bluetooth Gaming A30 Black', 'K024', 39000, 6, 'S018', '2021-12-07 02:48:35', '2021-12-07 02:48:35'),
+('BRG0005', 'TP-LINK TL-WR 840N Router TP Link TL-WR840N Wifi Wireless N Router 300Mbps', 'K024', 148000, 45, 'S009', '2021-12-07 02:49:14', '2021-12-07 02:49:14'),
+('BRG0006', 'Tenda AC6 Wireless Router AC1200 Smart Dual-Band WiFI Router', 'K024', 308000, 10, 'S017', '2021-12-07 02:49:35', '2021-12-07 02:49:35'),
+('BRG0007', 'Kabel Lan Cat5e FTP STP Outdoor 30 Meter Siap Pakai Kabel UTPp', 'K025', 62500, 51, 'S016', '2021-12-07 02:50:23', '2021-12-07 04:22:29');
 
 -- --------------------------------------------------------
 
@@ -62,14 +67,29 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-('K009', 'Air Coller'),
+('K024', 'Access Point'),
+('K017', 'Charger Laptop'),
+('K011', 'Flaskdisk'),
+('K012', 'Harddisk'),
+('K019', 'Kabel HDMI'),
 ('K006', 'Kabel Sata'),
+('K016', 'Kabel VGA'),
+('K009', 'Kipas Pendingin'),
+('K025', 'Konektor'),
+('K021', 'LCD Laptop'),
 ('K008', 'Modem'),
 ('K001', 'Monitor'),
 ('K010', 'Mouse'),
+('K014', 'Power Supply'),
 ('K007', 'Printer'),
+('K018', 'Processor'),
+('K015', 'RAM'),
+('K020', 'Scanner'),
 ('K005', 'Sound Speaker'),
-('K003', 'Tinta');
+('K013', 'SSD'),
+('K003', 'Tinta'),
+('K022', 'USB Bluetooth'),
+('K023', 'Wifi Adapther');
 
 -- --------------------------------------------------------
 
@@ -87,14 +107,26 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`) VALUES
+('S018', 'Bhineka'),
 ('S008', 'Cv.Caesar Cell'),
 ('S004', 'Cv.Utama Joyo Kencono Mandraguno'),
+('S009', 'Dino Market'),
+('S017', 'Itnesia'),
+('S011', 'Jakarta Notebook'),
+('S015', 'Jakmall'),
+('S019', 'Joom'),
+('S016', 'Jualo'),
+('S010', 'Lazada'),
+('S014', 'Multicom'),
 ('S005', 'Pt.Djarum Super Indonesia'),
 ('S002', 'Pt.Gudang Ganam'),
 ('S001', 'Pt.Mabuk Cinta Abadi Sentosa'),
 ('S006', 'Pt.Mencari Cinta Sejati'),
 ('S007', 'Pt.Player Cell'),
-('S003', 'Pt.Sesuk Sukses Sampek Tipes');
+('S003', 'Pt.Sesuk Sukses Sampek Tipes'),
+('S020', 'Sanberg'),
+('S013', 'Soklik'),
+('S012', 'Toko Komputer ');
 
 -- --------------------------------------------------------
 
@@ -177,7 +209,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama_lengkap`, `password`, `role`, `no_hp`, `isAktif`, `login_terbaru`, `created_at`, `updated_at`) VALUES
-('U001', '1', 'ARISTO CAESAR PRATAMA', '1', 1, '0852351191010', 'Aktif', '2021-12-06 08:33:24', '2021-12-03 01:50:51', '2021-12-05 14:19:21'),
+('U001', '1', 'ARISTO CAESAR PRATAMA', '1', 1, '0852351191010', 'Aktif', '2021-12-07 04:43:43', '2021-12-03 01:50:51', '2021-12-05 14:19:21'),
 ('U002', 'person', 'ANJAY GAMING', 'person', 2, '543534534', 'Aktif', '2021-12-06 07:53:33', '2021-12-03 01:54:41', '2021-12-06 07:52:27'),
 ('U004', 'a', 'ETST 2 DAS', 'a', 2, '12312', 'Non-Aktif', '2021-12-04 16:14:39', '2021-12-04 05:20:58', '2021-12-05 14:08:35');
 
