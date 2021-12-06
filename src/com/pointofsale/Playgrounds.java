@@ -9,6 +9,13 @@ package com.pointofsale;
  * @author PLAYER
  */
 public class Playgrounds {
+    
+//    public String[] dataBarang(){
+//    
+//        
+//    
+//    }
+    
     public static void main(String[] args) {
         
         // U0001
@@ -54,32 +61,42 @@ public class Playgrounds {
 //    }
 
 
-      String a = "U099".replaceAll("[a-zA-Z]", "");
-      String b = "";
-      String c[] = a.split("(?!^)");
-      String u = "";
-      
-      if("0".equals(c[0])){
-          if("0".equals(c[1])){
-              b = c[2];
-          }else{
-              b = c[1]+c[2];
-          }
-      }else{
-          b = a;
-      }
-      
-      int d = Integer.parseInt(b)+1;
-      
-      if(d <= 9){
-          u = "U00";
-      }else if(d <= 99 ){
-          u = "U0";
-      }else{
-          u = "U";
-      }
-      
-      System.out.println(u+""+d);
+//      String a = "U099".replaceAll("[a-zA-Z]", "");
+//      String b = "";
+//      String c[] = a.split("(?!^)");
+//      String u = "";
+//      
+//      if("0".equals(c[0])){
+//          if("0".equals(c[1])){
+//              b = c[2];
+//          }else{
+//              b = c[1]+c[2];
+//          }
+//      }else{
+//          b = a;
+//      }
+//      
+//      int d = Integer.parseInt(b)+1;
+//      
+//      if(d <= 9){
+//          u = "U00";
+//      }else if(d <= 99 ){
+//          u = "U0";
+//      }else{
+//          u = "U";
+//      }
+//      
+//      System.out.println(u+""+d);
+
+        String[] dataMasukan = {"Printer", "Monitor", "Tinta"};
+        
+        String[] data = new String[50];
+        int i = 0;
+        while(dataMasukan.length > i){
+            data[i] = dataMasukan[i];
+            i++;
+        }
+        
       
     
     }
