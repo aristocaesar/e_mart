@@ -36,7 +36,9 @@ public class Dashboard extends javax.swing.JFrame {
     public static Login jFrameLogin = new Login();
     public static Utilities utilities = new Utilities();
     public static DefaultTableModel tb = new DefaultTableModel();
+    public static DefaultTableModel tb_order = new DefaultTableModel();
     public String id;
+    public String test;
     
     public Dashboard(String id, String nama_username, int role) {
         initComponents();
@@ -98,6 +100,27 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         });
+         
+         // konfigurasi table order
+         // buat sebuah table
+            tb_order.setColumnCount(0);
+            tb_order.addColumn("No");
+            tb_order.addColumn("Kode Barang");
+            tb_order.addColumn("Nama Barang");
+            tb_order.addColumn("Harga");
+            tb_order.addColumn("Stok");
+            tb_order.addColumn("Qyt");
+            tb_order.addColumn("Diskon");
+            tb_order.addColumn("Total");
+
+            table_order.setModel(tb_order);
+            table_order.setEnabled(true);
+            tb_order.setRowCount(0);
+            tb_order.addRow(new Object[]{
+                "1","","","","","","",""
+            });
+            System.out.println(this.test);
+            System.out.println("dahsbord dijalankan kembali");
     }
     
     @SuppressWarnings("unchecked")
@@ -1219,7 +1242,7 @@ public class Dashboard extends javax.swing.JFrame {
             panel_filterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_filterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1876,6 +1899,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         container_panel.add(dataBarang_tambah, "card6");
 
+        panel_sup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_sup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panel_supMouseClicked(evt);
@@ -1952,6 +1976,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panel_kat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_kat.setPreferredSize(new java.awt.Dimension(260, 115));
         panel_kat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2123,7 +2148,7 @@ public class Dashboard extends javax.swing.JFrame {
         kasir_panel.setBackground(new java.awt.Color(219, 219, 219));
 
         table_order.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        table_order.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        table_order.setFont(new java.awt.Font("Trebuchet MS", 0, 17)); // NOI18N
         table_order.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -2157,7 +2182,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, false, false, true, true, false
+                false, false, false, false, false, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2294,7 +2319,6 @@ public class Dashboard extends javax.swing.JFrame {
             frameIconSetting.setBackground(new Color(255, 255, 255));
             iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
          
-            
     }//GEN-LAST:event_iconKasirMouseClicked
 
     private void iconDatabaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDatabaseMouseClicked
@@ -2478,10 +2502,36 @@ public class Dashboard extends javax.swing.JFrame {
     private void table_orderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_table_orderKeyPressed
         // TODO add your handling code here:
          if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            
-            TambahOrder tambah_order = new TambahOrder();
-            tambah_order.setVisible(true);
-            tambah_order.show();
+             
+             
+             try{
+                // barang masih kosong
+                String sql = "SELECT kode_barang FROM barang ORDER BY kode_barang DESC LIMIT 1";
+                PreparedStatement pst = conn.prepareStatement(sql);
+                ResultSet res = pst.executeQuery(sql);
+                if(!res.next()){
+                    int barang_kosong = JOptionPane.showConfirmDialog(null, "Barang Tidak Tersedia, Silakukan Tambah Barang !", "Terjadi Kesalahan !", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    if(barang_kosong == 0){
+                        // ketika btn_tambah_barang diklik
+                        container_panel.removeAll();
+                        container_panel.add(dataBarang_tambah);
+                        container_panel.repaint();
+                        container_panel.revalidate();
+
+                        // set nama halaman
+                        btn_backTomenu_tambah.setText("Barang > Tambah Barang");
+
+                        // set value
+                        setValueDataBarang("");
+                    }
+                }else{
+                    TambahOrder tambah_order = new TambahOrder();
+                    tambah_order.setVisible(true);
+                    tambah_order.show();
+                }
+             }catch(SQLException err){
+                 JOptionPane.showConfirmDialog(null, "Gagal Memuat Informasi Barang !", "Terjadi Kesalahan !", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+             }
 
             
         }else if(evt.getKeyCode()==KeyEvent.VK_F10){
@@ -2495,10 +2545,39 @@ public class Dashboard extends javax.swing.JFrame {
             
             }
              
+        }else if(evt.getKeyCode()==KeyEvent.VK_F5){
+            resetDataOrder();
         }   
 
     }//GEN-LAST:event_table_orderKeyPressed
 
+    public void pushDataOrderToMain(String[] data){
+        
+        if(data.length != 0){
+            System.out.println(data[0]);
+            System.out.println(data[1]);
+            System.out.println(data[2]);
+            System.out.println(data[3]);
+            tb_order.addRow(new Object[]{
+                "3", data[0], data[1], data[2], data[3], "1", "0", data[2]
+            });
+            tb_order.addRow(new Object[]{
+                "3", data[0], data[1], data[2], data[3], "1", "0", data[2]
+            });
+        }
+    
+    }
+    
+    public void resetDataOrder(){
+        int resetData = JOptionPane.showOptionDialog(null, "Apakah Anda Yakin Ingin Menghapus Data Order ?", "Informasi !", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+        if(resetData == 0){
+            tb_order.setRowCount(0);
+            tb_order.addRow(new Object[]{
+                "1", "", "", "", "", "", "", ""
+            });
+        }
+    }
+    
     private void btn_tambah_barangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambah_barangMouseClicked
         // ketika btn_tambah_barang diklik
         container_panel.removeAll();
@@ -3237,9 +3316,9 @@ public class Dashboard extends javax.swing.JFrame {
         try{
            String sql = "";
            if(Keyword.equals("")){
-                sql = "SELECT barang.kode_barang, barang.nama_barang, kategori.nama_kategori, barang.harga, barang.stok, supplier.nama_supplier FROM barang JOIN kategori ON barang.kategori = kategori.id_kategori JOIN supplier ON barang.supplier = supplier.id_supplier ORDER BY barang.kode_barang ASC";
+                sql = "SELECT * FROM barang ORDER BY kode_barang ASC";
            }else{
-               sql = "SELECT * FROM barang WHERE nama_barang LIKE '%"+Keyword+"%' ORDER BY kode_barang ASC";
+               sql = "SELECT * FROM barang WHERE nama_barang LIKE '%"+Keyword+"%' OR kode_barang LIKE '%"+Keyword+"%' ORDER BY kode_barang ASC";
            }
            PreparedStatement pst = conn.prepareStatement(sql);
            ResultSet res   = pst.executeQuery(sql);
@@ -3264,7 +3343,7 @@ public class Dashboard extends javax.swing.JFrame {
            
         }catch(SQLException e){
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "gagal memuat data barang","terjadi kesalahan",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Gagal Memuat Data Barang!","Terjadi Kesalahan!",JOptionPane.INFORMATION_MESSAGE);
         }
        
     }
