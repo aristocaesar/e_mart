@@ -189,7 +189,7 @@ public class TambahOrder extends javax.swing.JFrame {
             tb.setColumnCount(0);
             tb.addColumn("Kode");
             tb.addColumn("Nama Barang");
-            tb.addColumn("Stok oke");
+            tb.addColumn("Stok");
             tb.addColumn("Harga");
 
             tableGetDataOrder.setModel(tb);
@@ -198,9 +198,9 @@ public class TambahOrder extends javax.swing.JFrame {
             
             String sql = "";
             if(keyword.equals("")){
-                sql = "SELECT kode_barang, nama_barang, stok, harga FROM barang ORDER BY kode_barang ASC";
+                sql = "SELECT kode_barang, nama_barang, stok, harga FROM barang WHERE stok != 0 ORDER BY kode_barang ASC";
             }else{
-                sql = "SELECT kode_barang, nama_barang, stok, harga FROM barang WHERE nama_barang LIKE '%"+keyword+"%' OR kode_barang LIKE '%"+keyword+"%' ORDER BY kode_barang ASC";
+                sql = "SELECT kode_barang, nama_barang, stok, harga FROM barang WHERE nama_barang LIKE '%"+keyword+"%' OR kode_barang LIKE '%"+keyword+"%' AND stok != 0 ORDER BY kode_barang ASC";
             }
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet res = pst.executeQuery();

@@ -273,8 +273,8 @@ public class Login extends javax.swing.JFrame {
         try{
             String sql = "SELECT * FROM users WHERE username =? AND password =? ";
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1,inputUsername.getText());
-            pst.setString(2, inputPassword.getText());
+            pst.setString(1,inputUsername.getText().replaceAll("[^a-zA-Z0-9]", ""));
+            pst.setString(2, inputPassword.getText().replaceAll("[^a-zA-Z0-9]", ""));
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){

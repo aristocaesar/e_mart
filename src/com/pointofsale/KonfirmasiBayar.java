@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,15 +23,27 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
      */
      public static java.sql.Connection conn = (Connection)Database.configDB();
      public static Utilities utilities = new Utilities();
-    String Data[][];
-    String total_belanja;
+     String userID;
+     String nama_user;
+     String transaksi;
+     String Data[][];
+     String total_belanja;
     
-    public KonfirmasiBayar(String[][] data) {
+    public KonfirmasiBayar(String[][] data, String user, String nama_user) {
         this.setResizable(false);
         initComponents();
         
         this.setTitle("Konfirmasi Pembayaran");
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/trolley.png")));
+        
+        //set label transaksi
+        Random ran = new Random();
+        this.transaksi = "TR"+ran.nextInt(1000000000);
+        label_id_transaksi.setText("#ID "+this.transaksi);
+        
+        //set user id
+        this.userID = user;
+        this.nama_user = nama_user;
         
         // set total belanja
         int total_belanja = 0;
@@ -64,6 +77,7 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
         input_total_belanja = new javax.swing.JLabel();
         btn_konfirmasiPembayaran = new javax.swing.JButton();
         input_diskon = new javax.swing.JTextField();
+        label_id_transaksi = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -111,40 +125,43 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
             }
         });
 
+        label_id_transaksi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        label_id_transaksi.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_konfirmasiPembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_konfirmasiPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_total_kembalian, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label_bayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label_total_belanja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(label_diskon, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(label_bayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(label_total_belanja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label_id_transaksi)
+                                    .addComponent(label_diskon, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(input_bayar, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(total_kembalian, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                    .addComponent(input_total_belanja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(input_diskon))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(71, 71, 71))
+                            .addComponent(input_bayar)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(total_kembalian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(input_total_belanja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(input_diskon, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addComponent(label_id_transaksi)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_diskon)
                     .addComponent(input_diskon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,7 +179,7 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
                     .addComponent(total_kembalian))
                 .addGap(31, 31, 31)
                 .addComponent(btn_konfirmasiPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(56, 56, 56))
         );
 
         pack();
@@ -185,75 +202,102 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
     }//GEN-LAST:event_input_diskonKeyTyped
 
     private void input_bayarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_bayarKeyTyped
-        // TODO add your handling code here:
-        int bayar = 0;
         String nilai_bayar = input_bayar.getText().replaceAll("[^0-9]", "");
-        
+        int bayar = 0;
+
         if(!nilai_bayar.equals("")){
             bayar = Integer.parseInt(nilai_bayar);
         }
-        
+
         int total_belanja = Integer.parseInt(input_total_belanja.getText());
         int hasil = bayar-total_belanja;
-        
+
         total_kembalian.setText(""+hasil);
     }//GEN-LAST:event_input_bayarKeyTyped
 
     private void btn_konfirmasiPembayaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_konfirmasiPembayaranMouseClicked
         // masukkan ke database
-        Random ran = new Random();
-        String transaksi = "TR"+ran.nextInt(1000000000);
         
-        //buat transaksi
-        try{
-            String sql_transaksi = "INSERT INTO transaksi VALUES(?, ?, ?, ?, ?, ?)";
-            PreparedStatement pst = conn.prepareStatement(sql_transaksi);
-            pst.setString(1, transaksi);
-            pst.setString(2, input_diskon.getText());
-            pst.setString(3, input_total_belanja.getText());
-            pst.setString(4, input_bayar.getText());
-            pst.setString(5, "U001");
-            pst.setString(6, utilities.getCurrentTimeStamp());
-            
-            pst.execute();
-        }catch(SQLException err){
-            System.out.println(err.getMessage());
-        }
-        
-        
-        for(int i = 0; i < this.Data.length; i++){
-            
-//            System.out.println(this.Data[i][0]);
-//            System.out.println(this.Data[i][1]);
-//            System.out.println(this.Data[i][2]);
-//            System.out.println(this.Data[i][3]);
-//            System.out.println(this.Data[i][4]);
-//            System.out.println(this.Data[i][5]);
-//            System.out.println(this.Data[i][6]);
-            
-            //masukkan ke detail transaksi
+        if(!input_bayar.getText().equals("") && !input_bayar.getText().equals("0")){
+            //buat transaksi
             try{
-                String sql_transaksi = "INSERT INTO transaksi_detail VALUES(?, ?, ?, ?)";
-                PreparedStatement pst_d_transaksi = conn.prepareStatement(sql_transaksi);
-                pst_d_transaksi.setString(1, transaksi);
-                pst_d_transaksi.setString(2, this.Data[i][4]);
-                pst_d_transaksi.setString(3, this.Data[i][6]);
-                pst_d_transaksi.setString(4, this.Data[i][0]);
-                pst_d_transaksi.execute();
+                String sql_transaksi = "INSERT INTO transaksi VALUES(?, ?, ?, ?, ?, ?)";
+                PreparedStatement pst = conn.prepareStatement(sql_transaksi);
+                pst.setString(1, this.transaksi);
+                pst.setString(2, input_diskon.getText());
+                pst.setString(3, input_total_belanja.getText());
+                pst.setString(4, input_bayar.getText());
+                pst.setString(5, this.userID);
+                pst.setString(6, utilities.getCurrentTimeStamp());
+
+                //masukkan transaksi
+                pst.execute();
                 
-                // update pada databara
-                int new_stok = Integer.parseInt(this.Data[i][3]) - Integer.parseInt(this.Data[i][4]);
-                String sql = "UPDATE barang SET stok = '"+String.valueOf(new_stok)+"' WHERE kode_barang = '"+this.Data[i][0]+"'";
-                PreparedStatement pst_barang = conn.prepareStatement(sql);
-                pst_barang.execute();
+                //udpate barang && masukkan barang inputan ke transkasi detail
+                for(int i = 0; i < this.Data.length; i++){
+
+                    System.out.println(this.Data[i][0]);
+                    System.out.println(this.Data[i][1]);
+                    System.out.println(this.Data[i][2]);
+                    System.out.println(this.Data[i][3]);
+                    System.out.println(this.Data[i][4]);
+                    System.out.println(this.Data[i][5]);
+                    System.out.println(this.Data[i][6]);
+
+                    //masukkan ke detail transaksi
+                    try{
+                        String sql_i_transaksi = "INSERT INTO transaksi_detail VALUES(?, ?, ?, ?)";
+                        PreparedStatement pst_d_transaksi = conn.prepareStatement(sql_i_transaksi);
+                        pst_d_transaksi.setString(1, this.transaksi);
+                        pst_d_transaksi.setString(2, this.Data[i][4]);
+                        pst_d_transaksi.setString(3, this.Data[i][6]);
+                        pst_d_transaksi.setString(4, this.Data[i][0]);
+                        pst_d_transaksi.execute();
+    
+                        // update pada databara
+                        int new_stok = Integer.parseInt(this.Data[i][3]) - Integer.parseInt(this.Data[i][4]);
+                        String sql = "UPDATE barang SET stok = '"+String.valueOf(new_stok)+"' WHERE kode_barang = '"+this.Data[i][0]+"'";
+                        PreparedStatement pst_barang = conn.prepareStatement(sql);
+                        pst_barang.execute();
+    
+                    }catch(SQLException err){
+                        System.out.println(err.getMessage());
+                    }
+
+                }
                 
+                // data yang dikirimkan ke print
+                String data_id_transaksi = this.transaksi;
+                String data_nama_user = this.nama_user;
+                String data_jam = utilities.getCurrentTimeStamp();
+                String data_order[][] = this.Data;
+                int data_banyak_order = this.Data.length;
+                String data_sub_total = this.total_belanja;
+                String data_diskon = input_diskon.getText();
+                String data_total = input_total_belanja.getText();
+                String tunai = input_bayar.getText();
+                String kembalian = total_kembalian.getText();
+                
+                Print print = new Print(data_id_transaksi, data_nama_user, data_jam, data_order, data_banyak_order, data_sub_total, data_diskon, data_total, tunai, kembalian);
+                dispose();
+                print.show();
+                
+
+                
+
             }catch(SQLException err){
-                System.out.println(err.getMessage());
+                String em = "";
+                if(err.getErrorCode() == 1062){
+                    em = "Transaksi Dengan ID "+this.transaksi+" Sudah Dicetak !";
+                }else{
+                    em = err.getMessage();
+                }
+                JOptionPane.showMessageDialog(null, em, "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
             }
-            
+        }else{
+            JOptionPane.showMessageDialog(null, "Nilai Bayar / Tunai Tidak Boleh Kosong !", "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
         }
         
-        System.out.println("Berhasil !");
     }//GEN-LAST:event_btn_konfirmasiPembayaranMouseClicked
 
     /**
@@ -299,6 +343,7 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
     private javax.swing.JLabel input_total_belanja;
     private javax.swing.JLabel label_bayar;
     private javax.swing.JLabel label_diskon;
+    private javax.swing.JLabel label_id_transaksi;
     private javax.swing.JLabel label_total_belanja;
     private javax.swing.JLabel label_total_kembalian;
     private javax.swing.JLabel total_kembalian;
