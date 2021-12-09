@@ -7,6 +7,7 @@ package com.pointofsale;
 
 import com.mysql.jdbc.Connection;
 import com.sun.glass.events.KeyEvent;
+import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class TambahOrder extends javax.swing.JFrame {
         this.setResizable(false);
         initComponents();
         
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/trolley.png")));
         showDataBarang("");
     }
 
@@ -176,9 +178,7 @@ public class TambahOrder extends javax.swing.JFrame {
            }
            
            this.dispose();
-           Dashboard dashboard = new Dashboard("", "", 0);
-           dashboard.test = "ok";
-           dashboard.pushDataOrderToMain(data);
+           Dashboard.pushDataOrderToMain(data);
            
         }
     }//GEN-LAST:event_tableGetDataOrderKeyPressed

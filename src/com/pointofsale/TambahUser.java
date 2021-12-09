@@ -519,7 +519,7 @@ public class TambahUser extends javax.swing.JFrame {
                             ImageIcon successIcon = new ImageIcon(getClass().getResource("/com/pointofsale/src/check.png"));
                             JOptionPane.showMessageDialog(null, "User Berhasil Ditambahkan !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
                             dispose();
-                            Dashboard dashboard = new Dashboard("", "", 0);
+                            Dashboard dashboard = new Dashboard("", "", 0, true);
                             dashboard.getDataTableListuser("");
 
                         }else{
@@ -581,7 +581,7 @@ public class TambahUser extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(null, "Data User "+ this.id_user +" Berhasil Diperbarui !", "Success !", JOptionPane.INFORMATION_MESSAGE, successIcon);
 
                                     dispose();
-                                    Dashboard dashboard = new Dashboard("", "", 0);
+                                    Dashboard dashboard = new Dashboard("", "", 0, true);
                                     dashboard.getDataTableListuser("");
 
                                 }else{
@@ -630,7 +630,7 @@ public class TambahUser extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "User Berhasil Dihapus !", "Sukses !", JOptionPane.INFORMATION_MESSAGE,successIcon);
                 dispose();
                 
-                Dashboard dashboard = new Dashboard("", "", 0);
+                Dashboard dashboard = new Dashboard("", "", 0, true);
                 dashboard.getDataTableListuser("");
                 
                 

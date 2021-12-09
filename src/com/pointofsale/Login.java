@@ -296,7 +296,7 @@ public class Login extends javax.swing.JFrame {
                     String id = rs.getString(1);
                     String nama = rs.getString(3);
                     int role = rs.getInt(5);
-                    Dashboard dashboard = new Dashboard(id, nama, role);
+                    Dashboard dashboard = new Dashboard(id, nama, role, true);
                     dashboard.show();
                     
                 }else{
