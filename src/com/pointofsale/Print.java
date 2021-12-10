@@ -5,6 +5,7 @@
  */
 package com.pointofsale;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +26,12 @@ public class Print extends javax.swing.JFrame {
     public Print(String id_transaksi, String nama_user, String data_jam, String[][] data_order, int banyak_order, String sub_total, String data_diskon, String data_total, String tunai, String kembalian) {
         initComponents();
         
+        Dashboard.resetDataOrder(false);
+        
+        this.setTitle("Struk Pembayaran");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pointofsale/src/trolley.png")));
+        
+        
         try{
             String sql = "SELECT * FROM toko ORDER BY id_toko ASC LIMIT 1";
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -34,27 +41,29 @@ public class Print extends javax.swing.JFrame {
                 invoice_area.setText(res.getString(2)+"\n");
                 invoice_area.setText(invoice_area.getText() + res.getString(3) +"\n");
                 invoice_area.setText(invoice_area.getText() + res.getString(4) +"\n");
-                invoice_area.setText(invoice_area.getText() + "----------------------------------------------------------------------------\n");
+                invoice_area.setText(invoice_area.getText() + "--------------------------------------------------------------------------------------------------------------------------------------\n");
                 invoice_area.setText(invoice_area.getText() + "ID : "+ id_transaksi + "\n");
                 invoice_area.setText(invoice_area.getText() + "Kasir : "+ nama_user + "\n");
                 invoice_area.setText(invoice_area.getText() + "Tanggal Dan Waktu : "+ utilities.getCurrentTimeStamp() + "\n");
-                invoice_area.setText(invoice_area.getText() + "----------------------------------------------------------------------------\n");
-                invoice_area.setText(invoice_area.getText() + "Barang                    Harga                  QYT                  Total \n");
-                invoice_area.setText(invoice_area.getText() + "----------------------------------------------------------------------------\n");
+                invoice_area.setText(invoice_area.getText() + "--------------------------------------------------------------------------------------------------------------------------------------\n");
+                invoice_area.setText(invoice_area.getText() + "Barang                                                                             Harga          QYT         Diskon        Total\n");
+                invoice_area.setText(invoice_area.getText() + "--------------------------------------------------------------------------------------------------------------------------------------\n");
                 for(int i = 0; i < data_order.length; i++){
-                invoice_area.setText(invoice_area.getText() +data_order[i][1]+"\n");
+                    String nama_barang = data_order[i][1];
+                    nama_barang = nama_barang.substring(0, Math.min(nama_barang.length(), 46));
+                    invoice_area.setText(invoice_area.getText() +nama_barang+"     "+data_order[i][2]+"          "+data_order[i][4]+"             "+data_order[i][5]+"             "+data_order[i][6]+"\n");
                 }
-                invoice_area.setText(invoice_area.getText() + "----------------------------------------------------------------------------\n");
+                invoice_area.setText(invoice_area.getText() + "--------------------------------------------------------------------------------------------------------------------------------------\n");
                 invoice_area.setText(invoice_area.getText() + "Banyak Pembelian : " + banyak_order + "\n");
                 invoice_area.setText(invoice_area.getText() + "Sub Total : " + sub_total + "\n");
                 invoice_area.setText(invoice_area.getText() + "Diskon : "+ data_diskon + "\n");
                 invoice_area.setText(invoice_area.getText() + "TOTAL : "+ data_total + "\n");
-                invoice_area.setText(invoice_area.getText() + "----------------------------------------------------------------------------\n");
+                invoice_area.setText(invoice_area.getText() + "--------------------------------------------------------------------------------------------------------------------------------------\n");
                 invoice_area.setText(invoice_area.getText() + "Total Bayar : "+ tunai + "\n");
                 invoice_area.setText(invoice_area.getText() + "Kembalian : "+ kembalian + "\n");
             }
 
-//            printInvoice();
+            printInvoice();
         }catch(SQLException err){
             System.out.println(err);
         }
@@ -77,7 +86,7 @@ public class Print extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         invoice_area.setColumns(20);
-        invoice_area.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        invoice_area.setFont(new java.awt.Font("Trebuchet MS", 0, 10)); // NOI18N
         invoice_area.setRows(5);
         jScrollPane1.setViewportView(invoice_area);
 
@@ -85,6 +94,11 @@ public class Print extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("TUTUP");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         btn_print_again.setBackground(new java.awt.Color(0, 102, 255));
         btn_print_again.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -130,6 +144,11 @@ public class Print extends javax.swing.JFrame {
         // TODO add your handling code here:
         printInvoice();
     }//GEN-LAST:event_btn_print_againMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public void printInvoice(){
         try{

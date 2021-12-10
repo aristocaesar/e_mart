@@ -219,80 +219,84 @@ public class KonfirmasiBayar extends javax.swing.JFrame {
         // masukkan ke database
         
         if(!input_bayar.getText().equals("") && !input_bayar.getText().equals("0")){
-            //buat transaksi
-            try{
-                String sql_transaksi = "INSERT INTO transaksi VALUES(?, ?, ?, ?, ?, ?)";
-                PreparedStatement pst = conn.prepareStatement(sql_transaksi);
-                pst.setString(1, this.transaksi);
-                pst.setString(2, input_diskon.getText());
-                pst.setString(3, input_total_belanja.getText());
-                pst.setString(4, input_bayar.getText());
-                pst.setString(5, this.userID);
-                pst.setString(6, utilities.getCurrentTimeStamp());
+            if(Integer.parseInt(total_kembalian.getText()) >= 0){
+                //buat transaksi
+                try{
+                    String sql_transaksi = "INSERT INTO transaksi VALUES(?, ?, ?, ?, ?, ?)";
+                    PreparedStatement pst = conn.prepareStatement(sql_transaksi);
+                    pst.setString(1, this.transaksi);
+                    pst.setString(2, input_diskon.getText());
+                    pst.setString(3, input_total_belanja.getText());
+                    pst.setString(4, input_bayar.getText());
+                    pst.setString(5, this.userID);
+                    pst.setString(6, utilities.getCurrentTimeStamp());
 
-                //masukkan transaksi
-                pst.execute();
-                
-                //udpate barang && masukkan barang inputan ke transkasi detail
-                for(int i = 0; i < this.Data.length; i++){
+                    //masukkan transaksi
+                    pst.execute();
 
-                    System.out.println(this.Data[i][0]);
-                    System.out.println(this.Data[i][1]);
-                    System.out.println(this.Data[i][2]);
-                    System.out.println(this.Data[i][3]);
-                    System.out.println(this.Data[i][4]);
-                    System.out.println(this.Data[i][5]);
-                    System.out.println(this.Data[i][6]);
+                    //udpate barang && masukkan barang inputan ke transkasi detail
+                    for(int i = 0; i < this.Data.length; i++){
 
-                    //masukkan ke detail transaksi
-                    try{
-                        String sql_i_transaksi = "INSERT INTO transaksi_detail VALUES(?, ?, ?, ?)";
-                        PreparedStatement pst_d_transaksi = conn.prepareStatement(sql_i_transaksi);
-                        pst_d_transaksi.setString(1, this.transaksi);
-                        pst_d_transaksi.setString(2, this.Data[i][4]);
-                        pst_d_transaksi.setString(3, this.Data[i][6]);
-                        pst_d_transaksi.setString(4, this.Data[i][0]);
-                        pst_d_transaksi.execute();
-    
-                        // update pada databara
-                        int new_stok = Integer.parseInt(this.Data[i][3]) - Integer.parseInt(this.Data[i][4]);
-                        String sql = "UPDATE barang SET stok = '"+String.valueOf(new_stok)+"' WHERE kode_barang = '"+this.Data[i][0]+"'";
-                        PreparedStatement pst_barang = conn.prepareStatement(sql);
-                        pst_barang.execute();
-    
-                    }catch(SQLException err){
-                        System.out.println(err.getMessage());
+    //                    System.out.println(this.Data[i][0]);
+    //                    System.out.println(this.Data[i][1]);
+    //                    System.out.println(this.Data[i][2]);
+    //                    System.out.println(this.Data[i][3]);
+    //                    System.out.println(this.Data[i][4]);
+    //                    System.out.println(this.Data[i][5]);
+    //                    System.out.println(this.Data[i][6]);
+
+                        //masukkan ke detail transaksi
+                        try{
+                            String sql_i_transaksi = "INSERT INTO transaksi_detail VALUES(?, ?, ?, ?)";
+                            PreparedStatement pst_d_transaksi = conn.prepareStatement(sql_i_transaksi);
+                            pst_d_transaksi.setString(1, this.transaksi);
+                            pst_d_transaksi.setString(2, this.Data[i][4]);
+                            pst_d_transaksi.setString(3, this.Data[i][6]);
+                            pst_d_transaksi.setString(4, this.Data[i][0]);
+                            pst_d_transaksi.execute();
+
+                            // update pada databara
+                            int new_stok = Integer.parseInt(this.Data[i][3]) - Integer.parseInt(this.Data[i][4]);
+                            String sql = "UPDATE barang SET stok = '"+String.valueOf(new_stok)+"' WHERE kode_barang = '"+this.Data[i][0]+"'";
+                            PreparedStatement pst_barang = conn.prepareStatement(sql);
+                            pst_barang.execute();
+
+                        }catch(SQLException err){
+                            System.out.println(err.getMessage());
+                        }
+
                     }
 
-                }
-                
-                // data yang dikirimkan ke print
-                String data_id_transaksi = this.transaksi;
-                String data_nama_user = this.nama_user;
-                String data_jam = utilities.getCurrentTimeStamp();
-                String data_order[][] = this.Data;
-                int data_banyak_order = this.Data.length;
-                String data_sub_total = this.total_belanja;
-                String data_diskon = input_diskon.getText();
-                String data_total = input_total_belanja.getText();
-                String tunai = input_bayar.getText();
-                String kembalian = total_kembalian.getText();
-                
-                Print print = new Print(data_id_transaksi, data_nama_user, data_jam, data_order, data_banyak_order, data_sub_total, data_diskon, data_total, tunai, kembalian);
-                dispose();
-                print.show();
-                
+                    // data yang dikirimkan ke print
+                    String data_id_transaksi = this.transaksi;
+                    String data_nama_user = this.nama_user;
+                    String data_jam = utilities.getCurrentTimeStamp();
+                    String data_order[][] = this.Data;
+                    int data_banyak_order = this.Data.length;
+                    String data_sub_total = this.total_belanja;
+                    String data_diskon = input_diskon.getText();
+                    String data_total = input_total_belanja.getText();
+                    String tunai = input_bayar.getText();
+                    String kembalian = total_kembalian.getText();
 
-                
+                    Print print = new Print(data_id_transaksi, data_nama_user, data_jam, data_order, data_banyak_order, data_sub_total, data_diskon, data_total, tunai, kembalian);
+                    dispose();
+                    print.show();
 
-            }catch(SQLException err){
-                String em = "";
-                if(err.getErrorCode() == 1062){
-                    em = "Transaksi Dengan ID "+this.transaksi+" Sudah Dicetak !";
-                }else{
-                    em = err.getMessage();
+
+
+
+                }catch(SQLException err){
+                    String em = "";
+                    if(err.getErrorCode() == 1062){
+                        em = "Transaksi Dengan ID "+this.transaksi+" Sudah Dicetak !";
+                    }else{
+                        em = err.getMessage();
+                    }
+                    JOptionPane.showMessageDialog(null, em, "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
                 }
-                JOptionPane.showMessageDialog(null, em, "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Nilai yang dibayarkan kurang !", "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(null, "Nilai Bayar / Tunai Tidak Boleh Kosong !", "Terjadi Kesalahan !", JOptionPane.INFORMATION_MESSAGE);

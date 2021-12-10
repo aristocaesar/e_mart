@@ -89,15 +89,13 @@ public class Dashboard extends javax.swing.JFrame {
             panel_toko.setVisible(false);
         }
         
-        
-        
         // Konfirmasi Keluar app
-         addWindowListener(new java.awt.event.WindowAdapter() {
+         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
                 int keluar = JOptionPane.showOptionDialog(null, "Apakah Yakin Anda Ingin Keluar ?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
                 if(keluar == JOptionPane.YES_OPTION){
-                    dispose();
+                    System.exit(0);
                 }
             }
         });
@@ -217,9 +215,6 @@ public class Dashboard extends javax.swing.JFrame {
         panel_cariTrPenjualan = new RoundedPanel(20, new Color(255, 255, 255));
         icon_cariTrPenjualan = new javax.swing.JLabel();
         input_textTrPenjualan = new javax.swing.JTextField();
-        panel_filter = new RoundedPanel(20, new Color(255, 255, 255));
-        filter_TrPenjualan = new javax.swing.JComboBox<>();
-        Btn_TrPenjualan = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableTrPenjualan = new javax.swing.JTable();
         dataBarang_kategori = new javax.swing.JPanel();
@@ -319,7 +314,7 @@ public class Dashboard extends javax.swing.JFrame {
         reset_label1 = new javax.swing.JLabel();
         btn_bayar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         navVertikal.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -1203,10 +1198,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         konten_laporanTrJual.setBackground(new java.awt.Color(219, 219, 219));
 
+        panel_cariTrPenjualan.setPreferredSize(new java.awt.Dimension(353, 46));
+
         icon_cariTrPenjualan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/search (1).png"))); // NOI18N
 
         input_textTrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         input_textTrPenjualan.setBorder(null);
+        input_textTrPenjualan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                input_textTrPenjualanKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_cariTrPenjualanLayout = new javax.swing.GroupLayout(panel_cariTrPenjualan);
         panel_cariTrPenjualan.setLayout(panel_cariTrPenjualanLayout);
@@ -1216,7 +1218,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(icon_cariTrPenjualan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(input_textTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                .addComponent(input_textTrPenjualan)
+                .addContainerGap())
         );
         panel_cariTrPenjualanLayout.setVerticalGroup(
             panel_cariTrPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1224,41 +1227,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel_cariTrPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(input_textTrPenjualan)
-                    .addComponent(icon_cariTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(icon_cariTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        panel_filter.setPreferredSize(new java.awt.Dimension(353, 46));
-
-        filter_TrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        filter_TrPenjualan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Satu Minggu", "Satu Bulan" }));
-        filter_TrPenjualan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout panel_filterLayout = new javax.swing.GroupLayout(panel_filter);
-        panel_filter.setLayout(panel_filterLayout);
-        panel_filterLayout.setHorizontalGroup(
-            panel_filterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filterLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panel_filterLayout.setVerticalGroup(
-            panel_filterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_filterLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(filter_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Btn_TrPenjualan.setBackground(new java.awt.Color(73, 148, 255));
-        Btn_TrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        Btn_TrPenjualan.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_TrPenjualan.setText("Export");
-        Btn_TrPenjualan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(73, 148, 255), 1, true));
-        Btn_TrPenjualan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        tableTrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        tableTrPenjualan.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         tableTrPenjualan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1278,6 +1251,12 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableTrPenjualan.setRowHeight(30);
+        tableTrPenjualan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableTrPenjualanMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tableTrPenjualan);
 
         javax.swing.GroupLayout konten_laporanTrJualLayout = new javax.swing.GroupLayout(konten_laporanTrJual);
@@ -1286,26 +1265,18 @@ public class Dashboard extends javax.swing.JFrame {
             konten_laporanTrJualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, konten_laporanTrJualLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(konten_laporanTrJualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3)
-                    .addGroup(konten_laporanTrJualLayout.createSequentialGroup()
-                        .addComponent(panel_cariTrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(panel_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)))
+                .addGroup(konten_laporanTrJualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1175, Short.MAX_VALUE)
+                    .addComponent(panel_cariTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, 1175, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
         konten_laporanTrJualLayout.setVerticalGroup(
             konten_laporanTrJualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(konten_laporanTrJualLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(konten_laporanTrJualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Btn_TrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel_filter, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(panel_cariTrPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panel_cariTrPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2009,7 +1980,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nilai_kategori)
                     .addComponent(label_kategori))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         panel_katLayout.setVerticalGroup(
             panel_katLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2401,8 +2372,56 @@ public class Dashboard extends javax.swing.JFrame {
             //icon setting
             frameIconSetting.setBackground(new Color(255, 255, 255));
             iconSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pointofsale/src/settings(1).png")));
+            
+            
+            //show table penjualan
+            getDataTrPenjualan("");
     }//GEN-LAST:event_iconLaporanMouseClicked
+    
+    public void getDataTrPenjualan(String Keyword){
+            tb.setColumnCount(0);
+            tb.addColumn("No");
+            tb.addColumn("Kode Transaksi");
+            tb.addColumn("Kasir");
+            tb.addColumn("Tgl Transaksi");
+            tb.addColumn("Grand Total");
 
+            tableTrPenjualan.setModel(tb);
+            tableTrPenjualan.setEnabled(true);
+            tb.setRowCount(0);
+
+             
+            String sql = "";
+            try{
+                Statement stat = (Statement) Database.configDB().createStatement( );
+                if(Keyword.equals("")){
+                   sql = "SELECT transaksi.kode_transaksi, users.nama_lengkap, transaksi.created_at, transaksi.grand_total FROM transaksi JOIN users ON transaksi.id_user = users.id_user ORDER BY transaksi.created_at DESC";
+                }else{
+                   sql = "SELECT transaksi.kode_transaksi, users.nama_lengkap, transaksi.created_at, transaksi.grand_total FROM transaksi JOIN users ON transaksi.id_user = users.id_user WHERE transaksi.kode_transaksi LIKE '%"+Keyword+"%' ORDER BY transaksi.created_at DESC";
+                }
+
+                ResultSet res = stat.executeQuery(sql);
+                int no=1;
+                while(res.next()){
+                     tb.addRow(new Object[]{
+                         no++,
+                         res.getString(1),
+                         res.getString(2),
+                         res.getString(3),
+                         res.getString(4),
+                     });  
+                }
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Terjadi Kesalahan !",JOptionPane.INFORMATION_MESSAGE);
+
+                //menampilkan data barang ketika icon diklik
+                container_panel.removeAll();
+                container_panel.add(dataBarang_panel);
+                container_panel.repaint();
+                container_panel.revalidate();
+            }
+    }
+    
     private void iconSettingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSettingMouseClicked
         //menampilkan seting ketika icon di klick
         container_panel.removeAll();
@@ -2551,7 +2570,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         }else if(evt.getKeyCode()==KeyEvent.VK_F5){
             // reset list order
-            resetDataOrder();
+            resetDataOrder(true);
         }else if(evt.getKeyCode()==KeyEvent.VK_F7){
             // reset list
             if(table_order.getSelectedRowCount()==1){
@@ -2614,9 +2633,16 @@ public class Dashboard extends javax.swing.JFrame {
     
     }
     
-    public void resetDataOrder(){
-        int resetData = JOptionPane.showOptionDialog(null, "Apakah Anda Yakin Ingin Menghapus Data Order ?", "Informasi !", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
-        if(resetData == 0){
+    public static void resetDataOrder(boolean confirmDialog){
+        if(confirmDialog){
+            int resetData = JOptionPane.showOptionDialog(null, "Apakah Anda Yakin Ingin Menghapus Data Order ?", "Informasi !", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+            if(resetData == 0){
+                tb_order.setRowCount(0);
+                tb_order.addRow(new Object[]{
+                    "", "", "", "", "", "", ""
+                });
+            }
+        }else{
             tb_order.setRowCount(0);
             tb_order.addRow(new Object[]{
                 "", "", "", "", "", "", ""
@@ -3930,6 +3956,18 @@ public class Dashboard extends javax.swing.JFrame {
         konfirmasiBayar();
     }//GEN-LAST:event_btn_bayarMouseClicked
 
+    private void tableTrPenjualanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTrPenjualanMouseClicked
+        DefaultTableModel model = (DefaultTableModel)tableTrPenjualan.getModel();
+        int selectedRowIndex = tableTrPenjualan.getSelectedRow();
+        DetailTransaksi detailTransaksi = new DetailTransaksi(tableTrPenjualan.getValueAt(selectedRowIndex, 1).toString());
+        detailTransaksi.show();
+    }//GEN-LAST:event_tableTrPenjualanMouseClicked
+
+    private void input_textTrPenjualanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_textTrPenjualanKeyTyped
+        // TODO add your handling code here:
+        getDataTrPenjualan(input_textTrPenjualan.getText());
+    }//GEN-LAST:event_input_textTrPenjualanKeyTyped
+
     public void simpanDataToko() {
         try{
          
@@ -4078,7 +4116,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_TrPenjualan;
     private javax.swing.JPanel box_menu_kategori;
     private javax.swing.JPanel box_menu_supplier;
     private javax.swing.JLabel btn_backToMenu_kategori;
@@ -4120,7 +4157,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField field_role_profile;
     private javax.swing.JTextField field_ubahpassword_profile;
     private javax.swing.JTextField field_update_toko;
-    private javax.swing.JComboBox<String> filter_TrPenjualan;
     private javax.swing.JPanel frameIconDatabase;
     private javax.swing.JPanel frameIconKasir;
     private javax.swing.JPanel frameIconLaporan;
@@ -4239,7 +4275,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel panel_box;
     private javax.swing.JPanel panel_box_dataBarang_tambah;
     private javax.swing.JPanel panel_cariTrPenjualan;
-    private javax.swing.JPanel panel_filter;
     private javax.swing.JPanel panel_kat;
     private javax.swing.JPanel panel_listuser;
     private javax.swing.JPanel panel_profile;

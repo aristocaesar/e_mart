@@ -18,9 +18,9 @@ public class Playgrounds {
     
     public static void main(String[] args) {
         
-        String a = "sdad.s123".replaceAll("[^0-9]", "");
-        System.out.println(a);
-        
+        String s = "123456789012345678901234567890";
+        s = s.substring(0, Math.min(s.length(), 11));
+        System.out.println(s);
     }
     
 }
